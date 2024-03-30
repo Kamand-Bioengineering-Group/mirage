@@ -1,58 +1,52 @@
-# ---DEPENDENCIES---------------------------------------------------------------	
-from . base import BaseEntity
+from texttable import Texttable
+from .base import BaseEntity
 
-# ---COUNTRY---------------------------------------------------------------------
+
+# ---COUNTRY--------------------------------------------------------------------
 class Country(BaseEntity):
-    """
-    A class to represent a country.
-
-    Attributes
-    ----------
-    name : str
-        the name of the country
-    population : dict
-        the population of the country, with the keys 'S', 'I', 'R', 'D' 
-        representing the number of susceptible, infected, recovered, and 
-        deceased individuals, respectively
-
-    Methods
-    -------
-    S
-        returns the number of susceptible individuals
-    I
-        returns the number of infected individuals
-    R
-        returns the number of recovered individuals
-    D
-        returns the number of deceased individuals
-    """	
     def __init__(
         self,
         name: str,
-        population: dict,
-        resources: dict, 
+        beta: float,
+        gamma: float,
+        epsilon: float,
+        birth_ratio: float,
+        death_ratio: float,
+        loci: list,
     ):
         super().__init__()
         self.name = name
-        self.population = population
-        self.resources = resources
+        self.beta = beta
+        self.gamma = gamma
+        self.epsilon = epsilon
+        self.birth_ratio = birth_ratio
+        self.death_ratio = death_ratio
+        self.loci = loci
 
-    @property
-    def S(self):
-        return self.population['S']
-    
-    @property
-    def I(self):
-        return self.population['I']
-    
-    @property
-    def R(self):
-        return self.population['R']
-    
-    @property
-    def D(self):
-        return self.population['D']
+    def __str__(self):
+        table = Texttable()
+        table.set_deco(Texttable.HEADER)
+        table.set_cols_dtype(["t", "f", "f", "f", "f", "f"])
+        table.set_cols_align(["l", "r", "r", "r", "r", "r"])
+        table.add_row(
+            ["Name", "Beta", "Gamma", "Epsilon", "Birth Ratio", "Death Ratio"]
+        )
+        table.add_row(
+            [
+                self.name,
+                self.beta,
+                self.gamma,
+                self.epsilon,
+                self.birth_ratio,
+                self.death_ratio,
+            ]
+        )
 
+        loci_info = "\n".join(
+            [
+                f"    - {locus['name']} (Lat: {locus['lat']}, Lon: {locus['lon']}, Population: {locus['population']})"
+                for locus in self.loci
+            ]
+        )
 
-    
-    
+        return f"{table.draw()}\n\nLocis:\n{loci_info}"

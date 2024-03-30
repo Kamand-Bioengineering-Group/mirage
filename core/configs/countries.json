@@ -1,0 +1,191 @@
+[
+    {
+        "name": "India",
+        "beta": 0.0001,
+        "gamma": 0.0001,
+        "epsilon": 0.0001,
+        "birth_ratio": 0.0001,
+        "death_ratio": 0.0001,
+        "loci": [
+            {
+                "name": "Maharashtra",
+                "lat": 19.0760,
+                "lon": 72.8777,
+                "population": 120000000,
+                "airports": [
+                    {
+                        "name": "Chhatrapati Shivaji Maharaj Int. Airport",
+                        "tier": 1
+                    },
+                    {
+                        "name": "Pune Airport",
+                        "tier": 2
+                    },
+                    {
+                        "name": "Nagpur Airport",
+                        "tier": 2
+                    }
+                ],
+                "ports": [
+                    {
+                        "name": "Mumbai Port",
+                        "tier": 1
+                    },
+                    {
+                        "name": "Jawaharlal Nehru Port",
+                        "tier": 1
+                    }
+                ]
+            },
+            {
+                "name": "Delhi",
+                "lat": 28.7041,
+                "lon": 77.1025,
+                "population": 33000000,
+                "airports": [
+                    {
+                        "name": "Indira Gandhi Int. Airport",
+                        "tier": 1
+                    },
+                    {
+                        "name": "Safdarjung Airport",
+                        "tier": 2
+                    }
+                ]
+            },
+            {
+                "name": "Kerala",
+                "lat": 10.8505,
+                "lon": 76.2711,
+                "population": 34000000,
+                "airports": [
+                    {
+                        "name": "Cochin Int. Airport",
+                        "tier": 1
+                    },
+                    {
+                        "name": "Trivandrum Int. Airport",
+                        "tier": 2
+                    }
+                ],
+                "ports": [
+                    {
+                        "name": "Cochin Port",
+                        "tier": 1
+                    },
+                    {
+                        "name": "Vizhinjam Port",
+                        "tier": 2
+                    }
+                ]
+            },
+            {
+                "name": "Karnataka",
+                "lat": 15.3173,
+                "lon": 75.7139,
+                "population": 64000000,
+                "airports": [
+                    {
+                        "name": "Kempegowda Int. Airport",
+                        "tier": 1
+                    },
+                    {
+                        "name": "Mangalore Int. Airport",
+                        "tier": 2
+                    }
+                ],
+                "ports": [
+                    {
+                        "name": "New Mangalore Port",
+                        "tier": 1
+                    },
+                    {
+                        "name": "Karwar Port",
+                        "tier": 2
+                    }
+                ]
+            },
+            {
+                "name": "North East",
+                "lat": 26.2006,
+                "lon": 92.9376,
+                "population": 50000000,
+                "airports": [
+                    {
+                        "name": "Lokpriya Gopinath Bordoloi Int. Airport",
+                        "tier": 1
+                    },
+                    {
+                        "name": "Dimapur Airport",
+                        "tier": 3
+                    }
+                ]
+            },
+            {
+                "name": "West Bengal",
+                "lat": 22.9868,
+                "lon": 87.8550,
+                "population": 100000000,
+                "airports": [
+                    {
+                        "name": "Netaji Subhas Chandra Bose Int. Airport",
+                        "tier": 1
+                    },
+                    {
+                        "name": "Bagdogra Airport",
+                        "tier": 2
+                    }
+                ],
+                "ports": [
+                    {
+                        "name": "Kolkata Port",
+                        "tier": 1
+                    },
+                    {
+                        "name": "Haldia Port",
+                        "tier": 2
+                    }
+                ]
+            },
+            {
+                "name": "Uttar Pradesh",
+                "lat": 26.8467,
+                "lon": 80.9462,
+                "population": 240000000,
+                "airports": [
+                    {
+                        "name": "Chaudhary Charan Singh Int. Airport",
+                        "tier": 1
+                    },
+                    {
+                        "name": "Lal Bahadur Shastri Airport",
+                        "tier": 2
+                    },
+                    {
+                        "name": "Jhansi Airport",
+                        "tier": 3
+                    }
+                ]
+            },
+            {
+                "name": "Bihar",
+                "lat": 25.0961,
+                "lon": 85.3131,
+                "population": 130000000,
+                "airports": [
+                    {
+                        "name": "Jay Prakash Narayan Int. Airport",
+                        "tier": 1
+                    },
+                    {
+                        "name": "Gaya Airport",
+                        "tier": 2
+                    }
+                ]
+            }
+        ]
+    }
+]
+
+
+ 
