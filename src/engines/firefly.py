@@ -1,6 +1,5 @@
 # ---DEPENDENCIES---------------------------------------------------------------
-from .base import EngineV1
+import typing as tp
+from ..entities.engine_state import FireflyState
 
 # ---FIREFLY--------------------------------------------------------------------
-class Firefly(EngineV1):
-    def __init__(self): ...
