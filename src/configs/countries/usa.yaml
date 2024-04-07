@@ -5,6 +5,7 @@ gamma: 0.0001
 epsilon: 0.0001
 birth_ratio: 0.0001
 death_ratio: 0.0001
+gdp: 21400000000000
 loci:
 - name: California
   lat: 36.7783
@@ -20,3 +21,43 @@ loci:
     tier: 1
   - name: Port of Long Beach
     tier: 1
+- name: New York
+  lat: 40.7128
+  lon: 74.0060
+  population: 19453561
+  airports:
+  - name: John F. Kennedy International Airport
+    tier: 1
+  - name: LaGuardia Airport
+    tier: 2
+  ports:
+  - name: Port of New York and New Jersey
+    tier: 1
+- name: Texas
+  lat: 31.9686
+  lon: 99.9018
+  population: 29145505
+  airports:
+  - name: Dallas/Fort Worth International Airport
+    tier: 1
+  - name: George Bush Intercontinental Airport
+    tier: 2
+  ports:
+  - name: Port of Houston
+    tier: 1
+  - name: Port of Corpus Christi
+    tier: 2
+- name: Florida
+  lat: 27.9944
+  lon: 81.7603
+  population: 21538187
+  airports:
+  - name: Miami International Airport
+    tier: 1
+  - name: Orlando International Airport
+    tier: 2
+  ports:
+  - name: Port of Miami
+    tier: 1
+  - name: Port Everglades
+    tier: 2
