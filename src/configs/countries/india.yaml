@@ -6,6 +6,7 @@ epsilon: 0.0001
 birth_ratio: 0.0001
 death_ratio: 0.0001
 gdp: 3000000000000
+health_index: 10000
 healthcare_capacity: 0.4
 raw_materials:
 - name: A
@@ -38,6 +39,7 @@ raw_materials:
 - name: J
   quantity: 1000000000
   gen_rate: 0.0001
+
 loci:
 - name: Maharashtra
   lat: 19.076

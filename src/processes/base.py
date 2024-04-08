@@ -24,6 +24,7 @@ class ProcessV1(abc.ABC):
     """
 
     RANK: int | None = None
+    TARGETS: 
 
     @classmethod
     def __init_subclass__(cls, **kwargs):
