@@ -10,13 +10,15 @@ __all__ = [
 
 
 # ---DEPENDENCIES---------------------------------------------------------------
-from typing import List, Dict, Union
-from pydantic import BaseModel
-import yaml
-import pydantic
+import typing as tp
+import pydantic as pyd
 
 
-class Locus(BaseModel):
+# ---COUNTRY--------------------------------------------------------------------
+class Locus(pyd.BaseModel):
+    """
+    A locus is a geographical location.
+    """
     name: str
     lat: float
     lon: float
@@ -24,12 +26,15 @@ class Locus(BaseModel):
     infected: int
     recovered: int
     area: int
-    airports: List[Dict[str, Union[str, int, None]]]  # Corrected here
-    ports: List[Dict[str, Union[str, int, None]]]  # Corrected here
-    economic_zones: List[Dict[str, Union[str, int, None]]]  # Corrected here
-    tourist_zones: List[Dict[str, Union[str, int, None]]]  # Corrected here
-    
-class Country(BaseModel):
+    airports: tp.List[tp.Dict[str, str | int]] | None
+    ports: tp.List[tp.Dict[str, str | int]] | None
+    economic_zones: tp.List[tp.Dict[str, str | int]] | None
+    tourist_zones: tp.List[tp.Dict[str, str | int]] | None
+
+class Country(pyd.BaseModel):
+    """
+    A country is a geo-political entity.
+    """
     name: str
     B: float
     C: float
@@ -38,15 +43,15 @@ class Country(BaseModel):
     Ds: float
     Di: float
     Dr: float
-    gdp: int
+    gdp: float
     health_resource_stockpile: float
-    sanitation_equipment_stockpile: int
+    sanitation_equipment_stockpile: float
     human_welfare_resource: float
     happiness_index: float
     general_hospitals: int
     procedure_resistance: float
     cleanliness_index: float
     base_death_rate: float
-    vaccine_components: List[Dict[str, Union[str, int, float]]]
-    loci: List[Locus]
+    vaccine_components: tp.List[tp.Dict[str, str | int | float]] | None
+    loci: tp.List[Locus]
 

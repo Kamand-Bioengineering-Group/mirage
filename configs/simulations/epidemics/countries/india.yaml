@@ -46,6 +46,36 @@ vaccine_components:
     human_welfare_resource_cost: 0.1
     cost_per_step: 3
     trickle: 0.1
+  - name: A
+    gdp_cost: 40765
+    health_resource_cost: 0.1
+    human_welfare_resource_cost: 0.1
+    cost_gdp_perstep: 3435
+    trickle: 0.1
+  - name: B
+    gdp_cost: 40
+    health_resource_cost: 0.1
+    human_welfare_resource_cost: 0.1
+    cost_per_step: 3
+    trickle: 0.1
+  - name: C
+    gdp_cost: 40
+    health_resource_cost: 0.1
+    human_welfare_resource_cost: 0.1
+    cost_per_step: 3
+    trickle: 0.1
+  - name: D
+    gdp_cost: 40
+    health_resource_cost: 0.1
+    human_welfare_resource_cost: 0.1
+    cost_per_step: 3
+    trickle: 0.1
+  - name: E
+    gdp_cost: 40
+    health_resource_cost: 0.1
+    human_welfare_resource_cost: 0.1
+    cost_per_step: 3
+    trickle: 0.1
 loci:
   - name: Maharashtra
     lat: 19.076
@@ -55,7 +85,7 @@ loci:
     recovered: 10
     area: 307713
     airports:
-      - name: Chhatrapati Airport
+      - name: Chhatrapati_Shivaji
         hub_tier: 1
       - name: Pune Airport
         hub_tier: 2
@@ -92,11 +122,6 @@ loci:
         hub_tier: 1
       - name: Safdarjung Airport
         hub_tier: 2
-    ports:
-      - name: 
-        hub_tier: 
-      - name: 
-        hub_tier: 
     economic_zones:
       - name: Delhi SEZ
         zone_tier: 1
@@ -173,11 +198,6 @@ loci:
         hub_tier: 1
       - name: Dimapur Airport
         hub_tier: 2
-    ports:
-      - name: 
-        hub_tier: 
-      - name: 
-        hub_tier:
     economic_zones:
       - name: Guwahati SEZ
         zone_tier: 1
@@ -229,11 +249,6 @@ loci:
         hub_tier: 2
       - name: Jhansi Airport
         hub_tier: 2
-    ports:
-      - name: 
-        hub_tier: 
-      - name: 
-        hub_tier:
     economic_zones:
       - name: Lucknow SEZ
         zone_tier: 1
@@ -258,11 +273,6 @@ loci:
         hub_tier: 1
       - name: Gaya Airport
         hub_tier: 2
-    ports: 
-      - name: 
-        hub_tier: 
-      - name: 
-        hub_tier:
     economic_zones:
       - name: Patna SEZ
         zone_tier: 1
