@@ -2,7 +2,6 @@
 import typing as tp
 import abc
 import socket
-import asyncio
 import fastapi
 import uvicorn
 import threading
@@ -47,7 +46,6 @@ class EngineV1(abc.ABC):
         self.processes = processes
         self.entities = entities
         self.speed = speed
-        self.step = 0
         if enable_remote_connection:
             self.port = port
             self.auth = auth
@@ -116,4 +114,8 @@ class EngineV1(abc.ABC):
         """
         Fire the engine.
         """
-        def simulation_loop
+        def simulation_loop():
+            while self.status != "DEAD":
+                ...
+
+
