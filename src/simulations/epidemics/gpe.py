@@ -10,11 +10,15 @@ __all__ = [
 
 
 # ---DEPENDENCIES---------------------------------------------------------------
-from typing import List, Dict, Union
-from pydantic import BaseModel
+import typing as tp
+import pydantic as pyd
+
 
 # ---COUNTRY--------------------------------------------------------------------
 class Locus(pyd.BaseModel):
+    """
+    A locus is a geographical location.
+    """
     name: str
     lat: float
     lon: float
@@ -22,12 +26,15 @@ class Locus(pyd.BaseModel):
     infected: int
     recovered: int
     area: int
-    airports: List[Dict[str, Union[str, int]]]
-    ports: List[Dict[str, Union[int, str]]]
-    economic_zones: List[Dict[str, int]]
-    tourist_zones: List[Dict[str, int]]
+    airports: tp.List[tp.Dict[str, str | int]] | None
+    ports: tp.List[tp.Dict[str, str | int]] | None
+    economic_zones: tp.List[tp.Dict[str, str | int]] | None
+    tourist_zones: tp.List[tp.Dict[str, str | int]] | None
 
-class Country(BaseModel):
+class Country(pyd.BaseModel):
+    """
+    A country is a geo-political entity.
+    """
     name: str
     B: float
     C: float
@@ -45,6 +52,6 @@ class Country(BaseModel):
     procedure_resistance: float
     cleanliness_index: float
     base_death_rate: float
-    vaccine_components: tp.List[dict]
+    vaccine_components: tp.List[tp.Dict[str, str | int | float]] | None
     loci: tp.List[Locus]
 

@@ -1,5 +1,4 @@
----
-name: China
+name: Japan
 B: 0.0001
 C: 0.0001
 E: 0.0001
@@ -48,158 +47,158 @@ vaccine_components:
     cost_per_step: 3
     trickle: 0.1
 loci:
-  - name: Beijing
-    lat: 39.9042
-    lon: 116.4074
-    susceptible: 21542000
+  - name: Tokyo
+    lat: 35.6895
+    lon: 139.6917
+    susceptible: 13929286
     infected: 100000
     recovered: 10
-    area: 16410
+    area: 2187
     airports:
-      - name: Beijing Capital International Airport
+      - name: Narita International Airport
         hub_tier: 1
-      - name: Beijing Daxing International Airport
+      - name: Haneda Airport
         hub_tier: 2
     ports:
-      - name: Port of Tianjin
+      - name: Port of Tokyo
         hub_tier: 1
-      - name: Port of Dalian
+      - name: Port of Yokohama
         hub_tier: 1
     economic_zones:
-      - name: Zhongguancun
+      - name: Tokyo Bay
         zone_tier: 1
-      - name: Wangfujing
+      - name: Shinjuku
         zone_tier: 2
-      - name: Sanlitun
+      - name: Shibuya
         zone_tier: 2
     tourist_zones:
-      - name: Great Wall of China
+      - name: Tokyo Tower
         zone_tier: 1
-      - name: Forbidden City
+      - name: Tokyo Disneyland
         zone_tier: 2
-      - name: Summer Palace
+      - name: Tokyo Skytree
         zone_tier: 2
-  - name: Shanghai
-    lat: 31.2304
-    lon: 121.4737
-    susceptible: 24237800
+  - name: Yokohama
+    lat: 35.4437
+    lon: 139.638
+    susceptible: 3726167
     infected: 100000
     recovered: 10
-    area: 6340
+    area: 437
     airports:
-      - name: Shanghai Pudong International Airport
+      - name: Narita International Airport
         hub_tier: 1
-      - name: Shanghai Hongqiao International Airport
+      - name: Haneda Airport
         hub_tier: 2
     ports:
-      - name: Port of Shanghai
+      - name: Port of Yokohama
         hub_tier: 1
-      - name: Port of Ningbo-Zhoushan
+      - name: Port of Kawasaki
         hub_tier: 1
     economic_zones:
-      - name: Lujiazui
+      - name: Minato Mirai 21
         zone_tier: 1
-      - name: Xintiandi
+      - name: Yokohama Chinatown
         zone_tier: 2
-      - name: The Bund
+      - name: Yamashita Park
         zone_tier: 2
     tourist_zones:
-      - name: The Bund
+      - name: Yokohama Landmark Tower
         zone_tier: 1
-      - name: Yu Garden
+      - name: Yokohama Marine Tower
         zone_tier: 2
-      - name: Oriental Pearl Tower
+      - name: Yokohama Hakkeijima Sea Paradise
         zone_tier: 2
-  - name: Guangdong
-    lat: 23.379
-    lon: 113.7633
-    susceptible: 113460000
+  - name: Osaka
+    lat: 34.6937
+    lon: 135.5023
+    susceptible: 2586800
     infected: 100000
     recovered: 10
-    area: 179800
+    area: 225
     airports:
-      - name: Guangzhou Baiyun International Airport
+      - name: Kansai International Airport
         hub_tier: 1
-      - name: Shenzhen Bao'an International Airport
+      - name: Osaka International Airport
         hub_tier: 2
     ports:
-      - name: Port of Guangzhou
+      - name: Port of Osaka
         hub_tier: 1
-      - name: Port of Shenzhen
+      - name: Port of Kobe
         hub_tier: 1
     economic_zones:
-      - name: Shenzhen SEZ
+      - name: Umeda
         zone_tier: 1
-      - name: Guangzhou SEZ
+      - name: Namba
         zone_tier: 2
-      - name: Zhuhai SEZ
+      - name: Tennoji
         zone_tier: 2
     tourist_zones:
-      - name: Canton Tower
+      - name: Osaka Castle
         zone_tier: 1
-      - name: Chimelong Paradise
+      - name: Universal Studios Japan
         zone_tier: 2
-      - name: Window of the World
+      - name: Osaka Aquarium Kaiyukan
         zone_tier: 2
-  - name: Zhejiang
-    lat: 29.1549
-    lon: 119.9573
-    susceptible: 57370000
+  - name: Nagoya
+    lat: 35.1815
+    lon: 136.9066
+    susceptible: 2314461
     infected: 100000
     recovered: 10
-    area: 101800
+    area: 326
     airports:
-      - name: Hangzhou Xiaoshan International Airport
+      - name: Chubu Centrair International Airport
         hub_tier: 1
-      - name: Ningbo Lishe International Airport
+      - name: Nagoya Airfield
         hub_tier: 2
     ports:
-      - name: Port of Ningbo-Zhoushan
+      - name: Port of Nagoya
         hub_tier: 1
-      - name: Port of Wenzhou
+      - name: Port of Yokkaichi
         hub_tier: 1
     economic_zones:
-      - name: Hangzhou SEZ
+      - name: Nagoya Station
         zone_tier: 1
-      - name: Ningbo SEZ
+      - name: Sakae
         zone_tier: 2
-      - name: Wenzhou SEZ
+      - name: Kanayama
         zone_tier: 2
     tourist_zones:
-      - name: West Lake
+      - name: Nagoya Castle
         zone_tier: 1
-      - name: Xixi National Wetland Park
+      - name: Atsuta Shrine
         zone_tier: 2
-      - name: Lingyin Temple
+      - name: Nagoya TV Tower
         zone_tier: 2
-  - name: Sichuan
-    lat: 30.6171
-    lon: 102.7103
-    susceptible: 83020000
+  - name: Sapporo
+    lat: 43.0618
+    lon: 141.3545
+    susceptible: 1952356
     infected: 100000
     recovered: 10
-    area: 485000
+    area: 1121
     airports:
-      - name: Chengdu Shuangliu International Airport
+      - name: New Chitose Airport
         hub_tier: 1
-      - name: Chengdu Tianfu International Airport
+      - name: Okadama Airport
         hub_tier: 2
     ports:
-      - name: Port of Luzhou
+      - name: Port of Otaru
         hub_tier: 1
-      - name: Port of Yibin
+      - name: Port of Tomakomai
         hub_tier: 1
     economic_zones:
-      - name: Chengdu SEZ
+      - name: Sapporo Station
         zone_tier: 1
-      - name: Mianyang SEZ
+      - name: Susukino
         zone_tier: 2
-      - name: Leshan SEZ
+      - name: Odori Park
         zone_tier: 2
     tourist_zones:
-      - name: Mount Emei
+      - name: Sapporo Clock Tower
         zone_tier: 1
-      - name: Jiuzhaigou Valley
+      - name: Sapporo TV Tower
         zone_tier: 2
-      - name: Leshan Giant Buddha
+      - name: Moerenuma Park
         zone_tier: 2

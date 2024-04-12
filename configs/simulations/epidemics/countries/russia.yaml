@@ -1,0 +1,266 @@
+name: Russia
+B: 0.0001
+C: 0.0001
+E: 0.0001
+A: 0.0001
+Ds: 0.0001
+Di: 0.0001
+Dr: 0.0001
+gdp: 1000000
+health_resource_stockpile: 0.1
+sanitation_equipment_stockpile: 0
+human_welfare_resource: 0.1
+hapiness_index: 0.1
+general_hospitals: 1000
+procedure_resistance: 0.1
+cleanliness_index: 0.1
+base_death_rate: 0.001
+vaccine_components:
+  - name: A
+    gdp_cost: 40765
+    health_resource_cost: 0.1
+    human_welfare_resource_cost: 0.1
+    cost_gdp_perstep: 3435
+    trickle: 0.1
+  - name: B
+    gdp_cost: 40
+    health_resource_cost: 0.1
+    human_welfare_resource_cost: 0.1
+    cost_per_step: 3
+    trickle: 0.1
+  - name: C
+    gdp_cost: 40
+    health_resource_cost: 0.1
+    human_welfare_resource_cost: 0.1
+    cost_per_step: 3
+    trickle: 0.1
+  - name: D
+    gdp_cost: 40
+    health_resource_cost: 0.1
+    human_welfare_resource_cost: 0.1
+    cost_per_step: 3
+    trickle: 0.1
+  - name: E
+    gdp_cost: 40
+    health_resource_cost: 0.1
+    human_welfare_resource_cost: 0.1
+    cost_per_step: 3
+    trickle: 0.1
+loci:
+  - name: Moscow
+    lat: 55.7558
+    lon: 37.6176
+    susceptible: 12692466
+    infected: 100000
+    recovered: 10
+    area: 2511
+    airports:
+      - name: Sheremetyevo International Airport
+        hub_tier: 1
+      - name: Domodedovo International Airport
+        hub_tier: 2
+    ports:
+      - name: Port of Saint Petersburg
+        hub_tier: 1
+      - name: Port of Novorossiysk
+        hub_tier: 1
+    economic_zones:
+      - name: Moscow International Business Center
+        zone_tier: 1
+      - name: ZIL
+        zone_tier: 2
+      - name: Krylatskoye
+        zone_tier: 2
+    tourist_zones:
+      - name: Red Square
+        zone_tier: 1
+      - name: Saint Basil's Cathedral
+        zone_tier: 2
+      - name: Bolshoi Theatre
+        zone_tier: 2
+  - name: Saint Petersburg
+    lat: 59.9343
+    lon: 30.3351
+    susceptible: 5351935
+    infected: 100000
+    recovered: 10
+    area: 1439
+    airports:
+      - name: Pulkovo Airport
+        hub_tier: 1
+      - name: Rzhevka Airport
+        hub_tier: 2
+    ports:
+      - name: Port of Saint Petersburg
+        hub_tier: 1
+      - name: Port of Vyborg
+        hub_tier: 1
+    economic_zones:
+      - name: Vasilievsky Island
+        zone_tier: 1
+      - name: Petrogradsky Island
+        zone_tier: 2
+      - name: Krestovsky Island
+        zone_tier: 2
+    tourist_zones:
+      - name: Hermitage Museum
+        zone_tier: 1
+      - name: Peter and Paul Fortress
+        zone_tier: 2
+      - name: Church of the Savior on Blood
+        zone_tier: 2
+  - name: Novosibirsk
+    lat: 55.0084
+    lon: 82.9357
+    susceptible: 1473754
+    infected: 100000
+    recovered: 10
+    area: 502
+    airports:
+      - name: Tolmachevo Airport
+        hub_tier: 1
+      - name: Barnaul Airport
+        hub_tier: 2
+    ports:
+      - name: Port of Novosibirsk
+        hub_tier: 1
+      - name: Port of Tomsk
+        hub_tier: 1
+    economic_zones:
+      - name: Akademgorodok
+        zone_tier: 1
+      - name: Kirovsky
+        zone_tier: 2
+      - name: Zheleznodorozhny
+        zone_tier: 2
+    tourist_zones:
+      - name: Novosibirsk Zoo
+        zone_tier: 1
+      - name: Alexander Nevsky Cathedral
+        zone_tier: 2
+      - name: Novosibirsk Opera and Ballet Theatre
+        zone_tier: 2
+  - name: Yekaterinburg
+    lat: 56.8389
+    lon: 60.6057
+    susceptible: 1493749
+    infected: 100000
+    recovered: 10
+    area: 495
+    airports:
+      - name: Koltsovo Airport
+        hub_tier: 1
+      - name: Ufa International Airport
+        hub_tier: 2
+    ports:
+      - name: Port of Yekaterinburg
+        hub_tier: 1
+      - name: Port of Chelyabinsk
+        hub_tier: 1
+    economic_zones:
+      - name: Yekaterinburg-City
+        zone_tier: 1
+      - name: Uralmash
+        zone_tier: 2
+      - name: Verkh-Isetsky
+        zone_tier: 2
+    tourist_zones:
+      - name: Church on the Blood
+        zone_tier: 1
+      - name: Yekaterinburg Zoo
+        zone_tier: 2
+      - name: Yekaterinburg Circus
+        zone_tier: 2
+  - name: Nizhny Novgorod
+    lat: 56.2965
+    lon: 43.9361
+    susceptible: 1250615
+    infected: 100000
+    recovered: 10
+    area: 411
+    airports:
+      - name: Strigino International Airport
+        hub_tier: 1
+      - name: Cheboksary Airport
+        hub_tier: 2
+    ports:
+      - name: Port of Nizhny Novgorod
+        hub_tier: 1
+      - name: Port of Kazan
+        hub_tier: 1
+    economic_zones:
+      - name: Kanavino
+        zone_tier: 1
+      - name: Sormovo
+        zone_tier: 2
+      - name: Avtozavod
+        zone_tier: 2
+    tourist_zones:
+      - name: Nizhny Novgorod Kremlin
+        zone_tier: 1
+      - name: Nizhny Novgorod Stadium
+        zone_tier: 2
+      - name: Chkalov Stairs
+        zone_tier: 2
+  - name: Samara
+    lat: 53.1959
+    lon: 50.1009
+    susceptible: 1156659
+    infected: 100000
+    recovered: 10
+    area: 541
+    airports:
+      - name: Kurumoch International Airport
+        hub_tier: 1
+      - name: Ulyanovsk Vostochny Airport
+        hub_tier: 2
+    ports:
+      - name: Port of Samara
+        hub_tier: 1
+      - name: Port of Tolyatti
+        hub_tier: 1
+    economic_zones:
+      - name: Samara-City
+        zone_tier: 1
+      - name: Kirovsky
+        zone_tier: 2
+      - name: Leninsky
+        zone_tier: 2
+    tourist_zones:
+      - name: Samara Embankment
+        zone_tier: 1
+      - name: Samara Zoo
+        zone_tier: 2
+      - name: Samara State Academic Opera and Ballet Theatre
+        zone_tier: 2
+  - name: Omsk
+    lat: 54.9885
+    lon: 73.3242
+    susceptible: 1172070
+    infected: 100000
+    recovered: 10
+    area: 572
+    airports:
+      - name: Tsentralny Airport
+        hub_tier: 1
+      - name: Koltsovo Airport
+        hub_tier: 2
+    ports:
+      - name: Port of Omsk
+        hub_tier: 1
+      - name: Port of Tobolsk
+        hub_tier: 1
+    economic_zones:
+      - name: Omsk-City
+        zone_tier: 1
+      - name: Sovetsky
+        zone_tier: 2
+      - name: Leninsky
+        zone_tier: 2
+    tourist_zones:
+      - name: Omsk Fortress
+        zone_tier: 1
+      - name: Omsk State Academic Drama Theatre
+        zone_tier: 2
+      - name: Omsk State Music Theatre
+        zone_tier: 2
