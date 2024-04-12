@@ -1,5 +1,5 @@
 ---
-name: Russia
+name: Japan
 B: 0.0001
 C: 0.0001
 E: 0.0001
@@ -48,220 +48,161 @@ vaccine_components:
   cost_per_step: 3
   trickle: 0.1
 loci:
-- name: Moscow
-  lat: 55.7558
-  lon: 37.6176
-  susceptible: 12692466
+- name: Tokyo
+  lat: 35.6895
+  lon: 139.6917
+  susceptible: 13929286
   infected: 100000
   recovered: 10
-  area: 2511
+  area: 2187
   airports:
-  - name: Sheremetyevo International Airport
+  - name: Narita International Airport
     hub_tier: 1
-  - name: Domodedovo International Airport
+  - name: Haneda Airport
     hub_tier: 2
   ports:
-  - name: Port of Saint Petersburg
+  - name: Port of Tokyo
     hub_tier: 1
-  - name: Port of Novorossiysk
+  - name: Port of Yokohama
     hub_tier: 1
   economic_zones:
-  - name: Moscow International Business Center
+  - name: Tokyo Bay
     zone_tier: 1
-  - name: ZIL
+  - name: Shinjuku
     zone_tier: 2
-  - name: Krylatskoye
+  - name: Shibuya
     zone_tier: 2
   tourist_zones:
-  - name: Red Square
+  - name: Tokyo Tower
     zone_tier: 1
-  - name: Saint Basil's Cathedral
+  - name: Tokyo Disneyland
     zone_tier: 2
-  - name: Bolshoi Theatre
+  - name: Tokyo Skytree
     zone_tier: 2
-- name: Saint Petersburg
-  lat: 59.9343
-  lon: 30.3351
-  susceptible: 5351935
+- name: Yokohama
+  lat: 35.4437
+  lon: 139.638
+  susceptible: 3726167
   infected: 100000
   recovered: 10
-  area: 1439
+  area: 437
   airports:
-  - name: Pulkovo Airport
+  - name: Narita International Airport
     hub_tier: 1
-  - name: Rzhevka Airport
+  - name: Haneda Airport
     hub_tier: 2
   ports:
-  - name: Port of Saint Petersburg
+  - name: Port of Yokohama
     hub_tier: 1
-  - name: Port of Vyborg
+  - name: Port of Kawasaki
     hub_tier: 1
   economic_zones:
-  - name: Vasilievsky Island
+  - name: Minato Mirai 21
     zone_tier: 1
-  - name: Petrogradsky Island
+  - name: Yokohama Chinatown
     zone_tier: 2
-  - name: Krestovsky Island
+  - name: Yamashita Park
     zone_tier: 2
   tourist_zones:
-  - name: Hermitage Museum
+  - name: Yokohama Landmark Tower
     zone_tier: 1
-  - name: Peter and Paul Fortress
+  - name: Yokohama Marine Tower
     zone_tier: 2
-  - name: Church of the Savior on Blood
+  - name: Yokohama Hakkeijima Sea Paradise
     zone_tier: 2
-- name: Novosibirsk
-  lat: 55.0084
-  lon: 82.9357
-  susceptible: 1473754
+- name: Osaka
+  lat: 34.6937
+  lon: 135.5023
+  susceptible: 2586800
   infected: 100000
   recovered: 10
-  area: 502
+  area: 225
   airports:
-  - name: Tolmachevo Airport
+  - name: Kansai International Airport
     hub_tier: 1
-  - name: Barnaul Airport
+  - name: Osaka International Airport
     hub_tier: 2
   ports:
-  - name: Port of Novosibirsk
+  - name: Port of Osaka
     hub_tier: 1
-  - name: Port of Tomsk
+  - name: Port of Kobe
     hub_tier: 1
   economic_zones:
-  - name: Akademgorodok
+  - name: Umeda
     zone_tier: 1
-  - name: Kirovsky
+  - name: Namba
     zone_tier: 2
-  - name: Zheleznodorozhny
+  - name: Tennoji
     zone_tier: 2
   tourist_zones:
-  - name: Novosibirsk Zoo
+  - name: Osaka Castle
     zone_tier: 1
-  - name: Alexander Nevsky Cathedral
+  - name: Universal Studios Japan
     zone_tier: 2
-  - name: Novosibirsk Opera and Ballet Theatre
+  - name: Osaka Aquarium Kaiyukan
     zone_tier: 2
-- name: Yekaterinburg
-  lat: 56.8389
-  lon: 60.6057
-  susceptible: 1493749
+- name: Nagoya
+  lat: 35.1815
+  lon: 136.9066
+  susceptible: 2314461
   infected: 100000
   recovered: 10
-  area: 495
+  area: 326
   airports:
-  - name: Koltsovo Airport
+  - name: Chubu Centrair International Airport
     hub_tier: 1
-  - name: Ufa International Airport
+  - name: Nagoya Airfield
     hub_tier: 2
   ports:
-  - name: Port of Yekaterinburg
+  - name: Port of Nagoya
     hub_tier: 1
-  - name: Port of Chelyabinsk
+  - name: Port of Yokkaichi
     hub_tier: 1
   economic_zones:
-  - name: Yekaterinburg-City
+  - name: Nagoya Station
     zone_tier: 1
-  - name: Uralmash
+  - name: Sakae
     zone_tier: 2
-  - name: Verkh-Isetsky
+  - name: Kanayama
     zone_tier: 2
   tourist_zones:
-  - name: Church on the Blood
+  - name: Nagoya Castle
     zone_tier: 1
-  - name: Yekaterinburg Zoo
+  - name: Atsuta Shrine
     zone_tier: 2
-  - name: Yekaterinburg Circus
+  - name: Nagoya TV Tower
     zone_tier: 2
-- name: Nizhny Novgorod
-  lat: 56.2965
-  lon: 43.9361
-  susceptible: 1250615
+- name: Sapporo
+  lat: 43.0618
+  lon: 141.3545
+  susceptible: 1952356
   infected: 100000
   recovered: 10
-  area: 411
+  area: 1121
   airports:
-  - name: Strigino International Airport
+  - name: New Chitose Airport
     hub_tier: 1
-  - name: Cheboksary Airport
+  - name: Okadama Airport
     hub_tier: 2
   ports:
-  - name: Port of Nizhny Novgorod
+  - name: Port of Otaru
     hub_tier: 1
-  - name: Port of Kazan
-    hub_tier: 1
-  economic_zones:
-  - name: Kanavino
-    zone_tier: 1
-  - name: Sormovo
-    zone_tier: 2
-  - name: Avtozavod
-    zone_tier: 2
-  tourist_zones:
-  - name: Nizhny Novgorod Kremlin
-    zone_tier: 1
-  - name: Nizhny Novgorod Stadium
-    zone_tier: 2
-  - name: Chkalov Stairs
-    zone_tier: 2
-- name: Samara
-  lat: 53.1959
-  lon: 50.1009
-  susceptible: 1156659
-  infected: 100000
-  recovered: 10
-  area: 541
-  airports:
-  - name: Kurumoch International Airport
-    hub_tier: 1
-  - name: Ulyanovsk Vostochny Airport
-    hub_tier: 2
-  ports:
-  - name: Port of Samara
-    hub_tier: 1
-  - name: Port of Tolyatti
+  - name: Port of Tomakomai
     hub_tier: 1
   economic_zones:
-  - name: Samara-City
+  - name: Sapporo Station
     zone_tier: 1
-  - name: Kirovsky
+  - name: Susukino
     zone_tier: 2
-  - name: Leninsky
+  - name: Odori Park
     zone_tier: 2
   tourist_zones:
-  - name: Samara Embankment
+  - name: Sapporo Clock Tower
     zone_tier: 1
-  - name: Samara Zoo
+  - name: Sapporo TV Tower
     zone_tier: 2
-  - name: Samara State Academic Opera and Ballet Theatre
+  - name: Moerenuma Park
     zone_tier: 2
-- name: Omsk
-  lat: 54.9885
-  lon: 73.3242
-  susceptible: 1172070
-  infected: 100000
-  recovered: 10
-  area: 572
-  airports:
-  - name: Tsentralny Airport
-    hub_tier: 1
-  - name: Koltsovo Airport
-    hub_tier: 2
-  ports:
-  - name: Port of Omsk
-    hub_tier: 1
-  - name: Port of Tobolsk
-    hub_tier: 1
-  economic_zones:
-  - name: Omsk-City
-    zone_tier: 1
-  - name: Sovetsky
-    zone_tier: 2
-  - name: Leninsky
-    zone_tier: 2
-  tourist_zones:
-  - name: Omsk Fortress
-    zone_tier: 1
-  - name: Omsk State Academic Drama Theatre
-    zone_tier: 2
-  - name: Omsk State Music Theatre
-    zone_tier: 2
+
+
+

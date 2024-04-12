@@ -12,6 +12,9 @@ __all__ = [
 # ---DEPENDENCIES---------------------------------------------------------------
 from typing import List, Dict, Union
 from pydantic import BaseModel
+import yaml
+import pydantic
+
 
 class Locus(BaseModel):
     name: str
@@ -21,11 +24,11 @@ class Locus(BaseModel):
     infected: int
     recovered: int
     area: int
-    airports: List[Dict[str, Union[str, int]]]
-    ports: List[Dict[str, Union[int, str]]]
-    economic_zones: List[Dict[str, int]]
-    tourist_zones: List[Dict[str, int]]
-
+    airports: List[Dict[str, Union[str, int, None]]]  # Corrected here
+    ports: List[Dict[str, Union[str, int, None]]]  # Corrected here
+    economic_zones: List[Dict[str, Union[str, int, None]]]  # Corrected here
+    tourist_zones: List[Dict[str, Union[str, int, None]]]  # Corrected here
+    
 class Country(BaseModel):
     name: str
     B: float
