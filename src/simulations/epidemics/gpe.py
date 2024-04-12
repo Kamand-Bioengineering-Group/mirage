@@ -21,7 +21,7 @@ class Locus(BaseModel):
     infected: int
     recovered: int
     area: int
-    airports: List[Dict[Union[str, int], Union[str, int]]]
+    airports: List[Dict[str, Union[str, int]]]
     ports: List[Dict[str, Union[int, str]]]
     economic_zones: List[Dict[str, int]]
     tourist_zones: List[Dict[str, int]]
