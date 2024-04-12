@@ -9,7 +9,9 @@ simulation.
 #       independently of each other.
 
 
-__all__ = ["ProcessV1"]
+__all__ = [
+    "ProcessV1",
+]
 
 
 # ---DEPENDENCIES---------------------------------------------------------------

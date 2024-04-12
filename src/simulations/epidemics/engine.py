@@ -3,19 +3,19 @@
 State of the simulation engine.
 """
 
-__all__ = ["FireflyState"]
+__all__ = [
+    "EpidemicFireflyState",
+]
+
 
 # ---DEPENDENCIES---------------------------------------------------------------
 import pydantic as pyd
 
 
 # ---ENGINESTATE----------------------------------------------------------------
-class FireflyState(pyd.BaseModel):
+class EpidemicFireflyState(pyd.BaseModel):
     """
     State of Firefly engine.
     """
+
     ...
-
-
-    
-

@@ -1,7 +1,12 @@
 # ---INFO-----------------------------------------------------------------------
 """
-Module for entities.
+Module for simulations.
 """
 
+__all__ = [
+    "epidemics",
+]
+
+
 # ---DEPENDENCIES---------------------------------------------------------------
-from .base import EntityV1
+from . import epidemics

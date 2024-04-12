@@ -1,6 +1,18 @@
+# ---INFO-----------------------------------------------------------------------
+"""
+Module for geo-political entities.
+"""
+
+__all__ = [
+    "Country",
+    "Locus",
+]
+
+
 # ---DEPENDENCIES---------------------------------------------------------------
 import typing as tp
 import pydantic as pyd
+
 
 # ---COUNTRY--------------------------------------------------------------------
 class Locus(pyd.BaseModel):

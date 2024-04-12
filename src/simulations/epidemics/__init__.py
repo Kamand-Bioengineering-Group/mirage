@@ -1,7 +1,13 @@
 # ---INFO-----------------------------------------------------------------------
 """
-Module for entities.
-"""
+Module for simulating epidemics.
+"""	
+
+__all__ = [
+    "engine",
+    "gpe",
+]
+
 
 # ---DEPENDENCIES---------------------------------------------------------------
-from .base import EntityV1
+from . import engine, gpe

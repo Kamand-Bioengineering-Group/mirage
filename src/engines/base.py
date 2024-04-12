@@ -1,3 +1,13 @@
+# ---INFO-----------------------------------------------------------------------
+"""
+Module for base engines.
+"""
+
+__all__ = [
+    "EngineV1",
+]
+
+
 # ---DEPENDENCIES---------------------------------------------------------------
 import typing as tp
 import abc
@@ -11,10 +21,12 @@ from ..processes.base import ProcessV1
 
 
 # ---ENGINEV1-------------------------------------------------------------------
+# TODO: Complete the EngineV1 class.
 class EngineV1(abc.ABC):
     """
     Base class for V1 type engines.
     """
+
     STATUS_SET = {"ALIVE", "DORMANT", "DEAD"}
 
     @pyd.validate_call(config={"arbitrary_types_allowed": True})
@@ -50,7 +62,7 @@ class EngineV1(abc.ABC):
             self.port = port
             self.auth = auth
             self.app = fastapi.FastAPI()
-        
+
         self.status = "DORMANT"
 
     @property
@@ -67,7 +79,7 @@ class EngineV1(abc.ABC):
     @property
     def status(self):
         return self._status
-    
+
     @status.setter
     def status(self, value: str):
         assert value in self.STATUS_SET, f"Invalid status: {value}"
@@ -109,13 +121,11 @@ class EngineV1(abc.ABC):
 
         self.prune_processes()
 
-
     def fire(self):
         """
         Fire the engine.
         """
+
         def simulation_loop():
             while self.status != "DEAD":
                 ...
-
-
