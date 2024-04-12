@@ -10,9 +10,8 @@ __all__ = [
 
 
 # ---DEPENDENCIES---------------------------------------------------------------
-import typing as tp
-import pydantic as pyd
-
+from typing import List, Dict, Union
+from pydantic import BaseModel
 
 # ---COUNTRY--------------------------------------------------------------------
 class Locus(pyd.BaseModel):
@@ -23,12 +22,12 @@ class Locus(pyd.BaseModel):
     infected: int
     recovered: int
     area: int
-    airports: tp.List[tp.Dict[str, str | int]] | None
-    ports: tp.List[tp.Dict[str, str | int]] | None
-    economic_zones: tp.List[tp.Dict[str, str | int]] | None
-    tourist_zones: tp.List[tp.Dict[str, str | int]] | None
+    airports: List[Dict[str, Union[str, int]]]
+    ports: List[Dict[str, Union[int, str]]]
+    economic_zones: List[Dict[str, int]]
+    tourist_zones: List[Dict[str, int]]
 
-class Country(pyd.BaseModel):
+class Country(BaseModel):
     name: str
     B: float
     C: float
