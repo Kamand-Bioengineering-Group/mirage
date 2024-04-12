@@ -17,158 +17,158 @@ procedure_resistance: 0.1
 cleanliness_index: 0.1
 base_death_rate: 0.001
 vaccine_components:
-- name: A
-  gdp_cost: 40765
-  health_resource_cost: 0.1
-  human_welfare_resource_cost: 0.1
-  cost_gdp_perstep: 3435
-  trickle: 0.1
-- name: B
-  gdp_cost: 40
-  health_resource_cost: 0.1
-  human_welfare_resource_cost: 0.1
-  cost_per_step: 3
-  trickle: 0.1
-- name: C
-  gdp_cost: 40
-  health_resource_cost: 0.1
-  human_welfare_resource_cost: 0.1
-  cost_per_step: 3
-  trickle: 0.1
-- name: D
-  gdp_cost: 40
-  health_resource_cost: 0.1
-  human_welfare_resource_cost: 0.1
-  cost_per_step: 3
-  trickle: 0.1
-- name: E
-  gdp_cost: 40
-  health_resource_cost: 0.1
-  human_welfare_resource_cost: 0.1
-  cost_per_step: 3
-  trickle: 0.1
+  - name: A
+    gdp_cost: 40765
+    health_resource_cost: 0.1
+    human_welfare_resource_cost: 0.1
+    cost_gdp_perstep: 3435
+    trickle: 0.1
+  - name: B
+    gdp_cost: 40
+    health_resource_cost: 0.1
+    human_welfare_resource_cost: 0.1
+    cost_per_step: 3
+    trickle: 0.1
+  - name: C
+    gdp_cost: 40
+    health_resource_cost: 0.1
+    human_welfare_resource_cost: 0.1
+    cost_per_step: 3
+    trickle: 0.1
+  - name: D
+    gdp_cost: 40
+    health_resource_cost: 0.1
+    human_welfare_resource_cost: 0.1
+    cost_per_step: 3
+    trickle: 0.1
+  - name: E
+    gdp_cost: 40
+    health_resource_cost: 0.1
+    human_welfare_resource_cost: 0.1
+    cost_per_step: 3
+    trickle: 0.1
 loci:
-- name: Paris
-  lat: 48.8566
-  lon: 2.3522
-  susceptible: 2140526
-  infected: 100000
-  recovered: 10
-  area: 105.4
-  airports:
-  - name: Charles de Gaulle Airport
-    hub_tier: 1
-  - name: Orly Airport
-    hub_tier: 2
-  ports:
-  - name: Port of Le Havre
-    hub_tier: 1
-  - name: Port of Marseille
-    hub_tier: 1
-  economic_zones:
-  - name: La Défense
-    zone_tier: 1
-  - name: Bercy
-    zone_tier: 2
-  - name: Montmartre
-    zone_tier: 2
-  tourist_zones:
-  - name: Eiffel Tower
-    zone_tier: 1
-  - name: Louvre Museum
-    zone_tier: 2
-  - name: Palace of Versailles
-    zone_tier: 2
-- name: Lyon
-  lat: 45.75
-  lon: 4.85
-  susceptible: 515695
-  infected: 100000
-  recovered: 10
-  area: 47.87
-  airports:
-  - name: Lyon-Saint-Exupéry Airport
-    hub_tier: 1
-  - name: Lyon-Bron Airport
-    hub_tier: 2
-  ports:
-  - name: Port of Lyon
-    hub_tier: 1
-  - name: Port of Marseille
-    hub_tier: 1
-  economic_zones:
-  - name: Part-Dieu
-    zone_tier: 1
-  - name: Confluence
-    zone_tier: 2
-  - name: Gerland
-    zone_tier: 2
-  tourist_zones:
-  - name: Basilica of Notre-Dame de Fourvière
-    zone_tier: 1
-  - name: Place Bellecour
-    zone_tier: 2
-  - name: Parc de la Tête d'Or
-    zone_tier: 2
-- name: Marseille
-  lat: 43.2965
-  lon: 5.3698
-  susceptible: 869815
-  infected: 100000
-  recovered: 10
-  area: 240.6
-  airports:
-  - name: Marseille Provence Airport
-    hub_tier: 1
-  - name: Aix-en-Provence Airport
-    hub_tier: 2
-  ports:
-  - name: Port of Marseille
-    hub_tier: 1
-  - name: Port of Toulon
-    hub_tier: 1
-  economic_zones:
-  - name: Euroméditerranée
-    zone_tier: 1
-  - name: La Joliette
-    zone_tier: 2
-  - name: La Plaine
-    zone_tier: 2
-  tourist_zones:
-  - name: Old Port of Marseille
-    zone_tier: 1
-  - name: Calanques National Park
-    zone_tier: 2
-  - name: Notre-Dame de la Garde
-    zone_tier: 2
-- name: Nice
-  lat: 43.7102
-  lon: 7.2620
-  susceptible: 342295
-  infected: 100000
-  recovered: 10
-  area: 71.92
-  airports:
-  - name: Nice Côte d'Azur Airport
-    hub_tier: 1
-  - name: Cannes-Mandelieu Airport
-    hub_tier: 2
-  ports:
-  - name: Port of Nice
-    hub_tier: 1
-  - name: Port of Cannes
-    hub_tier: 1
-  economic_zones:
-  - name: Nice Méridia
-    zone_tier: 1
-  - name: Nice Acropolis
-    zone_tier: 2
-  - name: Nice Arenas
-    zone_tier: 2
-  tourist_zones:
-  - name: Promenade des Anglais
-    zone_tier: 1
-  - name: Castle Hill
-    zone_tier: 2
-  - name: Cours Saleya
-    zone_tier: 2
+  - name: Paris
+    lat: 48.8566
+    lon: 2.3522
+    susceptible: 2140526
+    infected: 100000
+    recovered: 10
+    area: 105.4
+    airports:
+      - name: Charles de Gaulle Airport
+        hub_tier: 1
+      - name: Orly Airport
+        hub_tier: 2
+    ports:
+      - name: Port of Le Havre
+        hub_tier: 1
+      - name: Port of Marseille
+        hub_tier: 1
+    economic_zones:
+      - name: La Défense
+        zone_tier: 1
+      - name: Bercy
+        zone_tier: 2
+      - name: Montmartre
+        zone_tier: 2
+    tourist_zones:
+      - name: Eiffel Tower
+        zone_tier: 1
+      - name: Louvre Museum
+        zone_tier: 2
+      - name: Palace of Versailles
+        zone_tier: 2
+  - name: Lyon
+    lat: 45.75
+    lon: 4.85
+    susceptible: 515695
+    infected: 100000
+    recovered: 10
+    area: 47.87
+    airports:
+      - name: Lyon-Saint-Exupéry Airport
+        hub_tier: 1
+      - name: Lyon-Bron Airport
+        hub_tier: 2
+    ports:
+      - name: Port of Lyon
+        hub_tier: 1
+      - name: Port of Marseille
+        hub_tier: 1
+    economic_zones:
+      - name: Part-Dieu
+        zone_tier: 1
+      - name: Confluence
+        zone_tier: 2
+      - name: Gerland
+        zone_tier: 2
+    tourist_zones:
+      - name: Basilica of Notre-Dame de Fourvière
+        zone_tier: 1
+      - name: Place Bellecour
+        zone_tier: 2
+      - name: Parc de la Tête d'Or
+        zone_tier: 2
+  - name: Marseille
+    lat: 43.2965
+    lon: 5.3698
+    susceptible: 869815
+    infected: 100000
+    recovered: 10
+    area: 240.6
+    airports:
+      - name: Marseille Provence Airport
+        hub_tier: 1
+      - name: Aix-en-Provence Airport
+        hub_tier: 2
+    ports:
+      - name: Port of Marseille
+        hub_tier: 1
+      - name: Port of Toulon
+        hub_tier: 1
+    economic_zones:
+      - name: Euroméditerranée
+        zone_tier: 1
+      - name: La Joliette
+        zone_tier: 2
+      - name: La Plaine
+        zone_tier: 2
+    tourist_zones:
+      - name: Old Port of Marseille
+        zone_tier: 1
+      - name: Calanques National Park
+        zone_tier: 2
+      - name: Notre-Dame de la Garde
+        zone_tier: 2
+  - name: Nice
+    lat: 43.7102
+    lon: 7.262
+    susceptible: 342295
+    infected: 100000
+    recovered: 10
+    area: 71.92
+    airports:
+      - name: Nice Côte d'Azur Airport
+        hub_tier: 1
+      - name: Cannes-Mandelieu Airport
+        hub_tier: 2
+    ports:
+      - name: Port of Nice
+        hub_tier: 1
+      - name: Port of Cannes
+        hub_tier: 1
+    economic_zones:
+      - name: Nice Méridia
+        zone_tier: 1
+      - name: Nice Acropolis
+        zone_tier: 2
+      - name: Nice Arenas
+        zone_tier: 2
+    tourist_zones:
+      - name: Promenade des Anglais
+        zone_tier: 1
+      - name: Castle Hill
+        zone_tier: 2
+      - name: Cours Saleya
+        zone_tier: 2
