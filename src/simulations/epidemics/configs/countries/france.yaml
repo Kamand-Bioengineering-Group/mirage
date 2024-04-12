@@ -1,5 +1,5 @@
 ---
-name: USA
+name: France
 B: 0.0001
 C: 0.0001
 E: 0.0001
@@ -48,125 +48,127 @@ vaccine_components:
   cost_per_step: 3
   trickle: 0.1
 loci:
-- name: California
-  lat: 36.7783
-  lon: 119.4179
-  susceptible: 39538223
+- name: Paris
+  lat: 48.8566
+  lon: 2.3522
+  susceptible: 2140526
   infected: 100000
   recovered: 10
-  area: 423970
+  area: 105.4
   airports:
-  - name: Los Angeles International Airport
+  - name: Charles de Gaulle Airport
     hub_tier: 1
-  - name: San Francisco International Airport
+  - name: Orly Airport
     hub_tier: 2
   ports:
-  - name: Port of Los Angeles
+  - name: Port of Le Havre
     hub_tier: 1
-  - name: Port of Long Beach
+  - name: Port of Marseille
     hub_tier: 1
   economic_zones:
-  - name: Silicon Valley
+  - name: La Défense
     zone_tier: 1
-  - name: Hollywood
+  - name: Bercy
     zone_tier: 2
-  - name: Napa Valley
+  - name: Montmartre
     zone_tier: 2
   tourist_zones:
-  - name: Disneyland
+  - name: Eiffel Tower
     zone_tier: 1
-  - name: Yosemite National Park
+  - name: Louvre Museum
     zone_tier: 2
-  - name: Golden Gate Bridge
+  - name: Palace of Versailles
     zone_tier: 2
-- name: New York
-  lat: 40.7128
-  lon: 74.0060
-  susceptible: 19453561
+- name: Lyon
+  lat: 45.75
+  lon: 4.85
+  susceptible: 515695
   infected: 100000
   recovered: 10
-  area: 141300
+  area: 47.87
   airports:
-  - name: John F. Kennedy International Airport
+  - name: Lyon-Saint-Exupéry Airport
     hub_tier: 1
-  - name: LaGuardia Airport
+  - name: Lyon-Bron Airport
     hub_tier: 2
   ports:
-  - name: Port of New York and New Jersey
+  - name: Port of Lyon
+    hub_tier: 1
+  - name: Port of Marseille
     hub_tier: 1
   economic_zones:
-  - name: Wall Street
+  - name: Part-Dieu
     zone_tier: 1
-  - name: Broadway
+  - name: Confluence
     zone_tier: 2
-  - name: Central Park
+  - name: Gerland
     zone_tier: 2
   tourist_zones:
-  - name: Statue of Liberty
+  - name: Basilica of Notre-Dame de Fourvière
     zone_tier: 1
-  - name: Times Square
+  - name: Place Bellecour
     zone_tier: 2
-  - name: Empire State Building
+  - name: Parc de la Tête d'Or
     zone_tier: 2
-- name: Texas
-  lat: 31.9686
-  lon: 99.9018
-  susceptible: 29145505
+- name: Marseille
+  lat: 43.2965
+  lon: 5.3698
+  susceptible: 869815
   infected: 100000
   recovered: 10
-  area: 695662
+  area: 240.6
   airports:
-  - name: Dallas/Fort Worth International Airport
+  - name: Marseille Provence Airport
     hub_tier: 1
-  - name: George Bush Intercontinental Airport
+  - name: Aix-en-Provence Airport
     hub_tier: 2
   ports:
-  - name: Port of Houston
+  - name: Port of Marseille
     hub_tier: 1
-  - name: Port of Corpus Christi
-    hub_tier: 2
+  - name: Port of Toulon
+    hub_tier: 1
   economic_zones:
-  - name: NASA
+  - name: Euroméditerranée
     zone_tier: 1
-  - name: Alamo
+  - name: La Joliette
     zone_tier: 2
-  - name: South Padre Island
+  - name: La Plaine
     zone_tier: 2
   tourist_zones:
-  - name: The Alamo
+  - name: Old Port of Marseille
     zone_tier: 1
-  - name: NASA Space Center
+  - name: Calanques National Park
     zone_tier: 2
-  - name: South Padre Island Beach
+  - name: Notre-Dame de la Garde
     zone_tier: 2
-- name: Florida
-  lat: 27.9944
-  lon: 81.7603
-  susceptible: 21538187
+- name: Nice
+  lat: 43.7102
+  lon: 7.2620
+  susceptible: 342295
   infected: 100000
   recovered: 10
-  area: 170312
+  area: 71.92
   airports:
-  - name: Miami International Airport
+  - name: Nice Côte d'Azur Airport
     hub_tier: 1
-  - name: Orlando International Airport
+  - name: Cannes-Mandelieu Airport
     hub_tier: 2
   ports:
-  - name: Port of Miami
+  - name: Port of Nice
     hub_tier: 1
-  - name: Port Everglades
+  - name: Port of Cannes
     hub_tier: 1
   economic_zones:
-  - name: Disney World
+  - name: Nice Méridia
     zone_tier: 1
-  - name: Miami Beach
+  - name: Nice Acropolis
     zone_tier: 2
-  - name: Everglades
+  - name: Nice Arenas
     zone_tier: 2
   tourist_zones:
-  - name: Disney World
+  - name: Promenade des Anglais
     zone_tier: 1
-  - name: Miami Beach
+  - name: Castle Hill
     zone_tier: 2
-  - name: Everglades National Park
+  - name: Cours Saleya
     zone_tier: 2

@@ -10,29 +10,40 @@ __all__ = [
 
 
 # ---DEPENDENCIES---------------------------------------------------------------
-import typing as tp
-import pydantic as pyd
+from typing import List, Dict, Union
+from pydantic import BaseModel
 
-
-# ---COUNTRY--------------------------------------------------------------------
-class Locus(pyd.BaseModel):
+class Locus(BaseModel):
     name: str
-    latitude: float
-    longitude: float
-    population: int
-    airports: tp.Dict[str, int]
-    ports: tp.Dict[str, int]
-    hospitals: tp.Dict[str, int]
-    loc_resources: tp.Dict[str, tp.Dict[str, float | int]]
+    lat: float
+    lon: float
+    susceptible: int
+    infected: int
+    recovered: int
+    area: int
+    airports: List[Dict[Union[str, int], Union[str, int]]]
+    ports: List[Dict[str, Union[int, str]]]
+    economic_zones: List[Dict[str, int]]
+    tourist_zones: List[Dict[str, int]]
 
-class Country(pyd.BaseModel):
+class Country(BaseModel):
     name: str
-    beta: float
-    gamma: float
-    epsilon: float
-    birth_rate: float
-    death_rate: float
+    B: float
+    C: float
+    E: float
+    A: float
+    Ds: float
+    Di: float
+    Dr: float
     gdp: int
-    cen_resources: tp.Dict[str, tp.Dict[str, float | int]]
-    loci: tp.Dict[str, Locus]
+    health_resource_stockpile: float
+    sanitation_equipment_stockpile: int
+    human_welfare_resource: float
+    happiness_index: float
+    general_hospitals: int
+    procedure_resistance: float
+    cleanliness_index: float
+    base_death_rate: float
+    vaccine_components: List[Dict[str, Union[str, int, float]]]
+    loci: List[Locus]
 
