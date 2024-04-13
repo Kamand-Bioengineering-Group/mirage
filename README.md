@@ -147,8 +147,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Utham Kumar Mahesh  
-Email - [uthamkumarmahesh#gmail.com](mailto:uthamkumarmahesh#gmail.com)
+Utham Kumar
+Email - [uthamkumarmahesh#gmail.com](mailto:uthamkumarmahesh@gmail.com)
 
 Aditya Prakash  
 Twitter - [@adityaprakash_t](https://twitter.com/adityaprakash_t)  
