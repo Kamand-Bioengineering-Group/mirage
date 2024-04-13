@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+target-version = ['py37', 'py38', 'py39', 'py310', 'py311', 'py312']
+
+[tool.isort]
+profile = "black"
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = "E203, W503"
+
+[tool.mypy]
+python_version = 3.11
+warn_unused_ignores = true
+
+[tool.poetry]
+name = "mirage"
+version = "0.1.0"
+description = ""
+authors = [
+    "Aditya Prakash <adityaprakash.work@gmail.com>",
+    "Utham Kumar Mahesh <uthamkumarmahesh@gmail.com>"
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pydantic = "^2.6.0"
+tensorboardX = "^2.6.0"
+tensorboard = "^2.16.0"
+fastapi = "^0.110.0"
+uvicorn = "^0.29.0"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+
+[tool.poetry.extras]
+
+[tool.poetry.plugins]
+
+[tool.poetry]
+packages = [{ include = "src" }]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[build-system]
+requires = ["poetry>=1.0.0"]
+build-backend = "poetry.masonry.api"
