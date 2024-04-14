@@ -64,7 +64,7 @@ class ProcessV1(abc.ABC):
             The entities of the process.
         """
         assert all(
-            isinstance(tar, tuple(self.DOMAIN)) for tar in entities.values()
+            isinstance(tar, tuple(self.DOMAIN)) for tar in entities
         ), "All entities must be instances of `DOMAIN`."
         self.ID = id
         self.entities = entities
@@ -82,7 +82,7 @@ class ProcessV1(abc.ABC):
         self._status = value
 
     @abc.abstractmethod
-    def run(self, step: int):
+    def run(self, step: int) -> {str, float}:
         """
         Process logic
         """
