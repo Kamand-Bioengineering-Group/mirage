@@ -10,6 +10,7 @@ authors = [
 ]
 description = "Mirage: Python package for creating simulation frameworks."
 readme = "README.md"
+license = {file = "LICENSE"}
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
