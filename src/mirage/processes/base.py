@@ -56,17 +56,26 @@ class ProcessV1Meta(abc.ABCMeta):
                 assert hasattr(cls, attr) and validator(
                     getattr(cls, attr)
                 ), f"`{name}` {error_msg}"
-            assert "while_alive" in cls.__dict__ and callable(
-                cls.while_alive
+            while_alive_method = getattr(cls, "while_alive", None)
+            assert callable(
+                while_alive_method
             ), f"`{name}` class must implement a `while_alive` method."
             assert (
-                "step" in cls.__dict__["while_alive"].__code__.co_varnames
+                "step" in while_alive_method.__code__.co_varnames
             ), "`while_alive` method must have a `step` argument."
+            while_dormant_method = getattr(cls, "while_dormant", None)
+            assert callable(
+                while_dormant_method
+            ), f"`{name}` class must implement a `while_dormant` method."
             assert (
-                "step" in cls.__dict__["while_dormant"].__code__.co_varnames
+                "step" in while_dormant_method.__code__.co_varnames
             ), "`while_dormant` method must have a `step` argument."
 
-        init_vars = cls.__dict__["__init__"].__code__.co_varnames
+        init_method = getattr(cls, "__init__", None)
+        assert callable(
+            init_method
+        ), f"`{name}` class must implement an `__init__` method."
+        init_vars = init_method.__code__.co_varnames
         for param, index in (("id", 1), ("entities", 2), ("status", 3)):
             assert (
                 param in init_vars
@@ -189,5 +198,5 @@ class ProcessV1(abc.ABC, metaclass=ProcessV1Meta):
             l = self.while_dormant(step)
         else:
             pass
-        info = {f"{self.id}/{self.status}/{k}/{step}": v for k, v in l.items()}
+        info = {f"{self.status}/{k}": v for k, v in l.items()}
         return info

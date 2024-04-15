@@ -312,7 +312,7 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
                     entity.sync()
                 self.state.sync() if self.state_sync_mode == "RANK" else None
                 info = process.run(step)
-            self.info_history[f"{step}"] = info
+            self.info_history[f"{process.id}/{step}"] = info
         self.state.sync() if self.state_sync_mode == "STEP" else None
         self.prune_processes()
 
