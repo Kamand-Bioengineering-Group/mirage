@@ -23,10 +23,9 @@ classifiers = [
 ]
 
 
-[project.dependencies]
-pydantic = "^2.6.0"
-tensorboard = "^2.16.0"
-tensorboardX = "^2.6.0"
+dependencies = [
+    "pydantic",
+]
 
 
 [project.urls]
