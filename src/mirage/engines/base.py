@@ -29,15 +29,6 @@ class EngineV1Meta(abc.ABCMeta):
             assert hasattr(cls, "MAX_STEPS"), "`MAX_STEPS` must be defined"
             assert isinstance(cls.MAX_STEPS, int), "`MAX_STEPS` must be an int"
             assert cls.MAX_STEPS > 0, "`MAX_STEPS` must be greater than 0"
-            assert "while_alive" in cls.__dict__ and callable(
-                cls.while_alive
-            ), f"`{name}` class must implement a `while_alive` method."
-            assert (
-                "step" in cls.__dict__["while_alive"].__code__.co_varnames
-            ), "`while_alive` method must have a `step` argument."
-            assert (
-                "step" in cls.__dict__["while_dormant"].__code__.co_varnames
-            ), "`while_dormant` method must have a `step` argument."
 
         init_vars = cls.__dict__["__init__"].__code__.co_varnames
         for param, index in (
@@ -56,7 +47,7 @@ class EngineV1Meta(abc.ABCMeta):
             ), f"`{name}` class `{param}` argument must be in position {index}."
 
         ret_validator = pyd.validate_call(
-            config={"validate_return": True, "allow_arbitrary_types": True}
+            config={"validate_return": True, "arbitrary_types_allowed": True}
         )
         setattr(cls, "__init__", ret_validator(cls.__init__))
 
@@ -68,8 +59,8 @@ class EngineV1Meta(abc.ABCMeta):
 
         def ninit(self, *args, **kwargs):
             oinit(self, *args, **kwargs)
-            if ProcessV1 in cls.__bases__:
-                ProcessV1.__init__(self, *args[:3])
+            if EngineV1 in cls.__bases__:
+                EngineV1.__init__(self, *args[:6])
 
         cls.__init__ = ninit
 
@@ -88,7 +79,6 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
     MAX_STEPS = 72000
     STATUS_SET = {"ALIVE", "DORMANT", "DEAD"}
 
-    @pyd.validate_call(config={"arbitrary_types_allowed": True})
     def __init__(
         self,
         name: str,
@@ -103,6 +93,8 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
 
         Parameters:
         -----------
+        name: str
+            The name of the engine.
         state: pyd.BaseModel
             The state of the engine.
         processes: List[ProcessV1]
@@ -185,7 +177,7 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         return range(start, stop + 1, step)
 
     @staticmethod
-    def set_to_intervals(s) -> tp.List[tp.List[int, int]]:
+    def set_to_intervals(s) -> tp.List[tp.List[int]]:
         """
         Convert a set of integers to a list of intervals.
 
@@ -196,7 +188,7 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
 
         Returns:
         --------
-        List[List[int, int]]
+        List[List[int]]
             The list of intervals.
         """
         s = sorted(s)
@@ -237,9 +229,7 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
     def update_psc(
         self,
         process_id: str,
-        intervals: (
-            tp.List[tp.List[int, int]] | tp.List[int, int] | tp.Set[int]
-        ),
+        intervals: tp.List[tp.List[int]] | tp.List[int] | tp.Set[int],
         mode: str,
     ):
         """
@@ -249,7 +239,7 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         -----------
         process_id: str
             The id of the process.
-        intervals: List[List[int, int]] | List[int, int] | Set[int]
+        intervals: List[List[int]] | List[int] | Set[int]
             The intervals to update.
         mode: str
             The mode of the update.

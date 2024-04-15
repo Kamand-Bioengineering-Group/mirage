@@ -23,7 +23,7 @@ from ..entities import EntityV1
 # ---PROCESSV1------------------------------------------------------------------
 class ProcessV1Meta(abc.ABCMeta):
     """
-    Metaclass for `ProcessV1` type. 
+    Metaclass for `ProcessV1` type.
 
     Explanation:
     ------------
@@ -37,6 +37,7 @@ class ProcessV1Meta(abc.ABCMeta):
     - Initialization:
         - Calls the `ProcessV1` initialization method.
     """
+
     def __new__(mcls, name, bases, namespace, **kwargs):
         cls = super().__new__(mcls, name, bases, namespace, **kwargs)
 
@@ -73,9 +74,9 @@ class ProcessV1Meta(abc.ABCMeta):
             assert (
                 init_vars.index(param) == index
             ), f"`{name}` class `{param}` argument must be in position {index}."
-        
+
         ret_validator = pyd.validate_call(
-            config={"validate_return": True, "allow_arbitrary_types": True}
+            config={"validate_return": True, "arbitrary_types_allowed": True}
         )
         for m in ("while_alive", "while_dormant"):
             method = getattr(cls, m)
@@ -85,17 +86,19 @@ class ProcessV1Meta(abc.ABCMeta):
         setattr(cls, "__init__", ret_validator(cls.__init__))
 
         return cls
-    
+
     def __init__(cls, name, bases, dct):
         super().__init__(name, bases, dct)
         oinit = cls.__init__
+
         def ninit(self, *args, **kwargs):
             oinit(self, *args, **kwargs)
             if ProcessV1 in cls.__bases__:
                 ProcessV1.__init__(self, *args[:3])
+
         cls.__init__ = ninit
 
-    
+
 class ProcessV1(abc.ABC, metaclass=ProcessV1Meta):
     """
     ProcessV1 type. Processes change the state of the entities in a simulation.
@@ -104,20 +107,20 @@ class ProcessV1(abc.ABC, metaclass=ProcessV1Meta):
     -----------
     RANK: int
         The rank of the process. Processes with higher ranks are run first.
-    DOMAIN: List[pyd.BaseModel]
+    DOMAIN: Tuple[EntityV1]
         The types of entities that the process can target.
     """
 
     RANK: int
     DOMAIN: tp.Tuple[EntityV1]
     STATUS_SET = {"ALIVE", "DORMANT", "DEAD"}
-    
+
     def __init__(
         self,
         id: str,
         entities: tp.Dict[str, EntityV1],
         status: str,
-        ):
+    ):
         """
         Instantiate a `ProcessV1` object.
 
@@ -151,7 +154,6 @@ class ProcessV1(abc.ABC, metaclass=ProcessV1Meta):
         ), f"Invalid assignment, `status` must be in {self.STATUS_SET}."
         self._status = value
 
-
     @abc.abstractmethod
     def while_alive(self, step: int) -> tp.Dict[str, int | float]:
         """
@@ -162,7 +164,7 @@ class ProcessV1(abc.ABC, metaclass=ProcessV1Meta):
 
     def while_dormant(self, step: int) -> tp.Dict[str, int | float]:
         """
-        Logic while the process is `DORMANT`. Returns a dictionary of 
+        Logic while the process is `DORMANT`. Returns a dictionary of
         intermediate results as dictionary of `str` keys and `int` or `float`
         """
         pass
@@ -189,5 +191,3 @@ class ProcessV1(abc.ABC, metaclass=ProcessV1Meta):
             pass
         info = {f"{self.id}/{self.status}/{k}/{step}": v for k, v in l.items()}
         return info
-        
-    
