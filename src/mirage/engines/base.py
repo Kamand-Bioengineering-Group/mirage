@@ -41,8 +41,8 @@ class EngineV1Meta(abc.ABCMeta):
 
         init_vars = cls.__dict__["__init__"].__code__.co_varnames
         for param, index in (
-            ("name", 1), 
-            ("state", 2), 
+            ("name", 1),
+            ("state", 2),
             ("processes", 3),
             ("entities", 4),
             ("speed", 5),
@@ -54,21 +54,23 @@ class EngineV1Meta(abc.ABCMeta):
             assert (
                 init_vars.index(param) == index
             ), f"`{name}` class `{param}` argument must be in position {index}."
-        
+
         ret_validator = pyd.validate_call(
             config={"validate_return": True, "allow_arbitrary_types": True}
         )
         setattr(cls, "__init__", ret_validator(cls.__init__))
 
         return cls
-    
+
     def __init__(cls, name, bases, dct):
         super().__init__(name, bases, dct)
         oinit = cls.__init__
+
         def ninit(self, *args, **kwargs):
             oinit(self, *args, **kwargs)
             if ProcessV1 in cls.__bases__:
                 ProcessV1.__init__(self, *args[:3])
+
         cls.__init__ = ninit
 
 
@@ -85,7 +87,6 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
 
     MAX_STEPS = 72000
     STATUS_SET = {"ALIVE", "DORMANT", "DEAD"}
-
 
     @pyd.validate_call(config={"arbitrary_types_allowed": True})
     def __init__(
@@ -124,6 +125,7 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         self.info_history = {}
         self.STEP = 0
         self.run_call_history = []
+        self.state_sync_mode = "RANK"
 
     @property
     def speed(self):
@@ -135,6 +137,15 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
             value, int
         ), "`speed` >= 1 and must be an integer"
         self._speed = value
+
+    @property
+    def state_sync_mode(self):
+        return self._state_sync_mode
+
+    @state_sync_mode.setter
+    def state_sync_mode(self, value: str):
+        assert value in {"RANK", "STEP"}, f"Invalid state sync mode: {value}"
+        self._state_sync_mode = value
 
     @property
     def status(self):
@@ -172,7 +183,7 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         Inclusive variant of the `range` function.
         """
         return range(start, stop + 1, step)
-    
+
     @staticmethod
     def set_to_intervals(s) -> tp.List[tp.List[int, int]]:
         """
@@ -215,15 +226,20 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         """
         ir = EngineV1.irange
         pr_stat_timeline = set().union(
-            *(set(ir(*interval)) for interval in self.pr_stat_chart[process_id])
+            *(
+                set(ir(*interval))
+                for interval in self.pr_stat_chart[process_id]
+            )
         )
         return pr_stat_timeline
-    
+
     @pyd.validate_call
     def update_psc(
         self,
         process_id: str,
-        intervals: tp.List[tp.List[int, int]] | tp.List[int, int] | tp.Set[int],
+        intervals: (
+            tp.List[tp.List[int, int]] | tp.List[int, int] | tp.Set[int]
+        ),
         mode: str,
     ):
         """
@@ -259,9 +275,10 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
                 pr_stat_timeline |= intervals
             elif mode == "DORMANT":
                 pr_stat_timeline -= intervals
-        pr_stat_timeline_intervals = EngineV1.set_to_intervals(pr_stat_timeline)
+        pr_stat_timeline_intervals = EngineV1.set_to_intervals(
+            pr_stat_timeline
+        )
         self.pr_stat_chart[process_id] = pr_stat_timeline_intervals
-
 
     def clear_history(self):
         """
@@ -303,15 +320,17 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
                 current_rank = unique_ranks.pop()
                 for entity in self.entities:
                     entity.sync()
+                self.state.sync() if self.state_sync_mode == "RANK" else None
                 info = process.run(step)
             self.info_history[f"{step}"] = info
+        self.state.sync() if self.state_sync_mode == "STEP" else None
         self.prune_processes()
 
     def fire(self):
         """
         Fire the engine.
         """
-        print(f">> Starting Engine {self.__class__.__name__} {self.name}.")  
+        print(f">> Starting Engine {self.__class__.__name__} {self.name}.")
 
         def simulation_loop():
             pT = time.time()
