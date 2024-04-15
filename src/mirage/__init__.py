@@ -11,6 +11,8 @@ __all__ = [
     "simulations",
 ]
 
+__version__ = "0.1.0"
+
 
 # ---DEPENDENCIES---------------------------------------------------------------
 from . import engines, entities, monitors, processes, simulations
