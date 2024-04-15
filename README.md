@@ -22,7 +22,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Kamand-Bioengineering-Group/mirage">
-    <img src="assets/logos/logo_main.png" alt="Logo" width="80" height="80">
+    <img src="assets/logos/logo-main.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Mirage</h3>
@@ -148,7 +148,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 Utham Kumar Mahesh  
-Email - [uthamkumarmahesh#gmail.com](mailto:uthamkumarmahesh#gmail.com)
+Email - [uthamkumarmahesh@gmail.com](mailto:uthamkumarmahesh@gmail.com)
 
 Aditya Prakash  
 Twitter - [@adityaprakash_t](https://twitter.com/adityaprakash_t)  

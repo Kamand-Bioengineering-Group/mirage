@@ -6,10 +6,11 @@
 __all__ = [
     "engines",
     "entities",
+    "monitors",
     "processes",
     "simulations",
 ]
 
 
 # ---DEPENDENCIES---------------------------------------------------------------
-from . import engines, entities, processes, simulations
+from . import engines, entities, monitors, processes, simulations
