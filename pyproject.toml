@@ -16,8 +16,6 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
 ]
@@ -102,12 +100,12 @@ exclude = [
     "**/node_modules",
     "**/__pycache__",
 ]
-venv = "env39"
+venv = "env311"
 
 reportMissingImports = true
 reportMissingTypeStubs = false
 
-pythonVersion = "3.9"
+pythonVersion = "3.11"
 
 executionEnvironments = [
   { root = "src" }
