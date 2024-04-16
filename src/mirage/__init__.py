@@ -8,11 +8,11 @@ __all__ = [
     "entities",
     "monitors",
     "processes",
-    "simulations",
+    "frameworks",
 ]
 
 __version__ = "0.1.0"
 
 
 # ---DEPENDENCIES---------------------------------------------------------------
-from . import engines, entities, monitors, processes, simulations
+from . import engines, entities, monitors, processes, frameworks
