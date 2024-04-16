@@ -9,4 +9,4 @@ __all__ = [
 
 
 # ---DEPENDENCIES---------------------------------------------------------------
-from . import firefly
+from .base import EngineV1
