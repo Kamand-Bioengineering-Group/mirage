@@ -83,7 +83,7 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         - `STATUS_SET`: The set of valid statuses for the engine.
     """
 
-    MAX_STEPS = 72000
+    MAX_STEPS: int
     STATUS_SET = {"ALIVE", "DORMANT", "DEAD"}
 
     def __init__(
