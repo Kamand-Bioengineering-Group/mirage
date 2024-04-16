@@ -21,48 +21,55 @@ from ..processes.base import ProcessV1
 
 
 # ---ENGINEV1-------------------------------------------------------------------
+# TODO[1]: pyd. validation for __init__ method of EngineV1 and derivatives.
+# Currently, the validation is done only for name, state, processes, entities,
+# speed, and history_persistence arguments inside EngineV1's __init__ method.
+# This is because the annotations are lost amidst various wrapping procedures
+# and pydantic can't validate them.
 class EngineV1Meta(abc.ABCMeta):
     def __new__(mcls, name, bases, namespace, **kwargs):
         cls = super().__new__(mcls, name, bases, namespace, **kwargs)
-
+        ret_validator = pyd.validate_call(
+            config={"validate_return": True, "arbitrary_types_allowed": True}
+        )
         if cls.__name__ != "EngineV1":
             assert hasattr(cls, "MAX_STEPS"), "`MAX_STEPS` must be defined"
             assert isinstance(cls.MAX_STEPS, int), "`MAX_STEPS` must be an int"
             assert cls.MAX_STEPS > 0, "`MAX_STEPS` must be greater than 0"
+            oinit = cls.__init__
 
-        init_vars = cls.__dict__["__init__"].__code__.co_varnames
-        for param, index in (
-            ("name", 1),
-            ("state", 2),
-            ("processes", 3),
-            ("entities", 4),
-            ("speed", 5),
-            ("history_persistence", 6),
-        ):
-            assert (
-                param in init_vars
-            ), f"`{name}` class must have a `{param}` argument in `__init__`."
-            assert (
-                init_vars.index(param) == index
-            ), f"`{name}` class `{param}` argument must be in position {index}."
+            def ninit(self, *args, **kwargs):
+                oinit(self, *args, **kwargs)
+                if EngineV1 in cls.__bases__:
+                    EngineV1.__init__(self, *args[:6])
 
-        ret_validator = pyd.validate_call(
-            config={"validate_return": True, "arbitrary_types_allowed": True}
-        )
-        setattr(cls, "__init__", ret_validator(cls.__init__))
+            cls.__init__ = ninit
+
+            init_method = getattr(cls, "__init__", None)
+            assert callable(
+                init_method
+            ), f"`{name}` class must implement an `__init__` method."
+            init_vars = oinit.__code__.co_varnames
+            for pm, ix in (
+                ("name", 1),
+                ("state", 2),
+                ("processes", 3),
+                ("entities", 4),
+                ("speed", 5),
+                ("history_persistence", 6),
+            ):
+                assert (
+                    pm in init_vars
+                ), f"`{name}` class must have a `{pm}` argument in `__init__`."
+                assert (
+                    init_vars.index(pm) == ix
+                ), f"`{name}` class `{pm}` argument must be in position {ix}."
+            # NOTE: Can't validate like this because annotations are lost
+            # amidst various wrapping procedures.
+            # TODO: Remove Manual Validation from EngineV1's __init__.
+            # setattr(cls, "__init__", ret_validator(cls.__init__))
 
         return cls
-
-    def __init__(cls, name, bases, dct):
-        super().__init__(name, bases, dct)
-        oinit = cls.__init__
-
-        def ninit(self, *args, **kwargs):
-            oinit(self, *args, **kwargs)
-            if EngineV1 in cls.__bases__:
-                EngineV1.__init__(self, *args[:6])
-
-        cls.__init__ = ninit
 
 
 class EngineV1(abc.ABC, metaclass=EngineV1Meta):
@@ -85,8 +92,8 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         state: EntityV1,
         processes: tp.List[ProcessV1],
         entities: tp.List[EntityV1],
-        speed: int = 6,
-        history_persistence: int = 12,
+        speed: int,
+        history_persistence: int,
     ):
         """
         Initialize the engine.
@@ -104,6 +111,24 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         speed: int
             The speed of the engine.
         """
+        ### MANUAL VALIDATION ###
+        assert isinstance(name, str), "`name` must be a `str`."
+        assert isinstance(state, EntityV1), "`state` must be an `EntityV1`."
+        assert isinstance(processes, list), "`processes` must be a `list`."
+        assert all(
+            isinstance(process, ProcessV1) for process in processes
+        ), "`processes` must be a list of `ProcessV1` instances."
+        assert isinstance(entities, list), "`entities` must be a `list`."
+        assert all(
+            isinstance(entity, EntityV1) for entity in entities
+        ), "`entities` must be a list of `EntityV1` instances."
+        assert isinstance(speed, int), "`speed` must be an `int`."
+        assert speed >= 1, "`speed` must be greater than or equal to 1."
+        assert isinstance(
+            history_persistence, int
+        ), "`history_persistence` must be an `int`."
+        assert history_persistence >= 1, "`history_persistence` must be >= 1."
+        ### Remove this after TODO[1] ###
         self.name = name
         self.state = state
         self.processes = processes
@@ -112,7 +137,7 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         self.history_persistence = history_persistence
         self.status = "DORMANT"
         self.pr_stat_chart = {
-            p.id: [[0, self.MAX_STEPS]] for p in self.processes
+            process.id: [[0, self.MAX_STEPS]] for process in self.processes
         }
         self.info_history = {}
         self.STEP = 0
@@ -177,7 +202,8 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         return range(start, stop + 1, step)
 
     @staticmethod
-    def set_to_intervals(s) -> tp.List[tp.List[int]]:
+    @pyd.validate_call
+    def set_to_intervals(s: tp.Set) -> tp.List[tp.List[int]]:
         """
         Convert a set of integers to a list of intervals.
 
@@ -201,6 +227,7 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         intervals.append([start, s[-1]])
         return intervals
 
+    @pyd.validate_call
     def get_pr_stat_timeline(self, process_id: str) -> tp.Set[int]:
         """
         Get the process status timeline. The timeline is a set of integers where
@@ -218,10 +245,7 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         """
         ir = EngineV1.irange
         pr_stat_timeline = set().union(
-            *(
-                set(ir(*interval))
-                for interval in self.pr_stat_chart[process_id]
-            )
+            *(set(ir(*interval)) for interval in self.pr_stat_chart[process_id])
         )
         return pr_stat_timeline
 
@@ -265,9 +289,7 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
                 pr_stat_timeline |= intervals
             elif mode == "DORMANT":
                 pr_stat_timeline -= intervals
-        pr_stat_timeline_intervals = EngineV1.set_to_intervals(
-            pr_stat_timeline
-        )
+        pr_stat_timeline_intervals = EngineV1.set_to_intervals(pr_stat_timeline)
         self.pr_stat_chart[process_id] = pr_stat_timeline_intervals
 
     def clear_history(self):
@@ -312,7 +334,8 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
                     entity.sync()
                 self.state.sync() if self.state_sync_mode == "RANK" else None
                 info = process.run(step)
-            self.info_history[f"{process.id}/{step}"] = info
+            if info is not None:
+                self.info_history[f"{process.id}/{step}"] = info
         self.state.sync() if self.state_sync_mode == "STEP" else None
         self.prune_processes()
 
@@ -347,8 +370,8 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
                     self.status = "DEAD"
                 if self.STEP % self.history_persistence == 0:
                     self.clear_history()
-            print(f">> Stopping Engine {self.__class__.__name__} {self.name}.")
             self.clear_history()
+            print(f">> Stopping Engine {self.__class__.__name__} {self.name}.")
 
         sim_loop_thread = threading.Thread(target=simulation_loop)
         sim_loop_thread.start()
