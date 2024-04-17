@@ -3,6 +3,9 @@
 Module for monitoring.
 """
 
-__all__ = []
+__all__ = [
+    "loggers",
+]
 
 # ---DEPENDENCIES---------------------------------------------------------------
+from . import loggers
