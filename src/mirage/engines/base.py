@@ -139,14 +139,22 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         self.speed = speed
         self.history_persistence = history_persistence
         self.status = "DORMANT"
+<<<<<<< HEAD
         self.pr_stat_chart = {
             process.id: [[0, self.MAX_STEPS]] for process in self.processes
         }
+=======
+>>>>>>> parent of 22d8a0a (Merge branch 'main' of https://github.com/Kamand-Bioengineering-Group/epidemic)
         self.STEP = 0
         self.info_history = {}
         self.run_call_history = []
         self.state_sync_mode = "RANK"
+<<<<<<< HEAD
         self.L = EngineV1Logger(f"{self.__class__.__name__} | {self.name}")
+=======
+        self.L = EngineV1Logger(f"V1 | {self.__class__.__name__} | {self.name}")
+        self.L.info(" >> 🚀 Initialized.")
+>>>>>>> parent of 22d8a0a (Merge branch 'main' of https://github.com/Kamand-Bioengineering-Group/epidemic)
 
     @property
     def speed(self):
@@ -401,9 +409,14 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
             self.clear_history()
             self.stop()
 
+<<<<<<< HEAD
         print(f">> Stopping Engine {self.__class__.__name__} {self.name}.")
         sim_loop_thread = threading.Thread(target=simulation_loop)
         sim_loop_thread.start()
+=======
+        orch_loop_thread = threading.Thread(target=orchestration_loop)
+        orch_loop_thread.start()
+>>>>>>> parent of 22d8a0a (Merge branch 'main' of https://github.com/Kamand-Bioengineering-Group/epidemic)
 
         return sim_loop_thread
 
