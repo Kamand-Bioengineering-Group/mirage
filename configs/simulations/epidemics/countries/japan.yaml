@@ -1,69 +1,79 @@
 name: Japan
-B: 0.0001
-C: 0.0001
-E: 0.0001
-A: 0.0001
-Ds: 0.0001
-Di: 0.0001
-Dr: 0.0001
-gdp: 1000000
-health_resource_stockpile: 0.1
-sanitation_equipment_stockpile: 0
-human_welfare_resource: 0.1
-hapiness_index: 0.1
-general_hospitals: 1000
-procedure_resistance: 0.1
-cleanliness_index: 0.1
-base_death_rate: 0.001
-vaccine_components:
-  - name: A
-    gdp_cost: 40765
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_gdp_perstep: 3435
-    trickle: 0.1
-  - name: B
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
-  - name: C
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
-  - name: D
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
-  - name: E
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
+gdp: 2875140000
+health_resource_stockpile: 50000.0
+sanitation_equipment_stockpile: 50000.0
+human_welfare_resource: 10000.0
+happiness_index: 1.0
+procedure_resistance: 0.6
+cleanliness_index: 0.7
+disease_research_center: 0
+vaccine_research_center: 0
+vaccines_stock: 
+  - name: ABC
+    quantity: 20
+    gdp_cost_per_step: 1000
+    effectiveness: 0.4
+  - name: ACB
+    quantity: 30
+    gdp_cost_per_step: 1000
+    effectiveness: 0.22
+  - name: BAC
+    quantity: 10
+    gdp_cost_per_step: 1000
+    effectiveness: 0.95
+  - name: BCA
+    quantity: 12
+    gdp_cost_per_step: 1000
+    effectiveness: -0.2
+  - name: CAB
+    quantity: 23
+    gdp_cost_per_step: 1000
+    effectiveness: 0.5
+  - name: CBA
+    quantity: 10
+    gdp_cost_per_step: 1000
+    effectiveness: 0.1
 loci:
   - name: Tokyo
-    lat: 35.6895
-    lon: 139.6917
-    susceptible: 13929286
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
+    lat: 19.7515
+    lon: 75.7139
+    susceptible: 112374333
     infected: 100000
     recovered: 10
-    area: 2187
+    dead: 30
+    area: 307713
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
     airports:
       - name: Narita International Airport
         hub_tier: 1
+        infection_rate : 0.003
+        effect: 1.0
+
       - name: Haneda Airport
         hub_tier: 2
+        infection_rate : 0.008
+        effect: 1.0
+
     ports:
       - name: Port of Tokyo
         hub_tier: 1
+        infection_rate : 0.0003
+        effect: 1.0
+
       - name: Port of Yokohama
         hub_tier: 1
+        infection_rate : 0.0004
+        effect: 1.0
+
     economic_zones:
       - name: Tokyo Bay
         zone_tier: 1
@@ -78,54 +88,42 @@ loci:
         zone_tier: 2
       - name: Tokyo Skytree
         zone_tier: 2
-  - name: Yokohama
-    lat: 35.4437
-    lon: 139.638
-    susceptible: 3726167
-    infected: 100000
-    recovered: 10
-    area: 437
-    airports:
-      - name: Narita International Airport
-        hub_tier: 1
-      - name: Haneda Airport
-        hub_tier: 2
-    ports:
-      - name: Port of Yokohama
-        hub_tier: 1
-      - name: Port of Kawasaki
-        hub_tier: 1
-    economic_zones:
-      - name: Minato Mirai 21
-        zone_tier: 1
-      - name: Yokohama Chinatown
-        zone_tier: 2
-      - name: Yamashita Park
-        zone_tier: 2
-    tourist_zones:
-      - name: Yokohama Landmark Tower
-        zone_tier: 1
-      - name: Yokohama Marine Tower
-        zone_tier: 2
-      - name: Yokohama Hakkeijima Sea Paradise
-        zone_tier: 2
+
   - name: Osaka
-    lat: 34.6937
-    lon: 135.5023
-    susceptible: 2586800
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
+    lat: 19.7515
+    lon: 75.7139
+    susceptible: 112374333
     infected: 100000
     recovered: 10
-    area: 225
+    dead: 30
+    area: 307713
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
     airports:
       - name: Kansai International Airport
+        infection_rate : 0.002
         hub_tier: 1
+        effect: 1.0
       - name: Osaka International Airport
         hub_tier: 2
+        effect: 1.0
+        infection_rate : 0.007
+
     ports:
       - name: Port of Osaka
         hub_tier: 1
-      - name: Port of Kobe
-        hub_tier: 1
+        infection_rate : 0.0004
+        effect: 1.0
+
+
     economic_zones:
       - name: Umeda
         zone_tier: 1
@@ -140,54 +138,42 @@ loci:
         zone_tier: 2
       - name: Osaka Aquarium Kaiyukan
         zone_tier: 2
-  - name: Nagoya
-    lat: 35.1815
-    lon: 136.9066
-    susceptible: 2314461
-    infected: 100000
-    recovered: 10
-    area: 326
-    airports:
-      - name: Chubu Centrair International Airport
-        hub_tier: 1
-      - name: Nagoya Airfield
-        hub_tier: 2
-    ports:
-      - name: Port of Nagoya
-        hub_tier: 1
-      - name: Port of Yokkaichi
-        hub_tier: 1
-    economic_zones:
-      - name: Nagoya Station
-        zone_tier: 1
-      - name: Sakae
-        zone_tier: 2
-      - name: Kanayama
-        zone_tier: 2
-    tourist_zones:
-      - name: Nagoya Castle
-        zone_tier: 1
-      - name: Atsuta Shrine
-        zone_tier: 2
-      - name: Nagoya TV Tower
-        zone_tier: 2
+
   - name: Sapporo
-    lat: 43.0618
-    lon: 141.3545
-    susceptible: 1952356
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
+    lat: 19.7515
+    lon: 75.7139
+    susceptible: 112374333
     infected: 100000
     recovered: 10
-    area: 1121
+    dead: 30
+    area: 307713
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
     airports:
       - name: New Chitose Airport
         hub_tier: 1
+        effect: 1.0
+        infection_rate : 0.0009
+
       - name: Okadama Airport
         hub_tier: 2
+        effect: 1.0
+        infection_rate : 0.0009
+
     ports:
       - name: Port of Otaru
         hub_tier: 1
-      - name: Port of Tomakomai
-        hub_tier: 1
+        infection_rate : 0.0004
+        effect: 1.0
+
     economic_zones:
       - name: Sapporo Station
         zone_tier: 1
