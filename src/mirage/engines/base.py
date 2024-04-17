@@ -18,6 +18,7 @@ import pydantic as pyd
 
 from ..entities.base import EntityV1
 from ..processes.base import ProcessV1
+from ..monitors.loggers.engine_loggers import EngineV1Logger
 
 
 # ---ENGINEV1-------------------------------------------------------------------
@@ -26,6 +27,7 @@ from ..processes.base import ProcessV1
 # speed, and history_persistence arguments inside EngineV1's __init__ method.
 # This is because the annotations are lost amidst various wrapping procedures
 # and pydantic can't validate them.
+# TODO[2]: EngineV1 and it's derivates are only accepting positional arguments.
 class EngineV1Meta(abc.ABCMeta):
     def __new__(mcls, name, bases, namespace, **kwargs):
         cls = super().__new__(mcls, name, bases, namespace, **kwargs)
@@ -103,7 +105,8 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         name: str
             The name of the engine.
         state: EntityV1
-            The state of the engine.
+            The state of the engine. Used to store metadata from processes,
+            entities, and the engine itself.
         processes: List[ProcessV1]
             The processes of the engine.
         entities: List[EntityV1]
@@ -139,10 +142,11 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         self.pr_stat_chart = {
             process.id: [[0, self.MAX_STEPS]] for process in self.processes
         }
-        self.info_history = {}
         self.STEP = 0
+        self.info_history = {}
         self.run_call_history = []
         self.state_sync_mode = "RANK"
+        self.L = EngineV1Logger(f"{self.__class__.__name__} | {self.name}")
 
     @property
     def speed(self):
@@ -291,6 +295,11 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
                 pr_stat_timeline -= intervals
         pr_stat_timeline_intervals = EngineV1.set_to_intervals(pr_stat_timeline)
         self.pr_stat_chart[process_id] = pr_stat_timeline_intervals
+        self.L.info(
+            " >> 📝 PSC updated | Process: {}, Timeline: {}.".format(
+                process_id, pr_stat_timeline_intervals
+            )
+        )
 
     def clear_history(self):
         """
@@ -343,16 +352,32 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         self.state.sync()
         self.prune_processes()
 
-    def fire(self):
+    def fire(self, num_steps: int = None, time_limit: int = None):
         """
         Fire the engine.
+
+        Parameters:
+        -----------
+        num_steps: int
+            The number of steps to run the engine.
+        time_limit: int
+            The time limit to run the engine (in minutes).
         """
-        print(f">> Starting Engine {self.__class__.__name__} {self.name}.")
+        if num_steps and not time_limit:
+            if not self.MAX_STEPS >= num_steps >= 1:
+                raise ValueError(f"`num_steps` not <= {self.MAX_STEPS}.")
+        elif time_limit and not num_steps:
+            num_steps = self.speed * time_limit
+        else:
+            raise ValueError("Use `num_steps` or `time_limit`.")
+        num_steps = int(num_steps)
+
+        self.L.info(f" >> 🔥 Firing Up...")
         self.play()
 
         def simulation_loop():
             pT = time.time()
-            while self.status != "DEAD":
+            while self.status != "DEAD" and self.STEP <= num_steps:
                 if self.status == "ALIVE":
                     nT = time.time()
                     if nT - pT >= 60 / self.speed:
@@ -371,13 +396,12 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
                     pass
                 else:
                     pass
-                if self.STEP >= self.MAX_STEPS:
-                    self.stop()
                 if self.STEP % self.history_persistence == 0:
                     self.clear_history()
             self.clear_history()
-            print(f">> Stopping Engine {self.__class__.__name__} {self.name}.")
+            self.stop()
 
+        print(f">> Stopping Engine {self.__class__.__name__} {self.name}.")
         sim_loop_thread = threading.Thread(target=simulation_loop)
         sim_loop_thread.start()
 
@@ -387,16 +411,19 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         """
         Pause the engine.
         """
+        self.L.info(" >> ⏸️ Pausing...")
         self.status = "DORMANT"
 
     def play(self):
         """
         Play the engine.
         """
+        self.L.info(" >> ▶️ Playing...")
         self.status = "ALIVE"
 
     def stop(self):
         """
         Stop the engine.
         """
+        self.L.info(" >> ⏹️ Stopping...")
         self.status = "DEAD"
