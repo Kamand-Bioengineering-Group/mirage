@@ -3,9 +3,7 @@
 Module for logging engine activity.
 """
 
-__all__ = [
-    "EngineV1Logger",
-]
+__all__ = []
 
 # ---DEPENDENCIES---------------------------------------------------------------
 import logging
