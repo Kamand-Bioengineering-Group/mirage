@@ -102,11 +102,11 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         -----------
         name: str
             The name of the engine.
-        state: pyd.BaseModel
+        state: EntityV1
             The state of the engine.
         processes: List[ProcessV1]
             The processes of the engine.
-        entities: List[pyd.BaseModel]
+        entities: List[EntityV1]
             The entities of the engine.
         speed: int
             The speed of the engine.
@@ -326,17 +326,21 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         for process in schedule:
             pst = self.get_pr_stat_timeline(process.id)
             process.status = "ALIVE" if step in pst else "DORMANT"
-            if process.RANK == current_rank:
-                info = process.run(step)
-            else:
-                current_rank = unique_ranks.pop()
+
+            if process.RANK != current_rank:
                 for entity in self.entities:
                     entity.sync()
-                self.state.sync() if self.state_sync_mode == "RANK" else None
-                info = process.run(step)
+                if self.state_sync_mode == "RANK":
+                    self.state.sync()
+                current_rank = unique_ranks.pop()
+
+            info = process.run(step)
             if info is not None:
                 self.info_history[f"{process.id}/{step}"] = info
-        self.state.sync() if self.state_sync_mode == "STEP" else None
+
+        for entity in self.entities:
+            entity.sync()
+        self.state.sync()
         self.prune_processes()
 
     def fire(self):
@@ -344,6 +348,7 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         Fire the engine.
         """
         print(f">> Starting Engine {self.__class__.__name__} {self.name}.")
+        self.play()
 
         def simulation_loop():
             pT = time.time()
@@ -367,7 +372,7 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
                 else:
                     pass
                 if self.STEP >= self.MAX_STEPS:
-                    self.status = "DEAD"
+                    self.stop()
                 if self.STEP % self.history_persistence == 0:
                     self.clear_history()
             self.clear_history()
