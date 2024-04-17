@@ -59,6 +59,7 @@ class EngineV1Meta(abc.ABCMeta):
                 ("entities", 4),
                 ("speed", 5),
                 ("history_persistence", 6),
+                ("pr_stat_chart", 7),
             ):
                 assert (
                     pm in init_vars
@@ -96,6 +97,7 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         entities: tp.List[EntityV1],
         speed: int,
         history_persistence: int,
+        pr_stat_chart: tp.Dict[str, tp.List[tp.List[int]]] | None,
     ):
         """
         Initialize the engine.
@@ -121,6 +123,9 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         assert all(
             isinstance(process, ProcessV1) for process in processes
         ), "`processes` must be a list of `ProcessV1` instances."
+        assert len({process.id for process in processes}) == len(
+            processes
+        ), "All processes must have unique ids."
         assert isinstance(entities, list), "`entities` must be a `list`."
         assert all(
             isinstance(entity, EntityV1) for entity in entities
@@ -138,15 +143,22 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         self.entities = entities
         self.speed = speed
         self.history_persistence = history_persistence
+        self.pr_stat_chart = pr_stat_chart
+        if set(self.pr_stat_chart.keys()) != {p.id for p in self.processes}:
+            raise ValueError(
+                "Processes in `pr_stat_chart` must be present in `processes`."
+            )
+        for p in self.processes:
+            if p.id not in self.pr_stat_chart:
+                self.pr_stat_chart[p.id] = [[0, self.MAX_STEPS]]
+
         self.status = "DORMANT"
-        self.pr_stat_chart = {
-            process.id: [[0, self.MAX_STEPS]] for process in self.processes
-        }
         self.STEP = 0
         self.info_history = {}
         self.run_call_history = []
         self.state_sync_mode = "RANK"
-        self.L = EngineV1Logger(f"{self.__class__.__name__} | {self.name}")
+        self.L = EngineV1Logger(f"V1 | {self.__class__.__name__} | {self.name}")
+        self.L.info(" >> 🚀 Initialized.")
 
     @property
     def speed(self):
@@ -329,8 +341,8 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
             The step to run the engine.
         """
         schedule = self.get_schedule()
-        unique_ranks = set(p.RANK for p in schedule)
-        current_rank = unique_ranks.pop()
+        unique_ranks = list(sorted(set(p.RANK for p in schedule)))
+        current_rank = unique_ranks.pop(0)
 
         for process in schedule:
             pst = self.get_pr_stat_timeline(process.id)
@@ -341,7 +353,7 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
                     entity.sync()
                 if self.state_sync_mode == "RANK":
                     self.state.sync()
-                current_rank = unique_ranks.pop()
+                current_rank = unique_ranks.pop(0)
 
             info = process.run(step)
             if info is not None:
@@ -375,7 +387,7 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         self.L.info(f" >> 🔥 Firing Up...")
         self.play()
 
-        def simulation_loop():
+        def orchestration_loop():
             pT = time.time()
             while self.status != "DEAD" and self.STEP <= num_steps:
                 if self.status == "ALIVE":
@@ -401,11 +413,10 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
             self.clear_history()
             self.stop()
 
-        print(f">> Stopping Engine {self.__class__.__name__} {self.name}.")
-        sim_loop_thread = threading.Thread(target=simulation_loop)
-        sim_loop_thread.start()
+        orch_loop_thread = threading.Thread(target=orchestration_loop)
+        orch_loop_thread.start()
 
-        return sim_loop_thread
+        return orch_loop_thread
 
     def pause(self):
         """
