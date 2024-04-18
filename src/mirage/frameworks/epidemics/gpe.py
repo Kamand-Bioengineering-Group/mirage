@@ -12,30 +12,13 @@ __all__ = [
 # ---DEPENDENCIES---------------------------------------------------------------
 import typing as tp
 import pydantic as pyd
+from mirage.src.mirage.entities.base import EntityV1
 
 
 # ---COUNTRY--------------------------------------------------------------------
-class Locus(pyd.BaseModel):
-    """
-    A locus is a geographical location.
-    """
-    name: str
-    lat: float
-    lon: float
-    susceptible: int
-    infected: int
-    recovered: int
-    area: int
-    airports: tp.List[tp.Dict[str, str | int]] | None
-    ports: tp.List[tp.Dict[str, str | int]] | None
-    economic_zones: tp.List[tp.Dict[str, str | int]] | None
-    tourist_zones: tp.List[tp.Dict[str, str | int]] | None
 
-class Country(pyd.BaseModel):
-    """
-    A country is a geo-political entity.
-    """
-    name: str
+# ---COUNTRY--------------------------------------------------------------------
+class Locus(EntityV1):
     B: float
     C: float
     E: float
@@ -43,15 +26,33 @@ class Country(pyd.BaseModel):
     Ds: float
     Di: float
     Dr: float
-    gdp: float
+    lat: float
+    lon: float
+    name: str
+    susceptible: int
+    infected: int
+    recovered: int
+    dead: int
+    area: int
+    quarantine_facilities: int
+    general_hospitals: int
+    vaccine_distribution_centers: int
+    airports: tp.List[tp.Dict[str, str | int | float]] | None
+    ports: tp.List[tp.Dict[str, str | int | float]] | None
+    economic_zones: tp.List[tp.Dict[str, str | int | float]] | None
+    tourist_zones: tp.List[tp.Dict[str, str | int | float]] | None
+
+
+class Country(EntityV1):
+    name: str
+    gdp: int
     health_resource_stockpile: float
     sanitation_equipment_stockpile: float
     human_welfare_resource: float
     happiness_index: float
-    general_hospitals: int
     procedure_resistance: float
     cleanliness_index: float
-    base_death_rate: float
-    vaccine_components: tp.List[tp.Dict[str, str | int | float]] | None
+    disease_research_center: int
+    vaccine_research_center: int
+    vaccines_stock: tp.List[tp.Dict[str, str | int | float]] | None
     loci: tp.List[Locus]
-

@@ -15,6 +15,7 @@ def truncated_sigmoid(x, min_val, max_val):
     return scaled_sigmoid_x
 
 
+############################################################################################################
 class BirthProcess(ProcessV1):
 
     """_summary_
@@ -123,6 +124,8 @@ class BirthProcess(ProcessV1):
         #     + str(country): locus.A
         #     for locus in self.entities[country].loci
         # }
+
+############################################################################################################
 
 
 class MaskImplementationProcess(ProcessV1):
@@ -491,7 +494,350 @@ class QuarantineFacilitiesQProcess(ProcessV1):
         # }
 
 
-class EconomicZoneEffectChangeProcess(ProcessV1):
+# class EconomicZoneEffectChangeProcess(ProcessV1):
+#     RANK = 1
+#     DOMAIN = (gpe.Country,)
+
+#     def __init__(
+#         self,
+#         id: str,
+#         entities,
+#         status: str,
+#         change_country=[],
+#         economic_zone_names=[],
+#         effect=[],
+#         trunk_min_value=1e-5,
+#         trunk_max_value=5e-4,
+#         max_tier=4,
+#         gdp_multiplier=5e-4 * 1e5
+
+#     ):
+
+#         # Give Country and economic zone name as list with same index corresponding to each others country (with same name as Initialized Entity) and economic zone name
+
+#         # super().__init__(id, entities, status)
+#         self.change_country = change_country
+#         self.economic_zone_names = economic_zone_names
+#         self.effect = effect
+#         self.status = status
+#         self.trunk_min_value = trunk_min_value
+#         self.trunk_max_value = trunk_max_value
+#         self.max_tier = max_tier
+#         self.gdp_multiplier = gdp_multiplier
+
+#     def while_dormant(self, step: int):
+#         pass
+
+#     def auto_run(self):
+#         # go through all the countries and increase the B value of locus based on available economic zone and its b_value_increase
+#         for country in self.entities.keys():
+#             for locus in self.entities[country].loci:
+#                 total_b_increase = 0
+#                 total_gdp_increase = 0
+#                 if locus.economic_zones != None:
+#                     for economicZone in locus.economic_zones:
+#                         # print(economicZone["name"], economicZone["b_val_increase"])
+#                         total_b_increase += truncated_sigmoid(
+#                             (self.max_tier - economicZone["zone_tier"]) * economicZone["effect"], self.trunk_min_value, self.trunk_max_value)
+#                         total_gdp_increase += total_b_increase * self.gdp_multiplier
+#                     # print(locus.name, total_b_increase, "name", "Increase")
+#                     if locus.B + total_b_increase < 1:
+#                         locus.B += total_b_increase
+#                     else:
+#                         locus.B -= 0.1*locus.B
+
+#                     self.entities[country].gdp += total_gdp_increase
+
+#     def while_alive(self, step: int):
+#         if len(self.change_country) != len(self.economic_zone_names):
+#             raise ValueError(
+#                 "Length of change country, economic_zone_name and effect should be same"
+#             )
+
+#         elif len(self.change_country) == 0:
+#             # go through all the countries and increase the B value of locus based on available economic zone and its b_value_increase
+#             self.auto_run()
+
+#         elif len(self.change_country) > 0 and len(self.change_country) == len(
+#             self.economic_zone_names
+#         ):
+#             for i, country in enumerate(self.change_country):
+#                 for locus in self.entities[country].loci:
+#                     for economicZone in locus.economic_zones:
+#                         if economicZone["name"] == self.economic_zone_names[i]:
+#                             economicZone["effect"] = self.effect[i]
+#             self.auto_run()
+
+#         # return {
+#         #     "EconomicZoneEffectChangeProcess"
+#         #     + "_"
+#         #     + str(locus.name)
+#         #     + "_"
+#         #     + str(country): locus.B
+#         #     for locus in self.entities[country].loci
+#         # }
+
+
+# class TouristZoneEffectChangeProcess(ProcessV1):
+#     RANK = 1
+#     DOMAIN = (gpe.Country,)
+
+#     def __init__(
+#         self,
+#         id: str,
+#         entities,
+#         status: str,
+#         change_country=[],
+#         tourist_zone_names=[],
+#         effect=[],
+#         trunk_min_value=1e-5,
+#         trunk_max_value=5e-4,
+#         max_tier=4,
+#         gdp_multiplier=5e-4 * 5e5
+
+#     ):
+#         # Give Country and economic zone name as list with same index corresponding to each others country (with same name as Initialized Entity) and economic zone name
+
+#         # super().__init__(id, entities, status)
+#         self.change_country = change_country
+#         self.tourist_zone_names = tourist_zone_names
+#         self.effect = effect
+#         self.status = status
+#         self.trunk_min_value = trunk_min_value
+#         self.trunk_max_value = trunk_max_value
+#         self.max_tier = max_tier
+#         self.gdp_multiplier = gdp_multiplier
+
+#     def while_dormant(self, step: int):
+#         pass
+
+#     def auto_run(self):
+#         # go through all the countries and increase the B value of locus based on available economic zone and its b_value_increase
+#         for country in self.entities.keys():
+#             for locus in self.entities[country].loci:
+#                 total_b_increase = 0
+#                 total_gdp_increase = 0
+#                 if locus.tourist_zones != None:
+#                     for touristZone in locus.tourist_zones:
+#                         # print(economicZone["name"], economicZone["b_val_increase"])
+#                         total_b_increase += truncated_sigmoid(
+#                             (self.max_tier - touristZone["zone_tier"]) * touristZone["effect"], self.trunk_min_value, self.trunk_max_value)
+#                         total_gdp_increase += total_b_increase * self.gdp_multiplier
+#                     # print(locus.name, total_b_increase, "name", "Increase")
+#                     if locus.B + total_b_increase < 1:
+#                         locus.B += total_b_increase
+#                     else:
+#                         locus.B -= 0.1*locus.B
+
+#                     self.entities[country].gdp += total_gdp_increase
+
+#     def while_alive(self, step: int):
+#         if len(self.change_country) != len(self.tourist_zone_names):
+#             raise ValueError(
+#                 "Length of change country, tourist_zone_name and effect should be same"
+#             )
+
+#         elif len(self.change_country) == 0:
+
+#             # go through all the countries and increase the B value of locus based on available economic zone and its b_value_increase
+#             self.auto_run()
+
+#         elif len(self.change_country) > 0 and len(self.change_country) == len(
+#             self.tourist_zone_names
+#         ):
+
+#             for i, country in enumerate(self.change_country):
+#                 print(country, "country",
+#                       self.tourist_zone_names[i], "zone", self.effect[i], "effect")
+#                 for locus in self.entities[country].loci:
+#                     for touristZone in locus.tourist_zones:
+#                         print(touristZone["name"], "Current",
+#                               self.tourist_zone_names[i], "Wanted")
+#                         if touristZone["name"] == self.tourist_zone_names[i]:
+#                             print("in")
+#                             print(touristZone["name"], locus.name)
+#                             touristZone["effect"] = self.effect[i]
+#             self.auto_run()
+
+#         # return {
+#         #     "TouristZoneEffectChangeProcess"
+#         #     + "_"
+#         #     + str(locus.name)
+#         #     + "_"
+#         #     + str(country): locus.B
+#         #     for locus in self.entities[country].loci
+#         # }
+
+
+# class PortEffectChangeProcess(ProcessV1):
+#     RANK = 1
+#     DOMAIN = (gpe.Country,)
+
+#     def __init__(
+#         self,
+#         id: str,
+#         entities,
+#         status: str,
+#         change_country=[],
+#         port_names=[],
+#         effect=[],
+#         trunk_min_value=5e-5,
+#         trunk_max_value=9e-4,
+#         max_tier=4,
+#         gdp_multiplier=9e-4 * 1e6
+
+#     ):
+#         # Give Country and economic zone name as list with same index corresponding to each others country (with same name as Initialized Entity) and economic zone name
+
+#         # super().__init__(id, entities, status)
+#         self.change_country = change_country
+#         self.port_names = port_names
+#         self.effect = effect
+#         self.status = status
+#         self.trunk_min_value = trunk_min_value
+#         self.trunk_max_value = trunk_max_value
+#         self.max_tier = max_tier
+#         self.gdp_multiplier = gdp_multiplier
+
+#     def while_dormant(self, step: int):
+#         pass
+
+#     def auto_run(self):
+#         # go through all the countries and increase the B value of locus based on available economic zone and its b_value_increase
+#         for country in self.entities.keys():
+#             for locus in self.entities[country].loci:
+#                 total_b_increase = 0
+#                 total_gdp_increase = 0
+#                 if locus.ports != None:
+#                     for portZones in locus.ports:
+#                         # print(economicZone["name"], economicZone["b_val_increase"])
+#                         total_b_increase += truncated_sigmoid(
+#                             (self.max_tier - portZones["zone_tier"]) * portZones["effect"], self.trunk_min_value, self.trunk_max_value)
+#                         total_gdp_increase += total_b_increase * self.gdp_multiplier
+#                     # print(locus.name, total_b_increase, "name", "Increase")
+#                     if locus.B + total_b_increase < 1:
+#                         locus.B += total_b_increase
+#                     else:
+#                         locus.B -= 0.1*locus.B
+
+#                     self.entities[country].gdp += total_gdp_increase
+
+#     def while_alive(self, step: int):
+#         if len(self.change_country) != len(self.port_names):
+#             raise ValueError(
+#                 "Length of change country, tourist_zone_name and effect should be same"
+#             )
+
+#         elif len(self.change_country) == 0:
+
+#             # go through all the countries and increase the B value of locus based on available economic zone and its b_value_increase
+#             self.auto_run()
+
+#         elif len(self.change_country) > 0 and len(self.change_country) == len(
+#             self.port_names
+#         ):
+
+#             for i, country in enumerate(self.change_country):
+#                 for locus in self.entities[country].loci:
+#                     if locus.ports != None:
+#                         for portZones in locus.ports:
+
+#                             if portZones["name"] == self.port_names[i]:
+
+#                                 portZones["effect"] = self.effect[i]
+#             self.auto_run()
+
+#         # return {
+#         #     "PortEffectChangeProcess"
+#         #     + "_"
+#         #     + str(locus.name)
+#         #     + "_"
+#         #     + str(country): locus.B
+#         #     for locus in self.entities[country].loci
+#         # }
+
+
+# class AirPortEffectChangeProcess(ProcessV1):
+#     RANK = 1
+#     DOMAIN = (gpe.Country,)
+
+#     def __init__(
+#         self,
+#         id: str,
+#         entities,
+#         status: str,
+#         change_country=[],
+#         air_port_names=[],
+#         effect=[],
+#         trunk_min_value=5e-5,
+#         trunk_max_value=9e-4,
+#         max_tier=4,
+#         gdp_multiplier=9e-4 * 1e6
+
+#     ):
+#         self.change_country = change_country
+#         self.air_port_names = air_port_names
+#         self.effect = effect
+#         self.status = status
+#         self.trunk_min_value = trunk_min_value
+#         self.trunk_max_value = trunk_max_value
+#         self.max_tier = max_tier
+#         self.gdp_multiplier = gdp_multiplier
+
+#     def while_dormant(self, step: int):
+#         pass
+
+#     def auto_run(self):
+#         for country in self.entities.keys():
+#             for locus in self.entities[country].loci:
+#                 total_b_increase = 0
+#                 total_gdp_increase = 0
+#                 if locus.airports != None:
+#                     for portZones in locus.airports:
+
+#                         total_b_increase += truncated_sigmoid(
+#                             (self.max_tier - portZones["zone_tier"]) * portZones["effect"], self.trunk_min_value, self.trunk_max_value)
+#                         total_gdp_increase += total_b_increase * self.gdp_multiplier
+
+#                     if locus.B + total_b_increase < 1:
+#                         locus.B += total_b_increase
+#                     else:
+#                         locus.B -= 0.1*locus.B
+
+#                     self.entities[country].gdp += total_gdp_increase
+
+#     def while_alive(self, step: int):
+#         if len(self.change_country) != len(self.air_port_names):
+#             raise ValueError(
+#                 "Length of change country, tourist_zone_name and effect should be same"
+#             )
+
+#         elif len(self.change_country) == 0:
+
+#             # go through all the countries and increase the B value of locus based on available economic zone and its b_value_increase
+#             self.auto_run()
+
+#         elif len(self.change_country) > 0 and len(self.change_country) == len(
+#             self.air_port_names
+#         ):
+
+#             for i, country in enumerate(self.change_country):
+
+#                 for locus in self.entities[country].loci:
+#                     if locus.airports != None:
+#                         for portZones in locus.airports:
+
+#                             if portZones["name"] == self.air_port_names[i]:
+
+#                                 portZones["effect"] = self.effect[i]
+#             self.auto_run()
+#         """_summary_
+#         """
+############################################################################################################
+#################### C VALUE CHANGE#######################################################################
+
+
+class MandatoryVaccinationProcess(ProcessV1):
     RANK = 1
     DOMAIN = (gpe.Country,)
 
@@ -501,81 +847,71 @@ class EconomicZoneEffectChangeProcess(ProcessV1):
         entities,
         status: str,
         change_country=[],
-        economic_zone_names=[],
-        effect=[],
-        trunk_min_value=1e-5,
-        trunk_max_value=5e-4,
-        max_tier=4,
-        gdp_multiplier=5e-4 * 1e5
+        state=[],
+        percent_infected_vaccinated=0.5,
+        gdp_cost_per_infected=0.001,
+        health_resource_cost_per_infected=0.001,
+        trunk_min_value=1e-6,
+        trunk_max_value=5e-5
 
     ):
-
-        # Give Country and economic zone name as list with same index corresponding to each others country (with same name as Initialized Entity) and economic zone name
-
         # super().__init__(id, entities, status)
-        self.change_country = change_country
-        self.economic_zone_names = economic_zone_names
-        self.effect = effect
+        self.gdp_cost_per_infected = gdp_cost_per_infected
+        self.health_resource_cost_per_infected = health_resource_cost_per_infected
         self.status = status
+        self.percent_infected_vaccinated = percent_infected_vaccinated
+        self.state = state
+        self.country = change_country
+        self.state = state
         self.trunk_min_value = trunk_min_value
         self.trunk_max_value = trunk_max_value
-        self.max_tier = max_tier
-        self.gdp_multiplier = gdp_multiplier
 
     def while_dormant(self, step: int):
         pass
 
-    def auto_run(self):
-        # go through all the countries and increase the B value of locus based on available economic zone and its b_value_increase
-        for country in self.entities.keys():
-            for locus in self.entities[country].loci:
-                total_b_increase = 0
-                total_gdp_increase = 0
-                if locus.economic_zones != None:
-                    for economicZone in locus.economic_zones:
-                        # print(economicZone["name"], economicZone["b_val_increase"])
-                        total_b_increase += truncated_sigmoid(
-                            (self.max_tier - economicZone["zone_tier"]) * economicZone["effect"], self.trunk_min_value, self.trunk_max_value)
-                        total_gdp_increase += total_b_increase * self.gdp_multiplier
-                    # print(locus.name, total_b_increase, "name", "Increase")
-                    if locus.B + total_b_increase < 1:
-                        locus.B += total_b_increase
-                    else:
-                        locus.B -= 0.1*locus.B
-
-                    self.entities[country].gdp += total_gdp_increase
-
     def while_alive(self, step: int):
-        if len(self.change_country) != len(self.economic_zone_names):
-            raise ValueError(
-                "Length of change country, economic_zone_name and effect should be same"
-            )
+        for i, country in enumerate(self.country):
+            print(country)
+            print(self.entities)
+            healthcare_resource = self.entities[country].health_resource_stockpile
+            for locus in self.entities[country].loci:
+                if locus.name == self.state[i]:
 
-        elif len(self.change_country) == 0:
-            # go through all the countries and increase the B value of locus based on available economic zone and its b_value_increase
-            self.auto_run()
+                    print("Yes", locus.name)
+                    if (
+                        healthcare_resource >= self.health_resource_cost_per_infected *
+                        locus.infected * self.percent_infected_vaccinated
+                    ):
+                        print("ENOUNG RESOURCES", healthcare_resource, self.health_resource_cost_per_infected *
+                              locus.infected * self.percent_infected_vaccinated)
+                        if (
+                            self.entities[country].health_resource_stockpile
+                            - self.health_resource_cost_per_infected *
+                                locus.infected * self.percent_infected_vaccinated
+                            <= 0
+                        ):
+                            self.entities[country].health_resource_stockpile = 0
+                        else:
+                            self.entities[country].health_resource_stockpile -= self.health_resource_cost_per_infected * \
+                                locus.infected * self.percent_infected_vaccinated
 
-        elif len(self.change_country) > 0 and len(self.change_country) == len(
-            self.economic_zone_names
-        ):
-            for i, country in enumerate(self.change_country):
-                for locus in self.entities[country].loci:
-                    for economicZone in locus.economic_zones:
-                        if economicZone["name"] == self.economic_zone_names[i]:
-                            economicZone["effect"] = self.effect[i]
-            self.auto_run()
+                        print(locus.C, "LOCUS B  BEFORE")
+                        if (locus.C + truncated_sigmoid(locus.C * self.percent_infected_vaccinated, self.trunk_min_value, self.trunk_max_value) < 1):
+                            locus.C += truncated_sigmoid(
+                                locus.C * self.percent_infected_vaccinated, self.trunk_min_value, self.trunk_max_value)
+                        else:
+                            locus.C = 0.8
+                        print(locus.C, "LOCUS B AFTER")
 
-        # return {
-        #     "EconomicZoneEffectChangeProcess"
-        #     + "_"
-        #     + str(locus.name)
-        #     + "_"
-        #     + str(country): locus.B
-        #     for locus in self.entities[country].loci
-        # }
+                    else:
+                        print("Insuff RES")
+                        locus.C -= locus.C*0.02
+
+                else:
+                    pass
 
 
-class TouristZoneEffectChangeProcess(ProcessV1):
+class GeneralHospitalBuildingProcess(ProcessV1):
     RANK = 1
     DOMAIN = (gpe.Country,)
 
@@ -585,248 +921,78 @@ class TouristZoneEffectChangeProcess(ProcessV1):
         entities,
         status: str,
         change_country=[],
-        tourist_zone_names=[],
-        effect=[],
-        trunk_min_value=1e-5,
-        trunk_max_value=5e-4,
-        max_tier=4,
-        gdp_multiplier=5e-4 * 5e5
+        state=[],
+        num_hospitals=[],
+        gdp_cost_per_hospital=10000,
+        min_recovered_people=50,
+        trunk_min_value=1e-6,
+        trunk_max_value=5e-5
 
     ):
-        # Give Country and economic zone name as list with same index corresponding to each others country (with same name as Initialized Entity) and economic zone name
-
         # super().__init__(id, entities, status)
-        self.change_country = change_country
-        self.tourist_zone_names = tourist_zone_names
-        self.effect = effect
+        self.gdp_cost_per_hospital = gdp_cost_per_hospital
+        self.min_recovered_people = min_recovered_people
         self.status = status
+        self.num_hospitals = num_hospitals
+        self.state = state
+        self.country = change_country
         self.trunk_min_value = trunk_min_value
         self.trunk_max_value = trunk_max_value
-        self.max_tier = max_tier
-        self.gdp_multiplier = gdp_multiplier
 
     def while_dormant(self, step: int):
         pass
 
-    def auto_run(self):
-        # go through all the countries and increase the B value of locus based on available economic zone and its b_value_increase
+    def while_alive(self, step: int):
+        if len(self.change_country) > 0:
+            for i, country in enumerate(self.country):
+                print(country)
+                print(self.entities)
+                healthcare_resource = self.entities[country].health_resource_stockpile
+                for locus in self.entities[country].loci:
+                    if locus.name == self.state[i]:
+
+                        print("Yes", locus.name)
+                        if (
+                            healthcare_resource >= self.gdp_cost_per_hospital *
+                                self.num_hospitals[i]
+                            and locus.recovered >= self.min_recovered_people
+                        ):
+                            print("ENOUNG RESOURCES", healthcare_resource,
+                                  self.gdp_cost_per_hospital)
+                            if (
+                                self.entities[country].health_resource_stockpile
+                                - self.gdp_cost_per_hospital
+                                <= 0
+                            ):
+                                self.entities[country].health_resource_stockpile = 0
+                            else:
+                                self.entities[country].health_resource_stockpile -= self.gdp_cost_per_hospital
+
+                            print(locus.general_hospitals, "LOCUS B  BEFORE")
+                            locus.general_hospitals += self.num_hospitals[i]
+                            print(locus.general_hospitals, "LOCUS B AFTER")
+
+                        else:
+                            print("Insuff RES")
+                            locus.C -= locus.C*0.0002
+
+        # If no country provided then check all loci of all country and increase the C value of the loci based on the number of hospitals
         for country in self.entities.keys():
             for locus in self.entities[country].loci:
-                total_b_increase = 0
-                total_gdp_increase = 0
-                if locus.tourist_zones != None:
-                    for touristZone in locus.tourist_zones:
-                        # print(economicZone["name"], economicZone["b_val_increase"])
-                        total_b_increase += truncated_sigmoid(
-                            (self.max_tier - touristZone["zone_tier"]) * touristZone["effect"], self.trunk_min_value, self.trunk_max_value)
-                        total_gdp_increase += total_b_increase * self.gdp_multiplier
-                    # print(locus.name, total_b_increase, "name", "Increase")
-                    if locus.B + total_b_increase < 1:
-                        locus.B += total_b_increase
+                if locus.recovered >= self.min_recovered_people:
+                    if (
+                        self.entities[country].health_resource_stockpile
+                        - self.gdp_cost_per_hospital
+                        <= 0
+                    ):
+                        self.entities[country].health_resource_stockpile = 0
                     else:
-                        locus.B -= 0.1*locus.B
+                        self.entities[country].health_resource_stockpile -= self.gdp_cost_per_hospital
 
-                    self.entities[country].gdp += total_gdp_increase
-
-    def while_alive(self, step: int):
-        if len(self.change_country) != len(self.tourist_zone_names):
-            raise ValueError(
-                "Length of change country, tourist_zone_name and effect should be same"
-            )
-
-        elif len(self.change_country) == 0:
-
-            # go through all the countries and increase the B value of locus based on available economic zone and its b_value_increase
-            self.auto_run()
-
-        elif len(self.change_country) > 0 and len(self.change_country) == len(
-            self.tourist_zone_names
-        ):
-
-            for i, country in enumerate(self.change_country):
-                print(country, "country",
-                      self.tourist_zone_names[i], "zone", self.effect[i], "effect")
-                for locus in self.entities[country].loci:
-                    for touristZone in locus.tourist_zones:
-                        print(touristZone["name"], "Current",
-                              self.tourist_zone_names[i], "Wanted")
-                        if touristZone["name"] == self.tourist_zone_names[i]:
-                            print("in")
-                            print(touristZone["name"], locus.name)
-                            touristZone["effect"] = self.effect[i]
-            self.auto_run()
-
-        # return {
-        #     "TouristZoneEffectChangeProcess"
-        #     + "_"
-        #     + str(locus.name)
-        #     + "_"
-        #     + str(country): locus.B
-        #     for locus in self.entities[country].loci
-        # }
-
-
-class PortEffectChangeProcess(ProcessV1):
-    RANK = 1
-    DOMAIN = (gpe.Country,)
-
-    def __init__(
-        self,
-        id: str,
-        entities,
-        status: str,
-        change_country=[],
-        port_names=[],
-        effect=[],
-        trunk_min_value=5e-5,
-        trunk_max_value=9e-4,
-        max_tier=4,
-        gdp_multiplier=9e-4 * 1e6
-
-    ):
-        # Give Country and economic zone name as list with same index corresponding to each others country (with same name as Initialized Entity) and economic zone name
-
-        # super().__init__(id, entities, status)
-        self.change_country = change_country
-        self.port_names = port_names
-        self.effect = effect
-        self.status = status
-        self.trunk_min_value = trunk_min_value
-        self.trunk_max_value = trunk_max_value
-        self.max_tier = max_tier
-        self.gdp_multiplier = gdp_multiplier
-
-    def while_dormant(self, step: int):
-        pass
-
-    def auto_run(self):
-        # go through all the countries and increase the B value of locus based on available economic zone and its b_value_increase
-        for country in self.entities.keys():
-            for locus in self.entities[country].loci:
-                total_b_increase = 0
-                total_gdp_increase = 0
-                if locus.ports != None:
-                    for portZones in locus.ports:
-                        # print(economicZone["name"], economicZone["b_val_increase"])
-                        total_b_increase += truncated_sigmoid(
-                            (self.max_tier - portZones["zone_tier"]) * portZones["effect"], self.trunk_min_value, self.trunk_max_value)
-                        total_gdp_increase += total_b_increase * self.gdp_multiplier
-                    # print(locus.name, total_b_increase, "name", "Increase")
-                    if locus.B + total_b_increase < 1:
-                        locus.B += total_b_increase
+                    if (locus.C + truncated_sigmoid(locus.C * locus.general_hospitals * 0.03, self.trunk_min_value, self.trunk_max_value) < 1):
+                        locus.C += truncated_sigmoid(
+                            locus.C * locus.general_hospitals * 0.03, self.trunk_min_value, self.trunk_max_value)
                     else:
-                        locus.B -= 0.1*locus.B
-
-                    self.entities[country].gdp += total_gdp_increase
-
-    def while_alive(self, step: int):
-        if len(self.change_country) != len(self.port_names):
-            raise ValueError(
-                "Length of change country, tourist_zone_name and effect should be same"
-            )
-
-        elif len(self.change_country) == 0:
-
-            # go through all the countries and increase the B value of locus based on available economic zone and its b_value_increase
-            self.auto_run()
-
-        elif len(self.change_country) > 0 and len(self.change_country) == len(
-            self.port_names
-        ):
-
-            for i, country in enumerate(self.change_country):
-                for locus in self.entities[country].loci:
-                    if locus.ports != None:
-                        for portZones in locus.ports:
-
-                            if portZones["name"] == self.port_names[i]:
-
-                                portZones["effect"] = self.effect[i]
-            self.auto_run()
-
-        # return {
-        #     "PortEffectChangeProcess"
-        #     + "_"
-        #     + str(locus.name)
-        #     + "_"
-        #     + str(country): locus.B
-        #     for locus in self.entities[country].loci
-        # }
-
-
-class AirPortEffectChangeProcess(ProcessV1):
-    RANK = 1
-    DOMAIN = (gpe.Country,)
-
-    def __init__(
-        self,
-        id: str,
-        entities,
-        status: str,
-        change_country=[],
-        air_port_names=[],
-        effect=[],
-        trunk_min_value=5e-5,
-        trunk_max_value=9e-4,
-        max_tier=4,
-        gdp_multiplier=9e-4 * 1e6
-
-    ):
-        self.change_country = change_country
-        self.air_port_names = air_port_names
-        self.effect = effect
-        self.status = status
-        self.trunk_min_value = trunk_min_value
-        self.trunk_max_value = trunk_max_value
-        self.max_tier = max_tier
-        self.gdp_multiplier = gdp_multiplier
-
-    def while_dormant(self, step: int):
-        pass
-
-    def auto_run(self):
-        for country in self.entities.keys():
-            for locus in self.entities[country].loci:
-                total_b_increase = 0
-                total_gdp_increase = 0
-                if locus.airports != None:
-                    for portZones in locus.airports:
-
-                        total_b_increase += truncated_sigmoid(
-                            (self.max_tier - portZones["zone_tier"]) * portZones["effect"], self.trunk_min_value, self.trunk_max_value)
-                        total_gdp_increase += total_b_increase * self.gdp_multiplier
-
-                    if locus.B + total_b_increase < 1:
-                        locus.B += total_b_increase
-                    else:
-                        locus.B -= 0.1*locus.B
-
-                    self.entities[country].gdp += total_gdp_increase
-
-    def while_alive(self, step: int):
-        if len(self.change_country) != len(self.air_port_names):
-            raise ValueError(
-                "Length of change country, tourist_zone_name and effect should be same"
-            )
-
-        elif len(self.change_country) == 0:
-
-            # go through all the countries and increase the B value of locus based on available economic zone and its b_value_increase
-            self.auto_run()
-
-        elif len(self.change_country) > 0 and len(self.change_country) == len(
-            self.air_port_names
-        ):
-
-            for i, country in enumerate(self.change_country):
-
-                for locus in self.entities[country].loci:
-                    if locus.airports != None:
-                        for portZones in locus.airports:
-
-                            if portZones["name"] == self.air_port_names[i]:
-
-                                portZones["effect"] = self.effect[i]
-            self.auto_run()
-        """_summary_
-        """
+                        locus.C = 0.8
+                else:
+                    pass
