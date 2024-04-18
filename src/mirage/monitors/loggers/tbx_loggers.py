@@ -10,7 +10,6 @@ __all__ = [
 # ---DEPENDENCIES---------------------------------------------------------------
 import typing as tp
 import socket
-import logging
 import tensorboard as tb
 import tensorboardX as tbx
 
@@ -27,15 +26,20 @@ class TbxTimeseriesLoggerV1(tbx.SummaryWriter):
     ----------
     engine : EngineV1
         Engine object to log.
-    log_dir : str
+    ldr : str
         Directory to save logs.
     """
 
-    def __init__(self, engine: "EngineV1", log_dir: str, env: str, **kwargs):
-        super(TbxTimeseriesLoggerV1, self).__init__(log_dir, **kwargs)
+    def __init__(self, engine: "EngineV1", ldr: str, env: str, **kwargs):
+        super(TbxTimeseriesLoggerV1, self).__init__(
+            ldr, 
+            max_queue=3, 
+            flush_secs=10, 
+            **kwargs,
+        )
         self.engine = engine
         self.engine.O.append(self)
-        self.log_dir = log_dir
+        self.ldr = ldr
         self.env = env
         if self.env not in ["colab", "local"]:
             raise ValueError(f"env. must be 'colab' or 'local'")
@@ -46,12 +50,16 @@ class TbxTimeseriesLoggerV1(tbx.SummaryWriter):
         Start tensorboard server.
         """
         if self.env == "colab":
-            tb.notebook.start("--logdir", self.log_dir)
+            tb.notebook.start("--logdir", self.ldr)
         elif self.env == "local":
             tboard = tb.program.TensorBoard()
-            tboard.configure(argv=[None, "--logdir", self.log_dir])
-            self.tboard_url = tboard.launch()
-            self.engine.L.info(f"📈 Tensorboard URL: {self.tboard_url}")
+            tboard.configure(argv=[None, "--logdir", self.ldr])
+            self.lurl = tboard.launch()
+            # get port from lurl
+            lurl_port = self.lurl.split(":")[-1]
+            nip = socket.gethostbyname(socket.gethostname())
+            self.nurl = f"http://{nip}:{lurl_port}"
+            self.engine.L.info(f"📈 Tensorboard URL: {self.lurl} {self.nurl}")
 
     def register_objects(
         self,
