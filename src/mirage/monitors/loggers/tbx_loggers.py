@@ -53,7 +53,7 @@ class TbxTimeseriesLoggerV1(tbx.SummaryWriter):
             tb.notebook.start("--logdir", self.ldr)
         elif self.env == "local":
             tboard = tb.program.TensorBoard()
-            tboard.configure(argv=[None, "--logdir", self.ldr])
+            tboard.configure(argv=[None, "--logdir", self.ldr, "--bind_all"])
             self.lurl = tboard.launch()
             # get port from lurl
             lurl_port = self.lurl.split(":")[-1]
