@@ -1,69 +1,81 @@
+
+
 name: USA
-B: 0.0001
-C: 0.0001
-E: 0.0001
-A: 0.0001
-Ds: 0.0001
-Di: 0.0001
-Dr: 0.0001
-gdp: 1000000
-health_resource_stockpile: 0.1
-sanitation_equipment_stockpile: 0
-human_welfare_resource: 0.1
-hapiness_index: 0.1
-general_hospitals: 1000
-procedure_resistance: 0.1
-cleanliness_index: 0.1
-base_death_rate: 0.001
-vaccine_components:
-  - name: A
-    gdp_cost: 40765
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_gdp_perstep: 3435
-    trickle: 0.1
-  - name: B
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
-  - name: C
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
-  - name: D
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
-  - name: E
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
+gdp: 2875140000
+health_resource_stockpile: 50000.0
+sanitation_equipment_stockpile: 50000.0
+human_welfare_resource: 10000.0
+happiness_index: 1.0
+procedure_resistance: 0.6
+cleanliness_index: 0.7
+disease_research_center: 0
+vaccine_research_center: 0
+vaccines_stock: 
+  - name: ABC
+    quantity: 20
+    gdp_cost_per_step: 1000
+    effectiveness: 0.4
+  - name: ACB
+    quantity: 30
+    gdp_cost_per_step: 1000
+    effectiveness: 0.22
+  - name: BAC
+    quantity: 10
+    gdp_cost_per_step: 1000
+    effectiveness: 0.95
+  - name: BCA
+    quantity: 12
+    gdp_cost_per_step: 1000
+    effectiveness: -0.2
+  - name: CAB
+    quantity: 23
+    gdp_cost_per_step: 1000
+    effectiveness: 0.5
+  - name: CBA
+    quantity: 10
+    gdp_cost_per_step: 1000
+    effectiveness: 0.1
 loci:
   - name: California
-    lat: 36.7783
-    lon: 119.4179
-    susceptible: 39538223
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
+    lat: 19.7515
+    lon: 75.7139
+    susceptible: 112374333
     infected: 100000
     recovered: 10
-    area: 423970
+    dead: 30
+    area: 307713
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
     airports:
       - name: Los Angeles International Airport
         hub_tier: 1
+        infection_rate : 0.009
+        effect: 1.0
+
       - name: San Francisco International Airport
         hub_tier: 2
+        infection_rate : 0.008
+        effect: 1.0
+
     ports:
       - name: Port of Los Angeles
         hub_tier: 1
+        infection_rate : 0.0004
+        effect: 1.0
+
       - name: Port of Long Beach
         hub_tier: 1
+        infection_rate : 0.0003
+        effect: 1.0
+
     economic_zones:
       - name: Silicon Valley
         zone_tier: 1
@@ -79,20 +91,40 @@ loci:
       - name: Golden Gate Bridge
         zone_tier: 2
   - name: New York
-    lat: 40.7128
-    lon: 74.006
-    susceptible: 19453561
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
+    lat: 19.7515
+    lon: 75.7139
+    susceptible: 112374333
     infected: 100000
     recovered: 10
-    area: 141300
+    dead: 30
+    area: 307713
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
     airports:
       - name: John F. Kennedy International Airport
         hub_tier: 1
+        infection_rate : 0.008
+        effect: 1.0
+
       - name: LaGuardia Airport
         hub_tier: 2
+        infection_rate : 0.001
+        effect: 1.0
+
     ports:
       - name: Port of New York and New Jersey
         hub_tier: 1
+        infection_rate : 0.0004
+        effect: 1.0
+
     economic_zones:
       - name: Wall Street
         zone_tier: 1
@@ -107,54 +139,42 @@ loci:
         zone_tier: 2
       - name: Empire State Building
         zone_tier: 2
-  - name: Texas
-    lat: 31.9686
-    lon: 99.9018
-    susceptible: 29145505
-    infected: 100000
-    recovered: 10
-    area: 695662
-    airports:
-      - name: Dallas/Fort Worth International Airport
-        hub_tier: 1
-      - name: George Bush Intercontinental Airport
-        hub_tier: 2
-    ports:
-      - name: Port of Houston
-        hub_tier: 1
-      - name: Port of Corpus Christi
-        hub_tier: 2
-    economic_zones:
-      - name: NASA
-        zone_tier: 1
-      - name: Alamo
-        zone_tier: 2
-      - name: South Padre Island
-        zone_tier: 2
-    tourist_zones:
-      - name: The Alamo
-        zone_tier: 1
-      - name: NASA Space Center
-        zone_tier: 2
-      - name: South Padre Island Beach
-        zone_tier: 2
+  
   - name: Florida
-    lat: 27.9944
-    lon: 81.7603
-    susceptible: 21538187
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
+    lat: 19.7515
+    lon: 75.7139
+    susceptible: 112374333
     infected: 100000
     recovered: 10
-    area: 170312
+    dead: 30
+    area: 307713
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
     airports:
       - name: Miami International Airport
         hub_tier: 1
+        infection_rate : 0.005
+        effect: 1.0
+
       - name: Orlando International Airport
         hub_tier: 2
+        infection_rate : 0.004
+        effect: 1.0
+
     ports:
       - name: Port of Miami
         hub_tier: 1
-      - name: Port Everglades
-        hub_tier: 1
+        infection_rate : 0.0002
+        effect: 1.0
+
     economic_zones:
       - name: Disney World
         zone_tier: 1
@@ -169,3 +189,10 @@ loci:
         zone_tier: 2
       - name: Everglades National Park
         zone_tier: 2
+
+
+
+
+
+
+

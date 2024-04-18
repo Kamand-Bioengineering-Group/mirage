@@ -1,70 +1,78 @@
+
+
 ---
 name: France
-B: 0.0001
-C: 0.0001
-E: 0.0001
-A: 0.0001
-Ds: 0.0001
-Di: 0.0001
-Dr: 0.0001
-gdp: 1000000
-health_resource_stockpile: 0.1
-sanitation_equipment_stockpile: 0
-human_welfare_resource: 0.1
-hapiness_index: 0.1
-general_hospitals: 1000
-procedure_resistance: 0.1
-cleanliness_index: 0.1
-base_death_rate: 0.001
-vaccine_components:
-  - name: A
-    gdp_cost: 40765
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_gdp_perstep: 3435
-    trickle: 0.1
-  - name: B
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
-  - name: C
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
-  - name: D
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
-  - name: E
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
+gdp: 2875140000
+health_resource_stockpile: 50000.0
+sanitation_equipment_stockpile: 50000.0
+human_welfare_resource: 10000.0
+happiness_index: 1.0
+procedure_resistance: 0.6
+cleanliness_index: 0.7
+disease_research_center: 0
+vaccine_research_center: 0
+vaccines_stock: 
+  - name: ABC
+    quantity: 20
+    gdp_cost_per_step: 1000
+    effectiveness: 0.4
+  - name: ACB
+    quantity: 30
+    gdp_cost_per_step: 1000
+    effectiveness: 0.22
+  - name: BAC
+    quantity: 10
+    gdp_cost_per_step: 1000
+    effectiveness: 0.95
+  - name: BCA
+    quantity: 12
+    gdp_cost_per_step: 1000
+    effectiveness: -0.2
+  - name: CAB
+    quantity: 23
+    gdp_cost_per_step: 1000
+    effectiveness: 0.5
+  - name: CBA
+    quantity: 10
+    gdp_cost_per_step: 1000
+    effectiveness: 0.1
 loci:
   - name: Paris
-    lat: 48.8566
-    lon: 2.3522
-    susceptible: 2140526
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
+    lat: 19.7515
+    lon: 75.7139
+    susceptible: 112374333
     infected: 100000
     recovered: 10
-    area: 105.4
+    dead: 30
+    area: 307713
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
     airports:
       - name: Charles de Gaulle Airport
         hub_tier: 1
+        infection_rate : 0.007
+        effect: 1.0
+
       - name: Orly Airport
         hub_tier: 2
+        infection_rate : 0.004
+        effect: 1.0
+
     ports:
       - name: Port of Le Havre
         hub_tier: 1
-      - name: Port of Marseille
-        hub_tier: 1
+        infection_rate : 0.0009
+        effect: 1.0
+
+
     economic_zones:
       - name: La Défense
         zone_tier: 1
@@ -80,22 +88,40 @@ loci:
       - name: Palace of Versailles
         zone_tier: 2
   - name: Lyon
-    lat: 45.75
-    lon: 4.85
-    susceptible: 515695
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
+    lat: 19.7515
+    lon: 75.7139
+    susceptible: 112374333
     infected: 100000
     recovered: 10
-    area: 47.87
+    dead: 30
+    area: 307713
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
     airports:
       - name: Lyon-Saint-Exupéry Airport
         hub_tier: 1
+        infection_rate : 0.007
+        effect: 1.0
+
       - name: Lyon-Bron Airport
         hub_tier: 2
+        infection_rate : 0.0004
+        effect: 1.0
+
     ports:
       - name: Port of Lyon
         hub_tier: 1
-      - name: Port of Marseille
-        hub_tier: 1
+        infection_rate : 0.0004
+        effect: 1.0
+
     economic_zones:
       - name: Part-Dieu
         zone_tier: 1
@@ -111,22 +137,45 @@ loci:
       - name: Parc de la Tête d'Or
         zone_tier: 2
   - name: Marseille
-    lat: 43.2965
-    lon: 5.3698
-    susceptible: 869815
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
+    lat: 19.7515
+    lon: 75.7139
+    susceptible: 112374333
     infected: 100000
     recovered: 10
-    area: 240.6
+    dead: 30
+    area: 307713
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
     airports:
       - name: Marseille Provence Airport
         hub_tier: 1
+        infection_rate : 0.003
+        effect: 1.0
+
       - name: Aix-en-Provence Airport
         hub_tier: 2
+        infection_rate : 0.0004
+        effect: 1.0
+
     ports:
       - name: Port of Marseille
         hub_tier: 1
+        infection_rate : 0.0009
+        effect: 1.0
+
       - name: Port of Toulon
         hub_tier: 1
+        infection_rate : 0.0002
+        effect: 1.0
+
     economic_zones:
       - name: Euroméditerranée
         zone_tier: 1
@@ -142,22 +191,45 @@ loci:
       - name: Notre-Dame de la Garde
         zone_tier: 2
   - name: Nice
-    lat: 43.7102
-    lon: 7.262
-    susceptible: 342295
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
+    lat: 19.7515
+    lon: 75.7139
+    susceptible: 112374333
     infected: 100000
     recovered: 10
-    area: 71.92
+    dead: 30
+    area: 307713
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
     airports:
       - name: Nice Côte d'Azur Airport
         hub_tier: 1
+        infection_rate : 0.003
+        effect: 1.0
+
       - name: Cannes-Mandelieu Airport
         hub_tier: 2
+        infection_rate : 0.002
+        effect: 1.0
+
     ports:
       - name: Port of Nice
         hub_tier: 1
+        infection_rate : 0.002
+        infection_rate : 0.0004
+
       - name: Port of Cannes
         hub_tier: 1
+        infection_rate : 0.002
+        infection_rate : 0.0004
+
     economic_zones:
       - name: Nice Méridia
         zone_tier: 1
@@ -172,3 +244,5 @@ loci:
         zone_tier: 2
       - name: Cours Saleya
         zone_tier: 2
+
+
