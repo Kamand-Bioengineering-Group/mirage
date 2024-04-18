@@ -73,17 +73,23 @@ loci:
     economic_zones:
       - name: Zhongguancun
         zone_tier: 1
+        effect: 1.0
       - name: Wangfujing
         zone_tier: 2
+        effect: 1.0
       - name: Sanlitun
         zone_tier: 2
+        effect: 1.0
     tourist_zones:
       - name: Great Wall of China
         zone_tier: 1
+        effect: 1.0
       - name: Forbidden City
         zone_tier: 2
+        effect: 1.0
       - name: Summer Palace
         zone_tier: 2
+        effect: 1.0
   - name: Shanghai
     B: 0.01
     C: 0.01
@@ -115,20 +121,27 @@ loci:
       - name: Port of Shanghai
         zone_tier: 1
         infection_rate : 0.0002
+        effect: 1.0
     economic_zones:
       - name: Lujiazui
         zone_tier: 1
+        effect: 1.0
       - name: Xintiandi
         zone_tier: 2
+        effect: 1.0
       - name: The Bund
         zone_tier: 2
+        effect: 1.0
     tourist_zones:
       - name: The Bund
         zone_tier: 1
+        effect: 1.0
       - name: Yu Garden
         zone_tier: 2
+        effect: 1.0
       - name: Oriental Pearl Tower
         zone_tier: 2
+        effect: 1.0
   - name: Guangdong
     B: 0.01
     C: 0.01
@@ -160,23 +173,31 @@ loci:
       - name: Port of Guangzhou
         zone_tier: 1
         infection_rate : 0.0001
+        effect: 1.0
       - name: Port of Shenzhen
         zone_tier: 1
         infection_rate : 0.0002
+        effect: 1.0
     economic_zones:
       - name: Shenzhen SEZ
         zone_tier: 1
+        effect: 1.0
       - name: Guangzhou SEZ
         zone_tier: 2
+        effect: 1.0
       - name: Zhuhai SEZ
         zone_tier: 2
+        effect: 1.0
     tourist_zones:
       - name: Canton Tower
         zone_tier: 1
+        effect: 1.0
       - name: Chimelong Paradise
         zone_tier: 2
+        effect: 1.0
       - name: Window of the World
         zone_tier: 2
+        effect: 1.0
   - name: Zhejiang
     B: 0.01
     C: 0.01
@@ -208,17 +229,24 @@ loci:
       - name: Port of Ningbo-Zhoushan
         zone_tier: 1
         infection_rate : 0.0001
+        effect: 1.0
     economic_zones:
       - name: Hangzhou SEZ
         zone_tier: 1
+        effect: 1.0
       - name: Ningbo SEZ
         zone_tier: 2
+        effect: 1.0
       - name: Wenzhou SEZ
         zone_tier: 2
+        effect: 1.0
     tourist_zones:
       - name: West Lake
         zone_tier: 1
+        effect: 1.0
       - name: Xixi National Wetland Park
         zone_tier: 2
+        effect: 1.0
       - name: Lingyin Temple
         zone_tier: 2
+        effect: 1.0

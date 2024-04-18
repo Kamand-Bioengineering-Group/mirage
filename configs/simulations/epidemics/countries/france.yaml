@@ -72,21 +72,26 @@ loci:
         infection_rate : 0.0009
         effect: 1.0
 
-
     economic_zones:
       - name: La Défense
         zone_tier: 1
+        effect: 1.0
       - name: Bercy
         zone_tier: 2
+        effect: 1.0
       - name: Montmartre
         zone_tier: 2
+        effect: 1.0
     tourist_zones:
       - name: Eiffel Tower
         zone_tier: 1
+        effect: 1.0
       - name: Louvre Museum
         zone_tier: 2
+        effect: 1.0
       - name: Palace of Versailles
         zone_tier: 2
+        effect: 1.0
   - name: Lyon
     B: 0.01
     C: 0.01
@@ -125,17 +130,23 @@ loci:
     economic_zones:
       - name: Part-Dieu
         zone_tier: 1
+        effect: 1.0
       - name: Confluence
         zone_tier: 2
+        effect: 1.0
       - name: Gerland
         zone_tier: 2
+        effect: 1.0
     tourist_zones:
       - name: Basilica of Notre-Dame de Fourvière
         zone_tier: 1
+        effect: 1.0
       - name: Place Bellecour
         zone_tier: 2
+        effect: 1.0
       - name: Parc de la Tête d'Or
         zone_tier: 2
+        effect: 1.0
   - name: Marseille
     B: 0.01
     C: 0.01
@@ -179,17 +190,23 @@ loci:
     economic_zones:
       - name: Euroméditerranée
         zone_tier: 1
+        effect: 1.0
       - name: La Joliette
         zone_tier: 2
+        effect: 1.0
       - name: La Plaine
         zone_tier: 2
+        effect: 1.0
     tourist_zones:
       - name: Old Port of Marseille
         zone_tier: 1
+        effect: 1.0
       - name: Calanques National Park
         zone_tier: 2
+        effect: 1.0
       - name: Notre-Dame de la Garde
         zone_tier: 2
+        effect: 1.0
   - name: Nice
     B: 0.01
     C: 0.01
@@ -223,26 +240,32 @@ loci:
       - name: Port of Nice
         hub_tier: 1
         infection_rate : 0.002
-        infection_rate : 0.0004
+        effect: 1.0
 
       - name: Port of Cannes
         hub_tier: 1
         infection_rate : 0.002
-        infection_rate : 0.0004
+        effect: 1.0
 
     economic_zones:
       - name: Nice Méridia
         zone_tier: 1
+        effect: 1.0
       - name: Nice Acropolis
         zone_tier: 2
+        effect: 1.0
       - name: Nice Arenas
         zone_tier: 2
+        effect: 1.0
     tourist_zones:
       - name: Promenade des Anglais
         zone_tier: 1
+        effect: 1.0
       - name: Castle Hill
         zone_tier: 2
+        effect: 1.0
       - name: Cours Saleya
         zone_tier: 2
+        effect: 1.0
 
 

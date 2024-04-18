@@ -1,5 +1,3 @@
-
-
 name: USA
 gdp: 2875140000
 health_resource_stockpile: 50000.0
@@ -79,17 +77,23 @@ loci:
     economic_zones:
       - name: Silicon Valley
         zone_tier: 1
+        effect: 1.0
       - name: Hollywood
         zone_tier: 2
+        effect: 1.0
       - name: Napa Valley
         zone_tier: 2
+        effect: 1.0
     tourist_zones:
       - name: Disneyland
         zone_tier: 1
+        effect: 1.0
       - name: Yosemite National Park
         zone_tier: 2
+        effect: 1.0
       - name: Golden Gate Bridge
         zone_tier: 2
+        effect: 1.0
   - name: New York
     B: 0.01
     C: 0.01
@@ -128,17 +132,23 @@ loci:
     economic_zones:
       - name: Wall Street
         zone_tier: 1
+        effect: 1.0
       - name: Broadway
         zone_tier: 2
+        effect: 1.0
       - name: Central Park
         zone_tier: 2
+        effect: 1.0
     tourist_zones:
       - name: Statue of Liberty
         zone_tier: 1
+        effect: 1.0
       - name: Times Square
         zone_tier: 2
+        effect: 1.0
       - name: Empire State Building
         zone_tier: 2
+        effect: 1.0
   
   - name: Florida
     B: 0.01
@@ -178,17 +188,23 @@ loci:
     economic_zones:
       - name: Disney World
         zone_tier: 1
+        effect: 1.0
       - name: Miami Beach
         zone_tier: 2
+        effect: 1.0
       - name: Everglades
         zone_tier: 2
+        effect: 1.0
     tourist_zones:
       - name: Disney World
         zone_tier: 1
+        effect: 1.0
       - name: Miami Beach
         zone_tier: 2
+        effect: 1.0
       - name: Everglades National Park
         zone_tier: 2
+        effect: 1.0
 
 
 
