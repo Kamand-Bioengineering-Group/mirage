@@ -1,7 +1,7 @@
 # ---INFO-----------------------------------------------------------------------
 """
 Module for simulating epidemics.
-"""	
+"""
 
 __all__ = [
     "engine",
@@ -10,4 +10,4 @@ __all__ = [
 
 
 # ---DEPENDENCIES---------------------------------------------------------------
-from . import engine, gpe
+from . import all_processes, constants, gpe

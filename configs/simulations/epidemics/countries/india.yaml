@@ -1,285 +1,260 @@
 name: India
-B: 0.0001
-C: 0.0001
-E: 0.0001
-A: 0.0001
-Ds: 0.0001
-Di: 0.0001
-Dr: 0.0001
-gdp: 1000000
-health_resource_stockpile: 0.1
-sanitation_equipment_stockpile: 0
-human_welfare_resource: 0.1
-happiness_index: 0.1
-general_hospitals: 1000
-procedure_resistance: 0.1
-cleanliness_index: 0.1
-base_death_rate: 0.001
-vaccine_components:
-  - name: A
-    gdp_cost: 40765
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_gdp_perstep: 3435
-    trickle: 0.1
-  - name: B
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
-  - name: C
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
-  - name: D
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
-  - name: E
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
-  - name: A
-    gdp_cost: 40765
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_gdp_perstep: 3435
-    trickle: 0.1
-  - name: B
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
-  - name: C
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
-  - name: D
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
-  - name: E
-    gdp_cost: 40
-    health_resource_cost: 0.1
-    human_welfare_resource_cost: 0.1
-    cost_per_step: 3
-    trickle: 0.1
+gdp: 2875140000
+health_resource_stockpile: 50000.0
+sanitation_equipment_stockpile: 50000.0
+human_welfare_resource: 10000.0
+happiness_index: 1.0
+procedure_resistance: 0.6
+cleanliness_index: 0.7
+disease_research_center: 0
+vaccine_research_center: 0
+vaccines_stock: 
+  - name: ABC
+    quantity: 20
+    gdp_cost_per_step: 1000
+    effectiveness: 0.4
+  - name: ACB
+    quantity: 30
+    gdp_cost_per_step: 1000
+    effectiveness: 0.22
+  - name: BAC
+    quantity: 10
+    gdp_cost_per_step: 1000
+    effectiveness: 0.95
+  - name: BCA
+    quantity: 12
+    gdp_cost_per_step: 1000
+    effectiveness: -0.2
+  - name: CAB
+    quantity: 23
+    gdp_cost_per_step: 1000
+    effectiveness: 0.5
+  - name: CBA
+    quantity: 10
+    gdp_cost_per_step: 1000
+    effectiveness: 0.1
 loci:
   - name: Maharashtra
-    lat: 19.076
-    lon: 72.8777
-    susceptible: 120000000
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
+    lat: 19.7515
+    lon: 75.7139
+    susceptible: 112374333
     infected: 100000
     recovered: 10
+    dead: 30
     area: 307713
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
     airports:
-      - name: Chhatrapati_Shivaji
-        hub_tier: 1
-      - name: Pune Airport
-        hub_tier: 2
-      - name: Nagpur Airport
-        hub_tier: 2
+      - name: Chhatrapati Shivaji Maharaj International Airport
+        zone_tier: 1
+        effect : 1.0
+        infection_rate : 0.001 
+      - name: Pune International Airport
+        zone_tier: 2
+        effect : 1.0
+        infection_rate : 0.0005 
     ports:
       - name: Mumbai Port
-        hub_tier: 1
-      - name: Jawaharlal Nehru Port
-        hub_tier: 1
+        zone_tier: 1
+        effect : 1.0
+        infection_rate : 0.001 
+      - name: Goa Port
+        zone_tier: 3
+        infection_rate : 0.0001 
+        effect : 1.0
     economic_zones:
       - name: Mumbai SEZ
         zone_tier: 1
-      - name: Pune SEZ
+        effect : 1.0
+      - name: Pune IT Park
         zone_tier: 2
-      - name: Nagpur SEZ
-        zone_tier: 2
+        effect : 1.0
     tourist_zones:
-      - name: Mumbai Beach
+      - name: Gateway of India
         zone_tier: 1
-      - name: Pune Hill Station
+        effect: 1.0
+      - name: Elephanta Caves
         zone_tier: 2
-      - name: Nagpur Wildlife Sanctuary
-        zone_tier: 2
+        effect: 1.0
   - name: Delhi
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
     lat: 28.7041
     lon: 77.1025
-    susceptible: 20000000
-    infected: 10000
-    recovered: 100
+    susceptible: 16787941
+    infected: 100000
+    recovered: 1000
+    dead: 3
     area: 1484
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
     airports:
-      - name: Indira Gandhi Int. Airport
-        hub_tier: 1
-      - name: Safdarjung Airport
-        hub_tier: 2
+      - name: Indira Gandhi International Airport
+        zone_tier: 1
+        effect : 1.0
+        infection_rate : 0.002 
+    ports:
     economic_zones:
       - name: Delhi SEZ
         zone_tier: 1
-      - name: Noida SEZ
+        effect : 1.0
+      - name: Gurgaon Industrial Zone
         zone_tier: 2
+        effect : 1.0
     tourist_zones:
-      - name: Delhi Historical Sites
+      - name: Qutub Minar
         zone_tier: 1
-      - name: Noida Amusement Park
+        effect : 1.0
+      - name: Red Fort
         zone_tier: 2
+        effect : 1.0
+  - name: Uttar Pradesh
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
+    lat: 26.8467
+    lon: 80.9462
+    susceptible: 199812341
+    infected: 100000
+    recovered: 10
+    dead: 30
+    area: 243290
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
+    airports:
+      - name: Chaudhary Charan Singh International Airport
+        zone_tier: 1
+        effect : 1.0
+        infection_rate : 0.0002
+    ports:
+    economic_zones:
+      - name: Noida SEZ
+        zone_tier: 1
+        effect : 1.0
+    tourist_zones:
+      - name: Taj Mahal
+        zone_tier: 1
+        effect : 1.0
+      - name: Varanasi Spiritual zone
+        zone_tier: 3
+        effect : 1.0
+  
   - name: Kerala
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
     lat: 10.8505
     lon: 76.2711
-    susceptible: 35000000
-    infected: 1000
-    recovered: 100
+    susceptible: 33406061
+    infected: 100000
+    recovered: 10
+    dead: 40
     area: 38863
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
     airports:
-      - name: Cochin Int. Airport
-        hub_tier: 1
-      - name: Trivandrum Int. Airport
-        hub_tier: 2
+      - name: Cochin International Airport
+        zone_tier: 1
+        effect : 1.0
+        infection_rate : 0.0002 
     ports:
       - name: Cochin Port
-        hub_tier: 1
-      - name: Vizhinjam Port
-        hub_tier: 2
+        zone_tier: 1
+        effect : 1.0
+        infection_rate : 0.0002 
     economic_zones:
       - name: Cochin SEZ
         zone_tier: 1
-      - name: Trivandrum SEZ
-        zone_tier: 2
+        effect : 1.0
     tourist_zones:
-      - name: Cochin Beach
+      - name: Kerala Backwaters
         zone_tier: 1
-      - name: Trivandrum Hill Station
+        effect : 1.0
+      - name: Munnar Tea Estates
         zone_tier: 2
-  - name: Karnataka
-    lat: 15.3173
-    lon: 75.7139
-    susceptible: 60000000
-    infected: 10000
+        effect : 1.0
+  - name: Gujarat
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
+    lat: 22.2587
+    lon: 71.1924
+    susceptible: 60439692
+    infected: 100000
     recovered: 100
-    area: 191791
+    dead: 30
+    area: 196024
+    quarantine_facilities: 2
+    general_hospitals: 1
+    vaccine_distribution_centers: 0
     airports:
-      - name: Kempegowda Int. Airport
-        hub_tier: 1
-      - name: Mangalore Int. Airport
-        hub_tier: 2
+      - name: Sardar Vallabhbhai Patel International Airport
+        zone_tier: 1
+        effect : 1.0
+        infection_rate : 0.0002 
     ports:
-      - name: New Mangalore Port
-        hub_tier: 1
-      - name: Karwar Port
-        hub_tier: 2
+      - name: Kandla Port
+        zone_tier: 1
+        effect : 1.0
+        infection_rate : 0.0002 
     economic_zones:
-      - name: Bangalore SEZ
+      - name: Ahmedabad SEZ
         zone_tier: 1
-      - name: Mangalore SEZ
-        zone_tier: 2
+        effect : 1.0
+      - name: Surat Diamond Park
+        zone_tier: 3
+        effect : 1.0
     tourist_zones:
-      - name: Bangalore Historical Sites
+      - name: Sabarmati Ashram
         zone_tier: 1
-      - name: Mangalore Beach
-        zone_tier: 2
-  - name: North East
-    lat: 26.2006
-    lon: 92.9376
-    susceptible: 45000000
-    infected: 1000
-    recovered: 100
-    area: 262230
-    airports:
-      - name: Lokpriya Gopinath Bordoloi Int. Airport
-        hub_tier: 1
-      - name: Dimapur Airport
-        hub_tier: 2
-    economic_zones:
-      - name: Guwahati SEZ
-        zone_tier: 1
-      - name: Dimapur SEZ
-        zone_tier: 2
-    tourist_zones:
-      - name: Guwahati Historical Sites
-        zone_tier: 1
-      - name: Dimapur Wildlife Sanctuary
-        zone_tier: 2
-  - name: West Bengal
-    lat: 22.9868
-    lon: 87.855
-    susceptible: 90000000
-    infected: 10000
-    recovered: 100
-    area: 88752
-    airports:
-      - name: Netaji Subhas Chandra Bose Int. Airport
-        hub_tier: 1
-      - name: Bagdogra Airport
-        hub_tier: 2
-    ports:
-      - name: Kolkata Port
-        hub_tier: 1
-      - name: Haldia Port
-        hub_tier: 2
-    economic_zones:
-      - name: Kolkata SEZ
-        zone_tier: 1
-      - name: Siliguri SEZ
-        zone_tier: 2
-    tourist_zones:
-      - name: Kolkata Historical Sites
-        zone_tier: 1
-      - name: Siliguri Hill Station
-        zone_tier: 2
-  - name: Uttar Pradesh
-    lat: 26.8467
-    lon: 80.9462
-    susceptible: 200000000
-    infected: 10000
-    recovered: 100
-    area: 243290
-    airports:
-      - name: Chaudhary Charan Singh Int. Airport
-        hub_tier: 1
-      - name: Lal Bahadur Shastri Airport
-        hub_tier: 2
-      - name: Jhansi Airport
-        hub_tier: 2
-    economic_zones:
-      - name: Lucknow SEZ
-        zone_tier: 1
-      - name: Kanpur SEZ
-        zone_tier: 2
-      - name: Jhansi SEZ
-        zone_tier: 2
-    tourist_zones:
-      - name: Lucknow Historical Sites
-        zone_tier: 1
-      - name: Kanpur Zoo
-        zone_tier: 2
-  - name: Bihar
-    lat: 25.0961
-    lon: 85.3131
-    susceptible: 120000000
-    infected: 10000
-    recovered: 100
-    area: 94163
-    airports:
-      - name: Jay Prakash Narayan Int. Airport
-        hub_tier: 1
-      - name: Gaya Airport
-        hub_tier: 2
-    economic_zones:
-      - name: Patna SEZ
-        zone_tier: 1
-      - name: Gaya SEZ
-        zone_tier: 2
-    tourist_zones:
-      - name: Patna Historical Sites
-        zone_tier: 1
-      - name: Gaya Temple
-        zone_tier: 2
+        effect : 1.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
