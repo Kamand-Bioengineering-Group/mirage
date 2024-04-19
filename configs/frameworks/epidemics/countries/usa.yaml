@@ -54,20 +54,20 @@ loci:
     vaccine_distribution_centers: 1
     airports:
       - name: Los Angeles International Airport
-        hub_tier: 1
+        zone_tier: 1
         infection_rate: 0.009
         effect: 1.0
       - name: San Francisco International Airport
-        hub_tier: 2
+        zone_tier: 2
         infection_rate: 0.008
         effect: 1.0
     ports:
       - name: Port of Los Angeles
-        hub_tier: 1
+        zone_tier: 1
         infection_rate: 0.0004
         effect: 1.0
       - name: Port of Long Beach
-        hub_tier: 1
+        zone_tier: 1
         infection_rate: 0.0003
         effect: 1.0
     economic_zones:
@@ -111,16 +111,16 @@ loci:
     vaccine_distribution_centers: 1
     airports:
       - name: John F. Kennedy International Airport
-        hub_tier: 1
+        zone_tier: 1
         infection_rate: 0.008
         effect: 1.0
       - name: LaGuardia Airport
-        hub_tier: 2
+        zone_tier: 2
         infection_rate: 0.001
         effect: 1.0
     ports:
       - name: Port of New York and New Jersey
-        hub_tier: 1
+        zone_tier: 1
         infection_rate: 0.0004
         effect: 1.0
     economic_zones:
@@ -164,16 +164,16 @@ loci:
     vaccine_distribution_centers: 1
     airports:
       - name: Miami International Airport
-        hub_tier: 1
+        zone_tier: 1
         infection_rate: 0.005
         effect: 1.0
       - name: Orlando International Airport
-        hub_tier: 2
+        zone_tier: 2
         infection_rate: 0.004
         effect: 1.0
     ports:
       - name: Port of Miami
-        hub_tier: 1
+        zone_tier: 1
         infection_rate: 0.0002
         effect: 1.0
     economic_zones:

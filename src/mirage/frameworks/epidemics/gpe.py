@@ -31,7 +31,7 @@ class Locus(EntityV1):
     infected: int
     recovered: int
     dead: int
-    area: int
+    area: float
     quarantine_facilities: int
     general_hospitals: int
     vaccine_distribution_centers: int

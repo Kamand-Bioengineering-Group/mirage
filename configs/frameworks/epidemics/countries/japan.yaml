@@ -54,20 +54,20 @@ loci:
     vaccine_distribution_centers: 1
     airports:
       - name: Narita International Airport
-        hub_tier: 1
+        zone_tier: 1
         infection_rate: 0.003
         effect: 1.0
       - name: Haneda Airport
-        hub_tier: 2
+        zone_tier: 2
         infection_rate: 0.008
         effect: 1.0
     ports:
       - name: Port of Tokyo
-        hub_tier: 1
+        zone_tier: 1
         infection_rate: 0.0003
         effect: 1.0
       - name: Port of Yokohama
-        hub_tier: 1
+        zone_tier: 1
         infection_rate: 0.0004
         effect: 1.0
     economic_zones:
@@ -111,16 +111,16 @@ loci:
     vaccine_distribution_centers: 1
     airports:
       - name: Kansai International Airport
-        hub_tier: 1
+        zone_tier: 1
         infection_rate: 0.002
         effect: 1.0
       - name: Osaka International Airport
-        hub_tier: 2
+        zone_tier: 2
         infection_rate: 0.007
         effect: 1.0
     ports:
       - name: Port of Osaka
-        hub_tier: 1
+        zone_tier: 1
         infection_rate: 0.0004
         effect: 1.0
     economic_zones:
@@ -164,16 +164,16 @@ loci:
     vaccine_distribution_centers: 1
     airports:
       - name: New Chitose Airport
-        hub_tier: 1
+        zone_tier: 1
         infection_rate: 0.0009
         effect: 1.0
       - name: Okadama Airport
-        hub_tier: 2
+        zone_tier: 2
         infection_rate: 0.0009
         effect: 1.0
     ports:
       - name: Port of Otaru
-        hub_tier: 1
+        zone_tier: 1
         infection_rate: 0.0004
         effect: 1.0
     economic_zones:

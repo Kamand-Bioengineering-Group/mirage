@@ -55,7 +55,7 @@ class FireflyV1(EngineV1):
                 involved in the process.
         """
         f = all(
-            issubclass(process_type[0], ProcessV1)
+            issubclass(process_type[2], ProcessV1)
             for process_type in peripheral_processes_config.values()
         )
         if not f:
@@ -73,6 +73,13 @@ class FireflyV1(EngineV1):
     ):
         """
         Spawn a peripheral process.
+
+        Parameters:
+        ----------
+            - alias: The alias of the process.
+            - id: The id of the process.
+            - intervals: The intervals of the process.
+            - process_kwargs: The keyword arguments of the process.
         """
         if alias not in self.peripheral_processes:
             raise ValueError(f"Peripheral process `{alias}` not found.")

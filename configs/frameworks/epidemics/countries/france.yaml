@@ -54,16 +54,16 @@ loci:
     vaccine_distribution_centers: 0
     airports:
       - name: Charles de Gaulle Airport
-        hub_tier: 1
+        zone_tier: 1
         infection_rate : 0.007
         effect: 1.0
       - name: Orly Airport
-        hub_tier: 2
+        zone_tier: 2
         infection_rate : 0.004
         effect: 1.0
     ports:
       - name: Port of Le Havre
-        hub_tier: 1
+        zone_tier: 1
         infection_rate : 0.0009
         effect: 1.0
     economic_zones:
@@ -106,16 +106,16 @@ loci:
     vaccine_distribution_centers: 0
     airports:
       - name: Lyon-Saint-Exupéry Airport
-        hub_tier: 1
+        zone_tier: 1
         infection_rate : 0.007
         effect: 1.0
       - name: Lyon-Bron Airport
-        hub_tier: 2
+        zone_tier: 2
         infection_rate : 0.0004
         effect: 1.0
     ports:
       - name: Port of Lyon
-        hub_tier: 1
+        zone_tier: 1
         infection_rate : 0.0004
         effect: 1.0
     economic_zones:
@@ -158,20 +158,20 @@ loci:
     vaccine_distribution_centers: 0
     airports:
       - name: Marseille Provence Airport
-        hub_tier: 1
+        zone_tier: 1
         infection_rate : 0.003
         effect: 1.0
       - name: Aix-en-Provence Airport
-        hub_tier: 2
+        zone_tier: 2
         infection_rate : 0.0004
         effect: 1.0
     ports:
       - name: Port of Marseille
-        hub_tier: 1
+        zone_tier: 1
         infection_rate : 0.0009
         effect: 1.0
       - name: Port of Toulon
-        hub_tier: 1
+        zone_tier: 1
         infection_rate : 0.0002
         effect: 1.0
     economic_zones:
@@ -214,20 +214,20 @@ loci:
     vaccine_distribution_centers: 0
     airports:
       - name: Nice Côte d'Azur Airport
-        hub_tier: 1
+        zone_tier: 1
         infection_rate : 0.003
         effect: 1.0
       - name: Cannes-Mandelieu Airport
-        hub_tier: 2
+        zone_tier: 2
         infection_rate : 0.002
         effect: 1.0
     ports:
       - name: Port of Nice
-        hub_tier: 1
+        zone_tier: 1
         infection_rate : 0.002
         effect: 1.0
       - name: Port of Cannes
-        hub_tier: 1
+        zone_tier: 1
         infection_rate : 0.002
         effect: 1.0
     economic_zones:
