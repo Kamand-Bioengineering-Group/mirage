@@ -35,23 +35,23 @@ vaccines_stock:
     effectiveness: 0.1
 loci:
   - name: California
-    B: 0.01
-    C: 0.01
-    E: 0.01
-    A: 0.01
-    Ds: 0.01
-    Di: 0.01
-    Dr: 0.01
+    B: 0.015
+    C: 0.015
+    E: 0.015
+    A: 0.015
+    Ds: 0.015
+    Di: 0.015
+    Dr: 0.015
     lat: 36.7783
     lon: -119.4179
-    susceptible: 112374333
-    infected: 100000
-    recovered: 10
-    dead: 30
+    susceptible: 112500000
+    infected: 98000
+    recovered: 200
+    dead: 60
     area: 307713
-    quarantine_facilities: 2
-    general_hospitals: 10
-    vaccine_distribution_centers: 0
+    quarantine_facilities: 3
+    general_hospitals: 12
+    vaccine_distribution_centers: 1
     airports:
       - name: Los Angeles International Airport
         hub_tier: 1
@@ -92,23 +92,23 @@ loci:
         effect: 1.0
 
   - name: New York
-    B: 0.01
-    C: 0.01
-    E: 0.01
-    A: 0.01
-    Ds: 0.01
-    Di: 0.01
-    Dr: 0.01
+    B: 0.014
+    C: 0.014
+    E: 0.014
+    A: 0.014
+    Ds: 0.014
+    Di: 0.014
+    Dr: 0.014
     lat: 40.7128
     lon: -74.0060
-    susceptible: 112374333
-    infected: 100000
-    recovered: 10
-    dead: 30
+    susceptible: 112300000
+    infected: 97000
+    recovered: 180
+    dead: 50
     area: 307713
-    quarantine_facilities: 2
-    general_hospitals: 10
-    vaccine_distribution_centers: 0
+    quarantine_facilities: 3
+    general_hospitals: 12
+    vaccine_distribution_centers: 1
     airports:
       - name: John F. Kennedy International Airport
         hub_tier: 1
@@ -145,23 +145,23 @@ loci:
         effect: 1.0
 
   - name: Florida
-    B: 0.01
-    C: 0.01
-    E: 0.01
-    A: 0.01
-    Ds: 0.01
-    Di: 0.01
-    Dr: 0.01
+    B: 0.012
+    C: 0.012
+    E: 0.012
+    A: 0.012
+    Ds: 0.012
+    Di: 0.012
+    Dr: 0.012
     lat: 27.9944
     lon: -81.7603
-    susceptible: 112374333
-    infected: 100000
-    recovered: 10
-    dead: 30
+    susceptible: 112700000
+    infected: 99000
+    recovered: 150
+    dead: 40
     area: 307713
-    quarantine_facilities: 2
-    general_hospitals: 10
-    vaccine_distribution_centers: 0
+    quarantine_facilities: 3
+    general_hospitals: 12
+    vaccine_distribution_centers: 1
     airports:
       - name: Miami International Airport
         hub_tier: 1

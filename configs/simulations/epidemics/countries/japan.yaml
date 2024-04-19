@@ -1,57 +1,57 @@
 name: Japan
-gdp: 2875140000
-health_resource_stockpile: 50000.0
-sanitation_equipment_stockpile: 50000.0
-human_welfare_resource: 10000.0
-happiness_index: 1.0
-procedure_resistance: 0.6
-cleanliness_index: 0.7
-disease_research_center: 0
-vaccine_research_center: 0
-vaccines_stock: 
+gdp: 2900000000
+health_resource_stockpile: 52000.0
+sanitation_equipment_stockpile: 51000.0
+human_welfare_resource: 11000.0
+happiness_index: 0.98
+procedure_resistance: 0.62
+cleanliness_index: 0.72
+disease_research_center: 1
+vaccine_research_center: 1
+vaccines_stock:
   - name: ABC
-    quantity: 20
-    gdp_cost_per_step: 1000
-    effectiveness: 0.4
+    quantity: 25
+    gdp_cost_per_step: 950
+    effectiveness: 0.45
   - name: ACB
-    quantity: 30
-    gdp_cost_per_step: 1000
-    effectiveness: 0.22
+    quantity: 35
+    gdp_cost_per_step: 1050
+    effectiveness: 0.25
   - name: BAC
-    quantity: 10
-    gdp_cost_per_step: 1000
-    effectiveness: 0.95
+    quantity: 15
+    gdp_cost_per_step: 980
+    effectiveness: 0.92
   - name: BCA
-    quantity: 12
-    gdp_cost_per_step: 1000
-    effectiveness: -0.2
+    quantity: 14
+    gdp_cost_per_step: 1020
+    effectiveness: -0.15
   - name: CAB
-    quantity: 23
-    gdp_cost_per_step: 1000
-    effectiveness: 0.5
+    quantity: 25
+    gdp_cost_per_step: 970
+    effectiveness: 0.55
   - name: CBA
-    quantity: 10
-    gdp_cost_per_step: 1000
-    effectiveness: 0.1
+    quantity: 12
+    gdp_cost_per_step: 1010
+    effectiveness: 0.15
 loci:
   - name: Tokyo
-    B: 0.01
-    C: 0.01
-    E: 0.01
-    A: 0.01
-    Ds: 0.01
-    Di: 0.01
-    Dr: 0.01
+    B: 0.015
+    C: 0.015
+    E: 0.015
+    A: 0.015
+    Ds: 0.015
+    Di: 0.015
+    Dr: 0.015
     lat: 35.6895
     lon: 139.6917
-    susceptible: 112374333
-    infected: 100000
-    recovered: 10
-    dead: 30
+    susceptible: 112500000
+    infected: 95000
+    recovered: 150
+    dead: 50
     area: 307713
-    quarantine_facilities: 2
-    general_hospitals: 10
-    vaccine_distribution_centers: 0
+    quarantine_facilities: 3
+    general_hospitals: 12
+    vaccine_distribution_centers: 1
     airports:
       - name: Narita International Airport
         hub_tier: 1
@@ -92,23 +92,23 @@ loci:
         effect: 1.0
 
   - name: Osaka
-    B: 0.01
-    C: 0.01
-    E: 0.01
-    A: 0.01
-    Ds: 0.01
-    Di: 0.01
-    Dr: 0.01
+    B: 0.014
+    C: 0.014
+    E: 0.014
+    A: 0.014
+    Ds: 0.014
+    Di: 0.014
+    Dr: 0.014
     lat: 34.6937
     lon: 135.5023
-    susceptible: 112374333
-    infected: 100000
-    recovered: 10
-    dead: 30
+    susceptible: 112300000
+    infected: 92000
+    recovered: 180
+    dead: 40
     area: 307713
-    quarantine_facilities: 2
-    general_hospitals: 10
-    vaccine_distribution_centers: 0
+    quarantine_facilities: 3
+    general_hospitals: 12
+    vaccine_distribution_centers: 1
     airports:
       - name: Kansai International Airport
         hub_tier: 1
@@ -145,23 +145,23 @@ loci:
         effect: 1.0
 
   - name: Sapporo
-    B: 0.01
-    C: 0.01
-    E: 0.01
-    A: 0.01
-    Ds: 0.01
-    Di: 0.01
-    Dr: 0.01
+    B: 0.012
+    C: 0.012
+    E: 0.012
+    A: 0.012
+    Ds: 0.012
+    Di: 0.012
+    Dr: 0.012
     lat: 43.0621
     lon: 141.3544
-    susceptible: 112374333
-    infected: 100000
-    recovered: 10
+    susceptible: 112700000
+    infected: 98000
+    recovered: 120
     dead: 30
     area: 307713
-    quarantine_facilities: 2
-    general_hospitals: 10
-    vaccine_distribution_centers: 0
+    quarantine_facilities: 3
+    general_hospitals: 12
+    vaccine_distribution_centers: 1
     airports:
       - name: New Chitose Airport
         hub_tier: 1
