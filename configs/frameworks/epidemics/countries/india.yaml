@@ -54,20 +54,20 @@ loci:
     vaccine_distribution_centers: 0
     airports:
       - name: Chhatrapati Shivaji Maharaj International Airport
-        zone_tier: 1
+        hub_tier: 1
         effect : 1.0
         infection_rate : 0.001 
       - name: Pune International Airport
-        zone_tier: 2
+        hub_tier: 2
         effect : 1.0
         infection_rate : 0.0005 
     ports:
       - name: Mumbai Port
-        zone_tier: 1
+        hub_tier: 1
         effect : 1.0
         infection_rate : 0.001 
       - name: Goa Port
-        zone_tier: 3
+        hub_tier: 3
         infection_rate : 0.0001 
         effect : 1.0
     economic_zones:
@@ -104,7 +104,7 @@ loci:
     vaccine_distribution_centers: 0
     airports:
       - name: Indira Gandhi International Airport
-        zone_tier: 1
+        hub_tier: 1
         effect : 1.0
         infection_rate : 0.002 
     ports:
@@ -142,7 +142,7 @@ loci:
     vaccine_distribution_centers: 0
     airports:
       - name: Chaudhary Charan Singh International Airport
-        zone_tier: 1
+        hub_tier: 1
         effect : 1.0
         infection_rate : 0.0002
     ports:
@@ -154,7 +154,7 @@ loci:
       - name: Taj Mahal
         zone_tier: 1
         effect : 1.0
-      - name: Varanasi Spiritual zone
+      - name: Varanasi Spiritual Hub
         zone_tier: 3
         effect : 1.0
   
@@ -178,12 +178,12 @@ loci:
     vaccine_distribution_centers: 0
     airports:
       - name: Cochin International Airport
-        zone_tier: 1
+        hub_tier: 1
         effect : 1.0
         infection_rate : 0.0002 
     ports:
       - name: Cochin Port
-        zone_tier: 1
+        hub_tier: 1
         effect : 1.0
         infection_rate : 0.0002 
     economic_zones:
@@ -217,12 +217,12 @@ loci:
     vaccine_distribution_centers: 0
     airports:
       - name: Sardar Vallabhbhai Patel International Airport
-        zone_tier: 1
+        hub_tier: 1
         effect : 1.0
         infection_rate : 0.0002 
     ports:
       - name: Kandla Port
-        zone_tier: 1
+        hub_tier: 1
         effect : 1.0
         infection_rate : 0.0002 
     economic_zones:

@@ -4,10 +4,15 @@ Module for simulating epidemics.
 """
 
 __all__ = [
-    "engine",
+    "all_processes",
+    "constants",
     "gpe",
+    "presets",
 ]
 
 
 # ---DEPENDENCIES---------------------------------------------------------------
-from . import all_processes, constants, gpe
+from . import all_processes, constants, gpe, presets
+
+
+# ---DEFAULT SETUP--------------------------------------------------------------

@@ -1,8 +1,8 @@
 import numpy as np
 from scipy.special import expit
-from ...processes.base import ProcessV1
 from . import gpe
 from .constants import *
+from ...processes.base import ProcessV1
 
 
 def truncated_sigmoid(x, min_val, max_val):
@@ -256,7 +256,6 @@ class AidKitImplementationProcess(ProcessV1):
         self.health_resource_cost = health_resource_cost
         self.country = country
         self.state = state
-        self.status = status
         self.effect = effect
         self.trunk_min_value = trunk_min_value
         self.trunk_max_value = trunk_max_value
@@ -353,7 +352,6 @@ class General_Sanitation_Implementation(ProcessV1):
         self.sanitation_resource_cost = sanitation_resource_cost
         self.country = country
         self.state = state
-        self.status = status
         self.effect = effect
         self.trunk_min_value = trunk_min_value
         self.trunk_max_value = trunk_max_value
@@ -447,9 +445,9 @@ class QuarantineFacilitiesQProcess(ProcessV1):
         id: str,
         entities,
         status: str,
-        country,
-        state,
-        num_centers,
+        country: list,
+        state: list,
+        num_centers: list,
         gdp_cost_per_center=500,
         health_resource_cost=20,
         sanitation_equipment_cost=20,
@@ -583,24 +581,21 @@ class EconomicZoneEffectChangeProcess(ProcessV1):
         id: str,
         entities,
         status: str,
-        change_country=[],
+        country=[],
         economic_zone_names=[],
         effect=[],
     ):
         # super().__init__(id, entities, status)
-        self.change_country = change_country
+        self.country = country
         self.economic_zone_names = economic_zone_names
         self.effect = effect
-        self.status = status
 
     def while_dormant(self, step: int):
         pass
 
     def while_alive(self, step: int):
-        if len(self.change_country) > 0 and len(self.change_country) == len(
-            self.economic_zone_names
-        ):
-            for i, country in enumerate(self.change_country):
+        if len(self.country) > 0 and len(self.country) == len(self.economic_zone_names):
+            for i, country in enumerate(self.country):
                 for locus in self.entities[country].loci:
                     for economicZone in locus.economic_zones:
                         if economicZone["name"] == self.economic_zone_names[i]:
@@ -675,24 +670,21 @@ class TouristZoneEffectChangeProcess(ProcessV1):
         id: str,
         entities,
         status: str,
-        change_country=[],
+        country=[],
         tourist_zone_names=[],
         effect=[],
     ):
         # super().__init__(id, entities, status)
-        self.change_country = change_country
+        self.country = country
         self.tourist_zone_names = tourist_zone_names
         self.effect = effect
-        self.status = status
 
     def while_dormant(self, step: int):
         pass
 
     def while_alive(self, step: int):
-        if len(self.change_country) > 0 and len(self.change_country) == len(
-            self.tourist_zone_names
-        ):
-            for i, country in enumerate(self.change_country):
+        if len(self.country) > 0 and len(self.country) == len(self.tourist_zone_names):
+            for i, country in enumerate(self.country):
                 for locus in self.entities[country].loci:
                     for touristZone in locus.tourist_zones:
                         if touristZone["name"] == self.tourist_zone_names[i]:
@@ -775,7 +767,6 @@ class PortContinousProcess(ProcessV1):
         # Give Country and economic zone name as list with same index corresponding to each others country (with same name as Initialized Entity) and economic zone name
 
         # super().__init__(id, entities, status)
-        self.status = status
         self.trunk_min_value = trunk_min_value
         self.trunk_max_value = trunk_max_value
         self.max_tier = max_tier
@@ -823,26 +814,23 @@ class PortEffectChangeProcess(ProcessV1):
         id: str,
         entities,
         status: str,
-        change_country=[],
+        country=[],
         port_names=[],
         effect=[],
     ):
         # Give Country and economic zone name as list with same index corresponding to each others country (with same name as Initialized Entity) and economic zone name
 
         # super().__init__(id, entities, status)
-        self.change_country = change_country
+        self.country = country
         self.port_names = port_names
         self.effect = effect
-        self.status = status
 
     def while_dormant(self, step: int):
         pass
 
     def while_alive(self, step: int):
-        if len(self.change_country) > 0 and len(self.change_country) == len(
-            self.port_names
-        ):
-            for i, country in enumerate(self.change_country):
+        if len(self.country) > 0 and len(self.country) == len(self.port_names):
+            for i, country in enumerate(self.country):
                 for locus in self.entities[country].loci:
                     if locus.ports != None:
                         for portZones in locus.ports:
@@ -864,26 +852,23 @@ class AirPortEffectChangeProcess(ProcessV1):
         id: str,
         entities,
         status: str,
-        change_country=[],
+        country=[],
         airport_names=[],
         effect=[],
     ):
         # Give Country and economic zone name as list with same index corresponding to each others country (with same name as Initialized Entity) and economic zone name
 
         # super().__init__(id, entities, status)
-        self.change_country = change_country
+        self.country = country
         self.airport_names = airport_names
         self.effect = effect
-        self.status = status
 
     def while_dormant(self, step: int):
         pass
 
     def while_alive(self, step: int):
-        if len(self.change_country) > 0 and len(self.change_country) == len(
-            self.airport_names
-        ):
-            for i, country in enumerate(self.change_country):
+        if len(self.country) > 0 and len(self.country) == len(self.airport_names):
+            for i, country in enumerate(self.country):
                 for locus in self.entities[country].loci:
                     if locus.airports != None:
                         for airportZones in locus.airports:
@@ -908,7 +893,6 @@ class AirPortContinousProcess(ProcessV1):
         # Give Country and economic zone name as list with same index corresponding to each others country (with same name as Initialized Entity) and economic zone name
 
         # super().__init__(id, entities, status)
-        self.status = status
         self.trunk_min_value = trunk_min_value
         self.trunk_max_value = trunk_max_value
         self.max_tier = max_tier
@@ -951,6 +935,10 @@ class AirPortContinousProcess(ProcessV1):
 #################### C VALUE CHANGE#######################################################################
 
 
+############################################################################################################
+#################### C VALUE CHANGE#######################################################################
+
+
 class MandatoryVaccinationProcess(ProcessV1):
     RANK = 1
     DOMAIN = (gpe.Country,)
@@ -960,9 +948,9 @@ class MandatoryVaccinationProcess(ProcessV1):
         id: str,
         entities,
         status: str,
-        change_country=[],
-        state=[],
-        percent_infected_vaccinated=0.5,
+        change_country: list,
+        state: list,
+        percent_infected_vaccinated: list,
         gdp_cost_per_infected=0.001,
         health_resource_cost_per_infected=0.001,
         trunk_min_value=1e-6,
@@ -972,7 +960,7 @@ class MandatoryVaccinationProcess(ProcessV1):
         self.gdp_cost_per_infected = gdp_cost_per_infected
         self.health_resource_cost_per_infected = health_resource_cost_per_infected
         self.status = status
-        self.percent_infected_vaccinated = percent_infected_vaccinated
+        self.percent_infected_vaccinated[i] = percent_infected_vaccinated[i]
         self.state = state
         self.country = change_country
         self.state = state
@@ -984,20 +972,25 @@ class MandatoryVaccinationProcess(ProcessV1):
 
     def while_alive(self, step: int):
         for i, country in enumerate(self.country):
+            # print(country)
+            # print(self.entities)
             healthcare_resource = self.entities[country].health_resource_stockpile
             for locus in self.entities[country].loci:
                 if locus.name == self.state[i]:
+
+                    # print("Yes", locus.name)
                     if (
                         healthcare_resource
                         >= self.health_resource_cost_per_infected
                         * locus.infected
-                        * self.percent_infected_vaccinated
+                        * self.percent_infected_vaccinated[i]
                     ):
+                        # print("ENOUNG RESOURCES", healthcare_resource, self.health_resource_cost_per_infected *locus.infected * self.percent_infected_vaccinated[i])
                         if (
                             self.entities[country].health_resource_stockpile
                             - self.health_resource_cost_per_infected
                             * locus.infected
-                            * self.percent_infected_vaccinated
+                            * self.percent_infected_vaccinated[i]
                             <= 0
                         ):
                             self.entities[country].health_resource_stockpile = 0
@@ -1005,25 +998,30 @@ class MandatoryVaccinationProcess(ProcessV1):
                             self.entities[country].health_resource_stockpile -= (
                                 self.health_resource_cost_per_infected
                                 * locus.infected
-                                * self.percent_infected_vaccinated
+                                * self.percent_infected_vaccinated[i]
                             )
+
+                        # print(locus.C, "LOCUS B  BEFORE")
                         if (
                             locus.C
                             + truncated_sigmoid(
-                                locus.C * self.percent_infected_vaccinated,
+                                locus.C * self.percent_infected_vaccinated[i],
                                 self.trunk_min_value,
                                 self.trunk_max_value,
                             )
                             < 1
                         ):
                             locus.C += truncated_sigmoid(
-                                locus.C * self.percent_infected_vaccinated,
+                                locus.C * self.percent_infected_vaccinated[i],
                                 self.trunk_min_value,
                                 self.trunk_max_value,
                             )
                         else:
                             locus.C = 0.8
+                        # print(locus.C, "LOCUS B AFTER")
+
                     else:
+                        # print("Insuff RES")
                         locus.C -= locus.C * 0.02
 
                 else:
@@ -1039,9 +1037,9 @@ class GeneralHospitalBuildingProcess(ProcessV1):
         id: str,
         entities,
         status: str,
-        change_country=[],
-        state=[],
-        num_hospitals=[],
+        change_country: list,
+        state: list,
+        num_hospitals: list,
         gdp_cost_per_hospital=10000,
         min_recovered_people=50,
         trunk_min_value=1e-6,
@@ -1063,14 +1061,19 @@ class GeneralHospitalBuildingProcess(ProcessV1):
     def while_alive(self, step: int):
         if len(self.change_country) > 0:
             for i, country in enumerate(self.country):
+                # print(country)
+                # print(self.entities)
                 healthcare_resource = self.entities[country].health_resource_stockpile
                 for locus in self.entities[country].loci:
                     if locus.name == self.state[i]:
+
+                        # print("Yes", locus.name)
                         if (
                             healthcare_resource
                             >= self.gdp_cost_per_hospital * self.num_hospitals[i]
                             and locus.recovered >= self.min_recovered_people
                         ):
+                            # print("ENOUNG RESOURCES", healthcare_resource,self.gdp_cost_per_hospital)
                             if (
                                 self.entities[country].health_resource_stockpile
                                 - self.gdp_cost_per_hospital
@@ -1083,11 +1086,43 @@ class GeneralHospitalBuildingProcess(ProcessV1):
                                 ].health_resource_stockpile -= (
                                     self.gdp_cost_per_hospital
                                 )
+
+                            # print(locus.general_hospitals, "LOCUS B  BEFORE")
                             locus.general_hospitals += self.num_hospitals[i]
+                            # print(locus.general_hospitals, "LOCUS B AFTER")
+
                         else:
+                            # print("Insuff RES")
                             locus.C -= locus.C * 0.0002
 
-        # If no country provided then check all loci of all country and increase the C value of the loci based on the number of hospitals
+
+class GeneralHospitalContinousProcess(ProcessV1):
+    RANK = 0
+    DOMAIN = (gpe.Country,)
+
+    def __init__(
+        self,
+        id: str,
+        entities,
+        status: str,
+        gdp_cost_per_hospital=10000,
+        min_recovered_people=50,
+        trunk_min_value=1e-6,
+        trunk_max_value=5e-5,
+    ):
+        # Give Country and economic zone name as list with same index corresponding to each others country (with same name as Initialized Entity) and economic zone name
+
+        # super().__init__(id, entities, status)
+        self.status = status
+        self.gdp_cost_per_hospital = gdp_cost_per_hospital
+        self.min_recovered_people = min_recovered_people
+        self.trunk_min_value = trunk_min_value
+        self.trunk_max_value = trunk_max_value
+
+    def while_dormant(self, step: int):
+        pass
+
+    def auto_run(self):
         for country in self.entities.keys():
             for locus in self.entities[country].loci:
                 if locus.recovered >= self.min_recovered_people:
@@ -1120,6 +1155,9 @@ class GeneralHospitalBuildingProcess(ProcessV1):
                         locus.C = 0.8
                 else:
                     pass
+
+    def while_alive(self, step: int):
+        self.auto_run()
 
 
 ########################################################
@@ -1175,6 +1213,7 @@ class IncreaseDsProcess(ProcessV1):
                             locus.Ds += scale
                         else:
                             locus.Ds = 0.2
+
 
 class IncreaseDiProcess(ProcessV1):
 

@@ -1,4 +1,4 @@
-name: China
+name: France
 gdp: 2875140000
 health_resource_stockpile: 50000.0
 sanitation_equipment_stockpile: 50000.0
@@ -34,219 +34,219 @@ vaccines_stock:
     gdp_cost_per_step: 1000
     effectiveness: 0.1
 loci:
-  - name: Beijing
-    B: 0.01
-    C: 0.01
+  - name: Paris
+    B: 0.03
+    C: 0.02
     E: 0.01
-    A: 0.01
+    A: 0.03
     Ds: 0.01
-    Di: 0.01
-    Dr: 0.01
-    lat: 39.9042
-    lon: 116.4074
-    susceptible: 112374333
-    infected: 100000
-    recovered: 10
-    dead: 0
-    area: 307713
+    Di: 0.03
+    Dr: 0.02
+    lat: 48.8566
+    lon: 2.3522
+    susceptible: 2150000
+    infected: 1000
+    recovered: 100
+    dead: 30
+    area: 105.4
     quarantine_facilities: 2
     general_hospitals: 10
     vaccine_distribution_centers: 0
     airports:
-      - name: Beijing Capital International Airport
-        zone_tier: 1
-        infection_rate : 0.002
+      - name: Charles de Gaulle Airport
+        hub_tier: 1
+        infection_rate : 0.007
         effect: 1.0
-      - name: Beijing Daxing International Airport
-        zone_tier: 2
-        infection_rate : 0.002
+      - name: Orly Airport
+        hub_tier: 2
+        infection_rate : 0.004
         effect: 1.0
     ports:
-      - name: Port of Tianjin
-        infection_rate : 0.0004
-        zone_tier: 1
-        effect: 1.0
-      - name: Port of Dalian
-        zone_tier: 1
-        infection_rate : 0.0004
-        effect: 1.0
-    economic_zones:
-      - name: Zhongguancun
-        zone_tier: 1
-        effect: 1.0
-      - name: Wangfujing
-        zone_tier: 2
-        effect: 1.0
-      - name: Sanlitun
-        zone_tier: 2
-        effect: 1.0
-    tourist_zones:
-      - name: Great Wall of China
-        zone_tier: 1
-        effect: 1.0
-      - name: Forbidden City
-        zone_tier: 2
-        effect: 1.0
-      - name: Summer Palace
-        zone_tier: 2
-        effect: 1.0
-  - name: Shanghai
-    B: 0.01
-    C: 0.01
-    E: 0.01
-    A: 0.01
-    Ds: 0.01
-    Di: 0.01
-    Dr: 0.01
-    lat: 19.7515
-    lon: 75.7139
-    susceptible: 112374333
-    infected: 100000
-    recovered: 10
-    dead: 30
-    area: 307713
-    quarantine_facilities: 2
-    general_hospitals: 10
-    vaccine_distribution_centers: 0
-    airports:
-      - name: Shanghai Pudong International Airport
-        zone_tier: 1
-        infection_rate : 0.0004
-        effect: 1.0
-      - name: Shanghai Hongqiao International Airport
-        zone_tier: 2
-        infection_rate : 0.0004
-        effect: 1.0
-    ports:
-      - name: Port of Shanghai
-        zone_tier: 1
-        infection_rate : 0.0002
-        effect: 1.0
-    economic_zones:
-      - name: Lujiazui
-        zone_tier: 1
-        effect: 1.0
-      - name: Xintiandi
-        zone_tier: 2
-        effect: 1.0
-      - name: The Bund
-        zone_tier: 2
-        effect: 1.0
-    tourist_zones:
-      - name: The Bund
-        zone_tier: 1
-        effect: 1.0
-      - name: Yu Garden
-        zone_tier: 2
-        effect: 1.0
-      - name: Oriental Pearl Tower
-        zone_tier: 2
-        effect: 1.0
-  - name: Guangdong
-    B: 0.01
-    C: 0.01
-    E: 0.01
-    A: 0.01
-    Ds: 0.01
-    Di: 0.01
-    Dr: 0.01
-    lat: 19.7515
-    lon: 75.7139
-    susceptible: 112374333
-    infected: 100000
-    recovered: 10
-    dead: 30
-    area: 307713
-    quarantine_facilities: 2
-    general_hospitals: 10
-    vaccine_distribution_centers: 0
-    airports:
-      - name: Guangzhou Baiyun International Airport
-        zone_tier: 1
-        infection_rate : 0.001
-        effect: 1.0
-      - name: Shenzhen Bao'an International Airport
-        zone_tier: 2
-        infection_rate : 0.0005
-        effect: 1.0
-    ports:
-      - name: Port of Guangzhou
-        zone_tier: 1
-        infection_rate : 0.0001
-        effect: 1.0
-      - name: Port of Shenzhen
-        zone_tier: 1
-        infection_rate : 0.0002
-        effect: 1.0
-    economic_zones:
-      - name: Shenzhen SEZ
-        zone_tier: 1
-        effect: 1.0
-      - name: Guangzhou SEZ
-        zone_tier: 2
-        effect: 1.0
-      - name: Zhuhai SEZ
-        zone_tier: 2
-        effect: 1.0
-    tourist_zones:
-      - name: Canton Tower
-        zone_tier: 1
-        effect: 1.0
-      - name: Chimelong Paradise
-        zone_tier: 2
-        effect: 1.0
-      - name: Window of the World
-        zone_tier: 2
-        effect: 1.0
-  - name: Zhejiang
-    B: 0.01
-    C: 0.01
-    E: 0.01
-    A: 0.01
-    Ds: 0.01
-    Di: 0.01
-    Dr: 0.01
-    lat: 19.7515
-    lon: 75.7139
-    susceptible: 112374333
-    infected: 100000
-    recovered: 10
-    dead: 30
-    area: 307713
-    quarantine_facilities: 2
-    general_hospitals: 10
-    vaccine_distribution_centers: 0
-    airports:
-      - name: Hangzhou Xiaoshan International Airport
-        zone_tier: 1
-        effect: 1.0
+      - name: Port of Le Havre
+        hub_tier: 1
         infection_rate : 0.0009
-      - name: Ningbo Lishe International Airport
-        zone_tier: 2
-        effect: 1.0
-        infection_rate : 0.0008
-    ports:
-      - name: Port of Ningbo-Zhoushan
-        zone_tier: 1
-        infection_rate : 0.0001
         effect: 1.0
     economic_zones:
-      - name: Hangzhou SEZ
+      - name: La Défense
         zone_tier: 1
         effect: 1.0
-      - name: Ningbo SEZ
+      - name: Bercy
         zone_tier: 2
         effect: 1.0
-      - name: Wenzhou SEZ
+      - name: Montmartre
         zone_tier: 2
         effect: 1.0
     tourist_zones:
-      - name: West Lake
+      - name: Eiffel Tower
         zone_tier: 1
         effect: 1.0
-      - name: Xixi National Wetland Park
+      - name: Louvre Museum
         zone_tier: 2
         effect: 1.0
-      - name: Lingyin Temple
+      - name: Palace of Versailles
+        zone_tier: 2
+        effect: 1.0
+  - name: Lyon
+    B: 0.02
+    C: 0.01
+    E: 0.01
+    A: 0.02
+    Ds: 0.01
+    Di: 0.02
+    Dr: 0.01
+    lat: 45.75
+    lon: 4.85
+    susceptible: 520000
+    infected: 100
+    recovered: 100
+    dead: 30
+    area: 47.87
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
+    airports:
+      - name: Lyon-Saint-Exupéry Airport
+        hub_tier: 1
+        infection_rate : 0.007
+        effect: 1.0
+      - name: Lyon-Bron Airport
+        hub_tier: 2
+        infection_rate : 0.0004
+        effect: 1.0
+    ports:
+      - name: Port of Lyon
+        hub_tier: 1
+        infection_rate : 0.0004
+        effect: 1.0
+    economic_zones:
+      - name: Part-Dieu
+        zone_tier: 1
+        effect: 1.0
+      - name: Confluence
+        zone_tier: 2
+        effect: 1.0
+      - name: Gerland
+        zone_tier: 2
+        effect: 1.0
+    tourist_zones:
+      - name: Basilica of Notre-Dame de Fourvière
+        zone_tier: 1
+        effect: 1.0
+      - name: Place Bellecour
+        zone_tier: 2
+        effect: 1.0
+      - name: Parc de la Tête d'Or
+        zone_tier: 2
+        effect: 1.0
+  - name: Marseille
+    B: 0.02
+    C: 0.02
+    E: 0.01
+    A: 0.02
+    Ds: 0.01
+    Di: 0.02
+    Dr: 0.02
+    lat: 43.2965
+    lon: 5.3698
+    susceptible: 870000
+    infected: 100
+    recovered: 100
+    dead: 30
+    area: 241
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
+    airports:
+      - name: Marseille Provence Airport
+        hub_tier: 1
+        infection_rate : 0.003
+        effect: 1.0
+      - name: Aix-en-Provence Airport
+        hub_tier: 2
+        infection_rate : 0.0004
+        effect: 1.0
+    ports:
+      - name: Port of Marseille
+        hub_tier: 1
+        infection_rate : 0.0009
+        effect: 1.0
+      - name: Port of Toulon
+        hub_tier: 1
+        infection_rate : 0.0002
+        effect: 1.0
+    economic_zones:
+      - name: Euroméditerranée
+        zone_tier: 1
+        effect: 1.0
+      - name: La Joliette
+        zone_tier: 2
+        effect: 1.0
+      - name: La Plaine
+        zone_tier: 2
+        effect: 1.0
+    tourist_zones:
+      - name: Old Port of Marseille
+        zone_tier: 1
+        effect: 1.0
+      - name: Calanques National Park
+        zone_tier: 2
+        effect: 1.0
+      - name: Notre-Dame de la Garde
+        zone_tier: 2
+        effect: 1.0
+  - name: Nice
+    B: 0.03
+    C: 0.01
+    E: 0.01
+    A: 0.03
+    Ds: 0.01
+    Di: 0.03
+    Dr: 0.01
+    lat: 43.7102
+    lon: 7.262
+    susceptible: 340000
+    infected: 100
+    recovered: 100
+    dead: 30
+    area: 71.92
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
+    airports:
+      - name: Nice Côte d'Azur Airport
+        hub_tier: 1
+        infection_rate : 0.003
+        effect: 1.0
+      - name: Cannes-Mandelieu Airport
+        hub_tier: 2
+        infection_rate : 0.002
+        effect: 1.0
+    ports:
+      - name: Port of Nice
+        hub_tier: 1
+        infection_rate : 0.002
+        effect: 1.0
+      - name: Port of Cannes
+        hub_tier: 1
+        infection_rate : 0.002
+        effect: 1.0
+    economic_zones:
+      - name: Nice Méridia
+        zone_tier: 1
+        effect: 1.0
+      - name: Nice Acropolis
+        zone_tier: 2
+        effect: 1.0
+      - name: Nice Arenas
+        zone_tier: 2
+        effect: 1.0
+    tourist_zones:
+      - name: Promenade des Anglais
+        zone_tier: 1
+        effect: 1.0
+      - name: Castle Hill
+        zone_tier: 2
+        effect: 1.0
+      - name: Cours Saleya
         zone_tier: 2
         effect: 1.0

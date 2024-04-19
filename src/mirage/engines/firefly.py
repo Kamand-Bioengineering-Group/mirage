@@ -36,6 +36,52 @@ class FireflyV1(EngineV1):
         baba_black_sheep: str,
     ):
         self.baba_black_sheep = baba_black_sheep
+        self.peripheral_processes = {}
+
+    def register_peripheral_processes(
+        self,
+        peripheral_processes_config: tp.Dict[
+            str, tp.Tuple[str, tp.Dict[str, EntityV1], tp.Type[ProcessV1]]
+        ],
+    ):
+        """
+        Register peripheral processes.
+
+        Parameters:
+        ----------
+            - peripheral_processes_config: A dictionary of peripheral processes.
+                The key is the alias of the process, and the value is a tuple
+                of the default process status, the entities and the process type
+                involved in the process.
+        """
+        f = all(
+            issubclass(process_type[0], ProcessV1)
+            for process_type in peripheral_processes_config.values()
+        )
+        if not f:
+            raise TypeError(
+                "All peripheral processes must be instances of `ProcessV1`."
+            )
+        self.peripheral_processes_config = peripheral_processes_config
+
+    def spawn_peripheral_process(
+        self,
+        alias: str,
+        id: str,
+        intervals: tp.List[tp.List[int]] | tp.List[int] | tp.Set[int] | None,
+        **process_kwargs,
+    ):
+        """
+        Spawn a peripheral process.
+        """
+        if alias not in self.peripheral_processes:
+            raise ValueError(f"Peripheral process `{alias}` not found.")
+        # check unique id
+        if any(p.id == id for p in self.processes):
+            raise ValueError(f"Process id {id} already exists.")
+        sign = self.peripheral_processes[alias]
+        process = sign[0](id, sign[1], sign[2], **process_kwargs)
+        self.insert_process(process, intervals)
 
 
 class FireflyV1State(EntityV1):

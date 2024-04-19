@@ -1,4 +1,4 @@
-name: France
+name: China
 gdp: 2875140000
 health_resource_stockpile: 50000.0
 sanitation_equipment_stockpile: 50000.0
@@ -34,234 +34,219 @@ vaccines_stock:
     gdp_cost_per_step: 1000
     effectiveness: 0.1
 loci:
-  - name: Paris
-    B: 0.01
-    C: 0.01
+  - name: Beijing
+    B: 0.03
+    C: 0.02
     E: 0.01
-    A: 0.01
+    A: 0.03
     Ds: 0.01
-    Di: 0.01
-    Dr: 0.01
-    lat: 19.7515
-    lon: 75.7139
-    susceptible: 112374333
-    infected: 100000
-    recovered: 10
-    dead: 30
+    Di: 0.03
+    Dr: 0.02
+    lat: 39.9042
+    lon: 116.4074
+    susceptible: 21540000
+    infected: 10000
+    recovered: 100
+    dead: 0
     area: 307713
     quarantine_facilities: 2
     general_hospitals: 10
     vaccine_distribution_centers: 0
     airports:
-      - name: Charles de Gaulle Airport
+      - name: Beijing Capital International Airport
         zone_tier: 1
-        infection_rate : 0.007
+        infection_rate : 0.002
         effect: 1.0
-
-      - name: Orly Airport
+      - name: Beijing Daxing International Airport
         zone_tier: 2
-        infection_rate : 0.004
+        infection_rate : 0.002
         effect: 1.0
-
     ports:
-      - name: Port of Le Havre
+      - name: Port of Tianjin
+        infection_rate : 0.0004
         zone_tier: 1
-        infection_rate : 0.0009
         effect: 1.0
-
+      - name: Port of Dalian
+        zone_tier: 1
+        infection_rate : 0.0004
+        effect: 1.0
     economic_zones:
-      - name: La Défense
+      - name: Zhongguancun
         zone_tier: 1
         effect: 1.0
-      - name: Bercy
+      - name: Wangfujing
         zone_tier: 2
         effect: 1.0
-      - name: Montmartre
+      - name: Sanlitun
         zone_tier: 2
         effect: 1.0
     tourist_zones:
-      - name: Eiffel Tower
+      - name: Great Wall of China
         zone_tier: 1
         effect: 1.0
-      - name: Louvre Museum
+      - name: Forbidden City
         zone_tier: 2
         effect: 1.0
-      - name: Palace of Versailles
+      - name: Summer Palace
         zone_tier: 2
         effect: 1.0
-  - name: Lyon
-    B: 0.01
-    C: 0.01
+  - name: Shanghai
+    B: 0.02
+    C: 0.02
     E: 0.01
-    A: 0.01
+    A: 0.02
     Ds: 0.01
-    Di: 0.01
-    Dr: 0.01
-    lat: 19.7515
-    lon: 75.7139
-    susceptible: 112374333
-    infected: 100000
-    recovered: 10
+    Di: 0.02
+    Dr: 0.02
+    lat: 31.2304
+    lon: 121.4737
+    susceptible: 24280000
+    infected: 10000
+    recovered: 100
     dead: 30
     area: 307713
     quarantine_facilities: 2
     general_hospitals: 10
     vaccine_distribution_centers: 0
     airports:
-      - name: Lyon-Saint-Exupéry Airport
+      - name: Shanghai Pudong International Airport
         zone_tier: 1
-        infection_rate : 0.007
+        infection_rate : 0.0004
         effect: 1.0
-
-      - name: Lyon-Bron Airport
+      - name: Shanghai Hongqiao International Airport
         zone_tier: 2
         infection_rate : 0.0004
         effect: 1.0
-
     ports:
-      - name: Port of Lyon
-        zone_tier: 1
-        infection_rate : 0.0004
-        effect: 1.0
-
-    economic_zones:
-      - name: Part-Dieu
-        zone_tier: 1
-        effect: 1.0
-      - name: Confluence
-        zone_tier: 2
-        effect: 1.0
-      - name: Gerland
-        zone_tier: 2
-        effect: 1.0
-    tourist_zones:
-      - name: Basilica of Notre-Dame de Fourvière
-        zone_tier: 1
-        effect: 1.0
-      - name: Place Bellecour
-        zone_tier: 2
-        effect: 1.0
-      - name: Parc de la Tête d'Or
-        zone_tier: 2
-        effect: 1.0
-  - name: Marseille
-    B: 0.01
-    C: 0.01
-    E: 0.01
-    A: 0.01
-    Ds: 0.01
-    Di: 0.01
-    Dr: 0.01
-    lat: 19.7515
-    lon: 75.7139
-    susceptible: 112374333
-    infected: 100000
-    recovered: 10
-    dead: 30
-    area: 307713
-    quarantine_facilities: 2
-    general_hospitals: 10
-    vaccine_distribution_centers: 0
-    airports:
-      - name: Marseille Provence Airport
-        zone_tier: 1
-        infection_rate : 0.003
-        effect: 1.0
-
-      - name: Aix-en-Provence Airport
-        zone_tier: 2
-        infection_rate : 0.0004
-        effect: 1.0
-
-    ports:
-      - name: Port of Marseille
-        zone_tier: 1
-        infection_rate : 0.0009
-        effect: 1.0
-
-      - name: Port of Toulon
+      - name: Port of Shanghai
         zone_tier: 1
         infection_rate : 0.0002
         effect: 1.0
-
     economic_zones:
-      - name: Euroméditerranée
+      - name: Lujiazui
         zone_tier: 1
         effect: 1.0
-      - name: La Joliette
+      - name: Xintiandi
         zone_tier: 2
         effect: 1.0
-      - name: La Plaine
+      - name: The Bund
         zone_tier: 2
         effect: 1.0
     tourist_zones:
-      - name: Old Port of Marseille
+      - name: The Bund
         zone_tier: 1
         effect: 1.0
-      - name: Calanques National Park
+      - name: Yu Garden
         zone_tier: 2
         effect: 1.0
-      - name: Notre-Dame de la Garde
+      - name: Oriental Pearl Tower
         zone_tier: 2
         effect: 1.0
-  - name: Nice
-    B: 0.01
-    C: 0.01
+  - name: Guangdong
+    B: 0.03
+    C: 0.02
     E: 0.01
-    A: 0.01
+    A: 0.03
     Ds: 0.01
-    Di: 0.01
-    Dr: 0.01
-    lat: 19.7515
-    lon: 75.7139
-    susceptible: 112374333
-    infected: 100000
-    recovered: 10
+    Di: 0.03
+    Dr: 0.02
+    lat: 23.1136
+    lon: 113.4221
+    susceptible: 113460000
+    infected: 10000
+    recovered: 100
     dead: 30
     area: 307713
     quarantine_facilities: 2
     general_hospitals: 10
     vaccine_distribution_centers: 0
     airports:
-      - name: Nice Côte d'Azur Airport
+      - name: Guangzhou Baiyun International Airport
         zone_tier: 1
-        infection_rate : 0.003
+        infection_rate : 0.001
         effect: 1.0
-
-      - name: Cannes-Mandelieu Airport
+      - name: Shenzhen Bao'an International Airport
         zone_tier: 2
-        infection_rate : 0.002
+        infection_rate : 0.0005
         effect: 1.0
-
     ports:
-      - name: Port of Nice
+      - name: Port of Guangzhou
         zone_tier: 1
-        infection_rate : 0.002
+        infection_rate : 0.0001
         effect: 1.0
-
-      - name: Port of Cannes
+      - name: Port of Shenzhen
         zone_tier: 1
-        infection_rate : 0.002
+        infection_rate : 0.0002
         effect: 1.0
-
     economic_zones:
-      - name: Nice Méridia
+      - name: Shenzhen SEZ
         zone_tier: 1
         effect: 1.0
-      - name: Nice Acropolis
+      - name: Guangzhou SEZ
         zone_tier: 2
         effect: 1.0
-      - name: Nice Arenas
+      - name: Zhuhai SEZ
         zone_tier: 2
         effect: 1.0
     tourist_zones:
-      - name: Promenade des Anglais
+      - name: Canton Tower
         zone_tier: 1
         effect: 1.0
-      - name: Castle Hill
+      - name: Chimelong Paradise
         zone_tier: 2
         effect: 1.0
-      - name: Cours Saleya
+      - name: Window of the World
         zone_tier: 2
         effect: 1.0
-
+  - name: Zhejiang
+    B: 0.02
+    C: 0.02
+    E: 0.01
+    A: 0.02
+    Ds: 0.01
+    Di: 0.02
+    Dr: 0.02
+    lat: 30.2638
+    lon: 120.144
+    susceptible: 64570000
+    infected: 10000
+    recovered: 100
+    dead: 30
+    area: 307713
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
+    airports:
+      - name: Hangzhou Xiaoshan International Airport
+        zone_tier: 1
+        effect: 1.0
+        infection_rate : 0.0009
+      - name: Ningbo Lishe International Airport
+        zone_tier: 2
+        effect: 1.0
+        infection_rate : 0.0008
+    ports:
+      - name: Port of Ningbo-Zhoushan
+        zone_tier: 1
+        infection_rate : 0.0001
+        effect: 1.0
+    economic_zones:
+      - name: Hangzhou SEZ
+        zone_tier: 1
+        effect: 1.0
+      - name: Ningbo SEZ
+        zone_tier: 2
+        effect: 1.0
+      - name: Wenzhou SEZ
+        zone_tier: 2
+        effect: 1.0
+    tourist_zones:
+      - name: West Lake
+        zone_tier: 1
+        effect: 1.0
+      - name: Xixi National Wetland Park
+        zone_tier: 2
+        effect: 1.0
+      - name: Lingyin Temple
+        zone_tier: 2
+        effect: 1.0
