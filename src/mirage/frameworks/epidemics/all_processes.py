@@ -865,9 +865,9 @@ class MandatoryVaccinationProcess(ProcessV1):
         id: str,
         entities,
         status: str,
-        change_country=[],
-        state=[],
-        percent_infected_vaccinated=0.5,
+        change_country: list,
+        state: list,
+        percent_infected_vaccinated[i]: list,
         gdp_cost_per_infected=0.001,
         health_resource_cost_per_infected=0.001,
         trunk_min_value=1e-6,
@@ -878,7 +878,7 @@ class MandatoryVaccinationProcess(ProcessV1):
         self.gdp_cost_per_infected = gdp_cost_per_infected
         self.health_resource_cost_per_infected = health_resource_cost_per_infected
         self.status = status
-        self.percent_infected_vaccinated = percent_infected_vaccinated
+        self.percent_infected_vaccinated[i] = percent_infected_vaccinated[i]
         self.state = state
         self.country = change_country
         self.state = state
@@ -899,24 +899,26 @@ class MandatoryVaccinationProcess(ProcessV1):
                     # print("Yes", locus.name)
                     if (
                         healthcare_resource >= self.health_resource_cost_per_infected *
-                        locus.infected * self.percent_infected_vaccinated
+                        locus.infected * self.percent_infected_vaccinated[i]
                     ):
-                        # print("ENOUNG RESOURCES", healthcare_resource, self.health_resource_cost_per_infected *locus.infected * self.percent_infected_vaccinated)
+                        # print("ENOUNG RESOURCES", healthcare_resource, self.health_resource_cost_per_infected *locus.infected * self.percent_infected_vaccinated[i])
                         if (
                             self.entities[country].health_resource_stockpile
                             - self.health_resource_cost_per_infected *
-                                locus.infected * self.percent_infected_vaccinated
+                                locus.infected *
+                            self.percent_infected_vaccinated[i]
                             <= 0
                         ):
                             self.entities[country].health_resource_stockpile = 0
                         else:
                             self.entities[country].health_resource_stockpile -= self.health_resource_cost_per_infected * \
-                                locus.infected * self.percent_infected_vaccinated
+                                locus.infected * \
+                                self.percent_infected_vaccinated[i]
 
                         # print(locus.C, "LOCUS B  BEFORE")
-                        if (locus.C + truncated_sigmoid(locus.C * self.percent_infected_vaccinated, self.trunk_min_value, self.trunk_max_value) < 1):
+                        if (locus.C + truncated_sigmoid(locus.C * self.percent_infected_vaccinated[i], self.trunk_min_value, self.trunk_max_value) < 1):
                             locus.C += truncated_sigmoid(
-                                locus.C * self.percent_infected_vaccinated, self.trunk_min_value, self.trunk_max_value)
+                                locus.C * self.percent_infected_vaccinated[i], self.trunk_min_value, self.trunk_max_value)
                         else:
                             locus.C = 0.8
                         # print(locus.C, "LOCUS B AFTER")
@@ -938,9 +940,9 @@ class GeneralHospitalBuildingProcess(ProcessV1):
         id: str,
         entities,
         status: str,
-        change_country=[],
-        state=[],
-        num_hospitals=[],
+        change_country: list,
+        state: list,
+        num_hospitals: list,
         gdp_cost_per_hospital=10000,
         min_recovered_people=50,
         trunk_min_value=1e-6,
