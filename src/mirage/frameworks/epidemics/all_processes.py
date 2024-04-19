@@ -723,6 +723,7 @@ class PortContinousProcess(ProcessV1):
                         locus.B -= 0.1*locus.B
 
                     self.entities[country].gdp += total_gdp_increase
+                    self.entities[country].hu
 
     def while_alive(self, step: int):
         self.auto_run()
