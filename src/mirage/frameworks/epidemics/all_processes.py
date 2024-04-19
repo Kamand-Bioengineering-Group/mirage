@@ -2,7 +2,7 @@ import yaml
 from mirage.src.mirage.engines.base import EngineV1
 from mirage.src.mirage.processes import ProcessV1
 from mirage.src.mirage.frameworks.epidemics import gpe
-from mirage.configs.simulations.epidemics.epidemic_constants import *
+from mirage.configs.simulations.epidemics.countries.constants import *
 import pprint
 import numpy as np
 import matplotlib.pyplot as plt
@@ -114,16 +114,6 @@ class BirthProcess(ProcessV1):
                         locus.A += birth_rate
                     else:
                         locus.A = max_birth_rate
-
-        ####### Keep is want to debug #######
-        # return {
-        #     "MaskImplementationProcess"
-        #     + "_"
-        #     + str(locus.name)
-        #     + "_"
-        #     + str(country): locus.A
-        #     for locus in self.entities[country].loci
-        # }
 
 ############################################################################################################
 

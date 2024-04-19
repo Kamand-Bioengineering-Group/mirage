@@ -42,8 +42,8 @@ loci:
     Ds: 0.01
     Di: 0.01
     Dr: 0.01
-    lat: 19.7515
-    lon: 75.7139
+    lat: 35.6895
+    lon: 139.6917
     susceptible: 112374333
     infected: 100000
     recovered: 10
@@ -55,25 +55,21 @@ loci:
     airports:
       - name: Narita International Airport
         hub_tier: 1
-        infection_rate : 0.003
+        infection_rate: 0.003
         effect: 1.0
-
       - name: Haneda Airport
         hub_tier: 2
-        infection_rate : 0.008
+        infection_rate: 0.008
         effect: 1.0
-
     ports:
       - name: Port of Tokyo
         hub_tier: 1
-        infection_rate : 0.0003
+        infection_rate: 0.0003
         effect: 1.0
-
       - name: Port of Yokohama
         hub_tier: 1
-        infection_rate : 0.0004
+        infection_rate: 0.0004
         effect: 1.0
-
     economic_zones:
       - name: Tokyo Bay
         zone_tier: 1
@@ -103,8 +99,8 @@ loci:
     Ds: 0.01
     Di: 0.01
     Dr: 0.01
-    lat: 19.7515
-    lon: 75.7139
+    lat: 34.6937
+    lon: 135.5023
     susceptible: 112374333
     infected: 100000
     recovered: 10
@@ -115,21 +111,18 @@ loci:
     vaccine_distribution_centers: 0
     airports:
       - name: Kansai International Airport
-        infection_rate : 0.002
         hub_tier: 1
+        infection_rate: 0.002
         effect: 1.0
       - name: Osaka International Airport
         hub_tier: 2
+        infection_rate: 0.007
         effect: 1.0
-        infection_rate : 0.007
-
     ports:
       - name: Port of Osaka
         hub_tier: 1
-        infection_rate : 0.0004
+        infection_rate: 0.0004
         effect: 1.0
-
-
     economic_zones:
       - name: Umeda
         zone_tier: 1
@@ -159,8 +152,8 @@ loci:
     Ds: 0.01
     Di: 0.01
     Dr: 0.01
-    lat: 19.7515
-    lon: 75.7139
+    lat: 43.0621
+    lon: 141.3544
     susceptible: 112374333
     infected: 100000
     recovered: 10
@@ -172,20 +165,17 @@ loci:
     airports:
       - name: New Chitose Airport
         hub_tier: 1
+        infection_rate: 0.0009
         effect: 1.0
-        infection_rate : 0.0009
-
       - name: Okadama Airport
         hub_tier: 2
+        infection_rate: 0.0009
         effect: 1.0
-        infection_rate : 0.0009
-
     ports:
       - name: Port of Otaru
         hub_tier: 1
-        infection_rate : 0.0004
+        infection_rate: 0.0004
         effect: 1.0
-
     economic_zones:
       - name: Sapporo Station
         zone_tier: 1
@@ -206,5 +196,3 @@ loci:
       - name: Moerenuma Park
         zone_tier: 2
         effect: 1.0
-
-

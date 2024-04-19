@@ -42,8 +42,8 @@ loci:
     Ds: 0.01
     Di: 0.01
     Dr: 0.01
-    lat: 19.7515
-    lon: 75.7139
+    lat: 36.7783
+    lon: -119.4179
     susceptible: 112374333
     infected: 100000
     recovered: 10
@@ -55,25 +55,21 @@ loci:
     airports:
       - name: Los Angeles International Airport
         hub_tier: 1
-        infection_rate : 0.009
+        infection_rate: 0.009
         effect: 1.0
-
       - name: San Francisco International Airport
         hub_tier: 2
-        infection_rate : 0.008
+        infection_rate: 0.008
         effect: 1.0
-
     ports:
       - name: Port of Los Angeles
         hub_tier: 1
-        infection_rate : 0.0004
+        infection_rate: 0.0004
         effect: 1.0
-
       - name: Port of Long Beach
         hub_tier: 1
-        infection_rate : 0.0003
+        infection_rate: 0.0003
         effect: 1.0
-
     economic_zones:
       - name: Silicon Valley
         zone_tier: 1
@@ -94,6 +90,7 @@ loci:
       - name: Golden Gate Bridge
         zone_tier: 2
         effect: 1.0
+
   - name: New York
     B: 0.01
     C: 0.01
@@ -102,8 +99,8 @@ loci:
     Ds: 0.01
     Di: 0.01
     Dr: 0.01
-    lat: 19.7515
-    lon: 75.7139
+    lat: 40.7128
+    lon: -74.0060
     susceptible: 112374333
     infected: 100000
     recovered: 10
@@ -115,20 +112,17 @@ loci:
     airports:
       - name: John F. Kennedy International Airport
         hub_tier: 1
-        infection_rate : 0.008
+        infection_rate: 0.008
         effect: 1.0
-
       - name: LaGuardia Airport
         hub_tier: 2
-        infection_rate : 0.001
+        infection_rate: 0.001
         effect: 1.0
-
     ports:
       - name: Port of New York and New Jersey
         hub_tier: 1
-        infection_rate : 0.0004
+        infection_rate: 0.0004
         effect: 1.0
-
     economic_zones:
       - name: Wall Street
         zone_tier: 1
@@ -149,7 +143,7 @@ loci:
       - name: Empire State Building
         zone_tier: 2
         effect: 1.0
-  
+
   - name: Florida
     B: 0.01
     C: 0.01
@@ -158,8 +152,8 @@ loci:
     Ds: 0.01
     Di: 0.01
     Dr: 0.01
-    lat: 19.7515
-    lon: 75.7139
+    lat: 27.9944
+    lon: -81.7603
     susceptible: 112374333
     infected: 100000
     recovered: 10
@@ -171,20 +165,17 @@ loci:
     airports:
       - name: Miami International Airport
         hub_tier: 1
-        infection_rate : 0.005
+        infection_rate: 0.005
         effect: 1.0
-
       - name: Orlando International Airport
         hub_tier: 2
-        infection_rate : 0.004
+        infection_rate: 0.004
         effect: 1.0
-
     ports:
       - name: Port of Miami
         hub_tier: 1
-        infection_rate : 0.0002
+        infection_rate: 0.0002
         effect: 1.0
-
     economic_zones:
       - name: Disney World
         zone_tier: 1
@@ -205,10 +196,3 @@ loci:
       - name: Everglades National Park
         zone_tier: 2
         effect: 1.0
-
-
-
-
-
-
-
