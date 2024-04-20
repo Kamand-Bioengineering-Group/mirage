@@ -28,7 +28,7 @@
 <h3 align="center">Mirage</h3>
 
   <p align="center">
-    A python package for creating arbitrary simulations in an entity-process-engine orchestration framework.
+    A python package for creating simulation frameworks
     <br />
     <a href="https://github.com/Kamand-Bioengineering-Group/mirage"><strong>Explore the docs »</strong></a>
     <br />
@@ -71,9 +71,14 @@
 
 ## About The Project
 
-[![Mirage-Epidemic-Screenshot][product-screenshot]](product_screenshot)
-
 This project is an python package that allows the creation of arbitrary simulation frameworks using an <span style="color:turquoise">**entity-process-engine**</span> based protocol. In this protocol, entities are mere data, and processes are designed to modify these entities according to the simulation requirements. The engine orchestrates everything, ensuring a smooth and efficient simulation process.
+
+## ⚠️🧪 Epidemic 2.0 is live 🔥
+[![Mirage-Epidemic-Screenshot][product-screenshot-0]](product_screenshot_0)
+
+[![Mirage-Epidemic-Screenshot][product-screenshot-1]](product_screenshot_1)
+
+[![Mirage-Epidemic-Screenshot][product-screenshot-2]](product_screenshot_2)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -181,7 +186,9 @@ Project Link: [https://github.com/Kamand-Bioengineering-Group/mirage.git](https:
 [license-url]: https://github.com/Kamand-Bioengineering-Group/mirage/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/company/kbg-iit-mandi
-[product-screenshot]: images/screenshot.png
+[product-screenshot-0]: assets/product/kbg-epidemic-two-notebook-0.png
+[product-screenshot-1]: assets/product/kbg-epidemic-two-notebook-1.png
+[product-screenshot-2]: assets/product/kbg-epidemic-two-notebook-tb1.png
 [Matplotlib-shield]: https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black
 [Matplotlib-url]: https://matplotlib.org/
 [NumPy-shield]: https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white

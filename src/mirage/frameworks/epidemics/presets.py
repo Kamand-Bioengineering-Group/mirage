@@ -9,7 +9,7 @@ __all__ = [
 
 
 # ---DEPENDENCIES---------------------------------------------------------------
-import os, yaml, requests
+import os, yaml, requests, types
 from . import geo_political_entities, all_processes as ap
 from ...engines import firefly
 from ...monitors.loggers.tbx_loggers import TbxTimeseriesLoggerV1
@@ -127,38 +127,45 @@ def preset_kbg_epidemic_2_0(
             tboard.register_objects(ldata)
 
     peri_proc_config = {
+        "eczec": ("ALIVE", countries, ap.EconomicZoneEffectChangeProcess),
+        "trzec": ("ALIVE", countries, ap.TouristZoneEffectChangeProcess),
+        "airec": ("ALIVE", countries, ap.AirPortEffectChangeProcess),
+        "porec": ("ALIVE", countries, ap.PortEffectChangeProcess),
+        "ghobp": ("ALIVE", countries, ap.GeneralHospitalBuildingProcess),
+        "mvacp": ("DORMANT", countries, ap.MandatoryVaccinationProcess),
         "maski": ("DORMANT", countries, ap.MaskImplementationProcess),
         "aidki": ("DORMANT", countries, ap.AidKitImplementationProcess),
         "gsani": ("DORMANT", countries, ap.General_Sanitation_Implementation),
         "quafa": ("DORMANT", countries, ap.QuarantineFacilitiesQProcess),
-        "eczec": ("DORMANT", countries, ap.EconomicZoneEffectChangeProcess),
-        "trzec": ("DORMANT", countries, ap.TouristZoneEffectChangeProcess),
-        "airec": ("DORMANT", countries, ap.AirPortEffectChangeProcess),
-        "porec": ("DORMANT", countries, ap.PortEffectChangeProcess),
-        "mvacp": ("DORMANT", countries, ap.MandatoryVaccinationProcess),
-        "ghobp": ("ALIVE", countries, ap.GeneralHospitalBuildingProcess),
     }
     epidemic_two_engine.register_peripheral_processes(peri_proc_config)
     epidemic_two_engine.intervene = epidemic_two_engine.spawn_peripheral_process
 
     # TODO: Migrate to EngineV1?
-    def dynamics_control_panel():
+    def dynamics_control_panel(self):
         play_b = ipywidgets.Button(description="▶️")
         paus_b = ipywidgets.Button(description="⏸️")
         stop_b = ipywidgets.Button(description="⏹️")
-        cli_pl = lambda b: epidemic_two_engine.play()
-        cli_pa = lambda b: epidemic_two_engine.pause()
-        cli_st = lambda b: epidemic_two_engine.stop()
+        speeds = ipywidgets.IntSlider(
+            value=self.speed, min=1, max=30, step=1, description="⏩"
+        )
+        flabel = ipywidgets.Label(value="🎛️ Control Panel")
+        cli_pl = lambda b: self.play()
+        cli_pa = lambda b: self.pause()
+        cli_st = lambda b: self.stop()
+
+        def del_sp(c):
+            self.speed = c["new"]
+
         play_b.on_click(cli_pl)
         paus_b.on_click(cli_pa)
         stop_b.on_click(cli_st)
-        speeds = ipywidgets.IntSlider(
-            value=engine_speed, min=1, max=30, step=1, description="⏩"
-        )
-        flabel = ipywidgets.Label(value="🎛️ DYNAMICS CONTROL PANEL")
+        speeds.observe(del_sp, names="value")
         display(ipywidgets.HBox([flabel, play_b, paus_b, stop_b, speeds]))
 
-    epidemic_two_engine.dynamics_control_panel = dynamics_control_panel
+    epidemic_two_engine.dynamics_control_panel = types.MethodType(
+        dynamics_control_panel, epidemic_two_engine
+    )
 
     tboard.start_server()
 

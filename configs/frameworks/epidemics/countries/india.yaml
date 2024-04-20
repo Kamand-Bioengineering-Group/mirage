@@ -1,11 +1,11 @@
 name: India
-gdp: 2875140000
-health_resource_stockpile: 50000.0
-sanitation_equipment_stockpile: 50000.0
-human_welfare_resource: 10000.0
-happiness_index: 1.0
-procedure_resistance: 0.6
-cleanliness_index: 0.7
+gdp: 21631800
+health_resource_stockpile: 3649.0
+sanitation_equipment_stockpile: 5019.0
+human_welfare_resource: 1325.0
+happiness_index: 0.65
+procedure_resistance: 0.48
+cleanliness_index: 0.665
 disease_research_center: 0
 vaccine_research_center: 0
 vaccines_stock: 
@@ -35,13 +35,13 @@ vaccines_stock:
     effectiveness: 0.1
 loci:
   - name: Maharashtra
-    B: 0.01
-    C: 0.01
-    E: 0.01
-    A: 0.01
-    Ds: 0.01
-    Di: 0.01
-    Dr: 0.01
+    B: 0.022
+    C: 0.006
+    E: 0.045
+    A: 0.03
+    Ds: 0.0002
+    Di: 0.002
+    Dr: 0.00005
     lat: 19.7515
     lon: 75.7139
     susceptible: 112374333
@@ -85,13 +85,13 @@ loci:
         zone_tier: 2
         effect: 1.0
   - name: Delhi
-    B: 0.01
-    C: 0.01
-    E: 0.01
-    A: 0.01
-    Ds: 0.01
-    Di: 0.01
-    Dr: 0.01
+    B: 0.028
+    C: 0.002
+    E: 0.04
+    A: 0.025
+    Ds: 0.0006
+    Di: 0.003
+    Dr: 0.00005
     lat: 28.7041
     lon: 77.1025
     susceptible: 16787941
@@ -123,13 +123,13 @@ loci:
         zone_tier: 2
         effect : 1.0
   - name: Uttar Pradesh
-    B: 0.01
-    C: 0.01
-    E: 0.01
-    A: 0.01
-    Ds: 0.01
-    Di: 0.01
-    Dr: 0.01
+    B: 0.03
+    C: 0.005
+    E: 0.055
+    A: 0.015
+    Ds: 0.0003
+    Di: 0.0035
+    Dr: 0.000125
     lat: 26.8467
     lon: 80.9462
     susceptible: 199812341
@@ -159,13 +159,13 @@ loci:
         effect : 1.0
   
   - name: Kerala
-    B: 0.01
-    C: 0.01
-    E: 0.01
-    A: 0.01
-    Ds: 0.01
-    Di: 0.01
-    Dr: 0.01
+    B: 0.019
+    C: 0.0065
+    E: 0.042
+    A: 0.023
+    Ds: 0.00035
+    Di: 0.0025
+    Dr: 0.000075
     lat: 10.8505
     lon: 76.2711
     susceptible: 33406061
@@ -198,13 +198,13 @@ loci:
         zone_tier: 2
         effect : 1.0
   - name: Gujarat
-    B: 0.01
-    C: 0.01
-    E: 0.01
-    A: 0.01
-    Ds: 0.01
-    Di: 0.01
-    Dr: 0.01
+    B: 0.026
+    C: 0.0035
+    E: 0.048
+    A: 0.018
+    Ds: 0.00045
+    Di: 0.0045
+    Dr: 0.0001
     lat: 22.2587
     lon: 71.1924
     susceptible: 60439692

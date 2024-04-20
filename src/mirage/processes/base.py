@@ -202,7 +202,7 @@ class ProcessV1(abc.ABC, metaclass=ProcessV1Meta):
         elif self.status == "DORMANT":
             status_data = self.while_dormant(step)
         else:
-            pass
+            status_data = None
         info = (
             {f"{self.status}/{k}": v for k, v in status_data.items()}
             if status_data is not None

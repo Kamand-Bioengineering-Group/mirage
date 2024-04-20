@@ -87,7 +87,7 @@ class FireflyV1(EngineV1):
         if any(p.id == process_id for p in self.processes):
             raise ValueError(f"Process id {process_id} already exists.")
         sign = self.peripheral_processes_config[alias]
-        process = sign[0](process_id, sign[1], sign[2], **process_kwargs)
+        process = sign[2](process_id, sign[1], sign[0], **process_kwargs)
         self.insert_process(process, intervals)
 
 
