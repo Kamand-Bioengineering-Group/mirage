@@ -148,14 +148,17 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
             raise ValueError(
                 "Processes in `pr_stat_chart` must be present in `processes`."
             )
-        for p in self.processes:
-            if p.id not in self.pr_stat_chart:
-                self.pr_stat_chart[p.id] = [[0, self.MAX_STEPS]]
         self.pr_stat_chart = {
-            p.id: self.pr_stat_chart.get(p.id, [[0, self.MAX_STEPS]])
+            p.id: self.pr_stat_chart.get(
+                p.id,
+                (
+                    [[0, self.MAX_STEPS]]
+                    if p.status == "ALIVE"
+                    else [[self.MAX_STEPS + 1, self.MAX_STEPS + 1]]
+                ),
+            )
             for p in self.processes
         }
-
         self.status = "DORMANT"
         self.STEP = 0
         self.info_history = {}
@@ -193,6 +196,41 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
     def status(self, value: str):
         assert value in self.STATUS_SET, f"Invalid status: {value}"
         self._status = value
+
+    def list_processes(self) -> tp.List[str]:
+        """
+        List the processes in the engine.
+
+        Returns:
+        --------
+        List[str]
+            The list of processes in the engine.
+        """
+        return [p.id for p in self.processes]
+
+    def filter_pr_stat_chart(
+        self, process_ids: str | tp.List[str] | None
+    ) -> tp.Dict[str, tp.List[tp.List[int]]]:
+        """
+        Show the process status chart.
+
+        Parameters:
+        -----------
+        process_ids: str | List[str] | None
+            The process ids to show the status chart for. If None, show for all.
+
+        Returns:
+        --------
+        Dict[str, List[List[int]]]
+            The process status chart.
+        """
+        if process_ids is None:
+            return self.pr_stat_chart
+        if isinstance(process_ids, str):
+            process_ids = [process_ids]
+        if not set(process_ids) <= set(self.pr_stat_chart.keys()):
+            raise ValueError("Some process ids not found.")
+        return {pid: self.pr_stat_chart[pid] for pid in process_ids}
 
     def get_schedule(self) -> tp.List[ProcessV1]:
         """
@@ -247,6 +285,34 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
                 start = s[i]
         intervals.append([start, s[-1]])
         return intervals
+
+    def insert_process(
+        self,
+        process: ProcessV1,
+        intervals: tp.List[tp.List[int]] | tp.List[int] | tp.Set[int] | None,
+    ):
+        """
+        Insert a process to the engine.
+
+        Parameters:
+        -----------
+        process: ProcessV1
+            The process to insert.
+        """
+        if process.id in {p.id for p in self.processes}:
+            raise ValueError(f"ID {process.id} already in use.")
+        if intervals is None:
+            self.pr_stat_chart[process.id] = (
+                [[self.STEP, self.MAX_STEPS]]
+                if process.status == "ALIVE"
+                else [[self.MAX_STEPS + 1, self.MAX_STEPS + 1]]
+            )
+        if intervals is not None:
+            self.pr_stat_chart[process.id] = [
+                [self.MAX_STEPS + 1, self.MAX_STEPS + 1],
+            ]
+            self.update_psc(process.id, intervals, "ALIVE")
+        self.L.info(f" >> 📝 Process registered | Process: {process.id}.")
 
     @pyd.validate_call
     def get_pr_stat_timeline(self, process_id: str) -> tp.Set[int]:
@@ -318,6 +384,22 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
             )
         )
 
+    def kill_process(self, process_id: str):
+        """
+        Kill a process.
+
+        Parameters:
+        -----------
+        process_id: str
+            The id of the process to kill.
+        """
+        try:
+            process = next(p for p in self.processes if p.id == process_id)
+        except StopIteration:
+            raise ValueError(f"Process {process_id} not found.")
+        process.status = "DEAD"
+        self.L.info(f" >> 💀 Process killed | Process: {process_id}.")
+
     def clear_history(self):
         """
         Clear the running history of the engine.
@@ -351,7 +433,8 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
 
         for process in schedule:
             pst = self.get_pr_stat_timeline(process.id)
-            process.status = "ALIVE" if step in pst else "DORMANT"
+            if process.status != "DEAD":
+                process.status = "ALIVE" if step in pst else "DORMANT"
 
             if process.RANK != current_rank:
                 for entity in self.entities:

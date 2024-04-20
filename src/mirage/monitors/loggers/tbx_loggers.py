@@ -28,6 +28,8 @@ class TbxTimeseriesLoggerV1(tbx.SummaryWriter):
         Engine object to log.
     ldr : str
         Directory to save logs.
+    env : str
+        Environment to run tensorboard server. Must be 'colab' or 'local'.
     """
 
     def __init__(self, engine: "EngineV1", ldr: str, env: str, **kwargs):
@@ -59,7 +61,7 @@ class TbxTimeseriesLoggerV1(tbx.SummaryWriter):
             lurl_port = self.lurl.split(":")[-1]
             nip = socket.gethostbyname(socket.gethostname())
             self.nurl = f"http://{nip}:{lurl_port}"
-            self.engine.L.info(f"📈 Tensorboard URL: {self.lurl} {self.nurl}")
+            self.engine.L.info(f" 📈 Tensorboard URL: {self.lurl} {self.nurl}")
 
     def register_objects(
         self,
@@ -80,7 +82,7 @@ class TbxTimeseriesLoggerV1(tbx.SummaryWriter):
             if plot_name not in self.regobj:
                 self.regobj[plot_name] = (attr, objs)
             else:
-                self.engine.L.warning(f"⚠️ {plot_name} is already registered.")
+                self.engine.L.warning(f" ⚠️ {plot_name} is already registered.")
 
     def observe(self):
         """

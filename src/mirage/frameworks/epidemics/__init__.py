@@ -1,13 +1,18 @@
 # ---INFO-----------------------------------------------------------------------
 """
 Module for simulating epidemics.
-"""	
+"""
 
 __all__ = [
-    "engine",
-    "gpe",
+    "all_processes",
+    "constants",
+    "geo_political_entities",
+    "presets",
 ]
 
 
 # ---DEPENDENCIES---------------------------------------------------------------
-from . import engine, gpe
+from . import all_processes, constants, geo_political_entities, presets
+
+
+# ---DEFAULT SETUP--------------------------------------------------------------

@@ -1,0 +1,198 @@
+name: USA
+gdp: 2875140000
+health_resource_stockpile: 50000.0
+sanitation_equipment_stockpile: 50000.0
+human_welfare_resource: 10000.0
+happiness_index: 1.0
+procedure_resistance: 0.6
+cleanliness_index: 0.7
+disease_research_center: 0
+vaccine_research_center: 0
+vaccines_stock: 
+  - name: ABC
+    quantity: 20
+    gdp_cost_per_step: 1000
+    effectiveness: 0.4
+  - name: ACB
+    quantity: 30
+    gdp_cost_per_step: 1000
+    effectiveness: 0.22
+  - name: BAC
+    quantity: 10
+    gdp_cost_per_step: 1000
+    effectiveness: 0.95
+  - name: BCA
+    quantity: 12
+    gdp_cost_per_step: 1000
+    effectiveness: -0.2
+  - name: CAB
+    quantity: 23
+    gdp_cost_per_step: 1000
+    effectiveness: 0.5
+  - name: CBA
+    quantity: 10
+    gdp_cost_per_step: 1000
+    effectiveness: 0.1
+loci:
+  - name: California
+    B: 0.015
+    C: 0.015
+    E: 0.015
+    A: 0.015
+    Ds: 0.015
+    Di: 0.015
+    Dr: 0.015
+    lat: 36.7783
+    lon: -119.4179
+    susceptible: 112500000
+    infected: 98000
+    recovered: 200
+    dead: 60
+    area: 307713
+    quarantine_facilities: 3
+    general_hospitals: 12
+    vaccine_distribution_centers: 1
+    airports:
+      - name: Los Angeles International Airport
+        zone_tier: 1
+        infection_rate: 0.009
+        effect: 1.0
+      - name: San Francisco International Airport
+        zone_tier: 2
+        infection_rate: 0.008
+        effect: 1.0
+    ports:
+      - name: Port of Los Angeles
+        zone_tier: 1
+        infection_rate: 0.0004
+        effect: 1.0
+      - name: Port of Long Beach
+        zone_tier: 1
+        infection_rate: 0.0003
+        effect: 1.0
+    economic_zones:
+      - name: Silicon Valley
+        zone_tier: 1
+        effect: 1.0
+      - name: Hollywood
+        zone_tier: 2
+        effect: 1.0
+      - name: Napa Valley
+        zone_tier: 2
+        effect: 1.0
+    tourist_zones:
+      - name: Disneyland
+        zone_tier: 1
+        effect: 1.0
+      - name: Yosemite National Park
+        zone_tier: 2
+        effect: 1.0
+      - name: Golden Gate Bridge
+        zone_tier: 2
+        effect: 1.0
+
+  - name: New York
+    B: 0.014
+    C: 0.014
+    E: 0.014
+    A: 0.014
+    Ds: 0.014
+    Di: 0.014
+    Dr: 0.014
+    lat: 40.7128
+    lon: -74.0060
+    susceptible: 112300000
+    infected: 97000
+    recovered: 180
+    dead: 50
+    area: 307713
+    quarantine_facilities: 3
+    general_hospitals: 12
+    vaccine_distribution_centers: 1
+    airports:
+      - name: John F. Kennedy International Airport
+        zone_tier: 1
+        infection_rate: 0.008
+        effect: 1.0
+      - name: LaGuardia Airport
+        zone_tier: 2
+        infection_rate: 0.001
+        effect: 1.0
+    ports:
+      - name: Port of New York and New Jersey
+        zone_tier: 1
+        infection_rate: 0.0004
+        effect: 1.0
+    economic_zones:
+      - name: Wall Street
+        zone_tier: 1
+        effect: 1.0
+      - name: Broadway
+        zone_tier: 2
+        effect: 1.0
+      - name: Central Park
+        zone_tier: 2
+        effect: 1.0
+    tourist_zones:
+      - name: Statue of Liberty
+        zone_tier: 1
+        effect: 1.0
+      - name: Times Square
+        zone_tier: 2
+        effect: 1.0
+      - name: Empire State Building
+        zone_tier: 2
+        effect: 1.0
+
+  - name: Florida
+    B: 0.012
+    C: 0.012
+    E: 0.012
+    A: 0.012
+    Ds: 0.012
+    Di: 0.012
+    Dr: 0.012
+    lat: 27.9944
+    lon: -81.7603
+    susceptible: 112700000
+    infected: 99000
+    recovered: 150
+    dead: 40
+    area: 307713
+    quarantine_facilities: 3
+    general_hospitals: 12
+    vaccine_distribution_centers: 1
+    airports:
+      - name: Miami International Airport
+        zone_tier: 1
+        infection_rate: 0.005
+        effect: 1.0
+      - name: Orlando International Airport
+        zone_tier: 2
+        infection_rate: 0.004
+        effect: 1.0
+    ports:
+      - name: Port of Miami
+        zone_tier: 1
+        infection_rate: 0.0002
+        effect: 1.0
+    economic_zones:
+      - name: Disney World
+        zone_tier: 1
+        effect: 1.0
+      - name: Miami Beach
+        zone_tier: 2
+        effect: 1.0
+      - name: Everglades
+        zone_tier: 2
+        effect: 1.0
+    tourist_zones:
+      - name: Disney World
+        zone_tier: 1
+        effect: 1.0
+      - name: Miami Beach
+        zone_tier: 2
+        effect: 1.0
+      - name: Everglades National Park
+        zone_tier: 2
+        effect: 1.0

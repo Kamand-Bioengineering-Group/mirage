@@ -1,0 +1,260 @@
+name: India
+gdp: 2875140000
+health_resource_stockpile: 50000.0
+sanitation_equipment_stockpile: 50000.0
+human_welfare_resource: 10000.0
+happiness_index: 1.0
+procedure_resistance: 0.6
+cleanliness_index: 0.7
+disease_research_center: 0
+vaccine_research_center: 0
+vaccines_stock: 
+  - name: ABC
+    quantity: 20
+    gdp_cost_per_step: 1000
+    effectiveness: 0.4
+  - name: ACB
+    quantity: 30
+    gdp_cost_per_step: 1000
+    effectiveness: 0.22
+  - name: BAC
+    quantity: 10
+    gdp_cost_per_step: 1000
+    effectiveness: 0.95
+  - name: BCA
+    quantity: 12
+    gdp_cost_per_step: 1000
+    effectiveness: -0.2
+  - name: CAB
+    quantity: 23
+    gdp_cost_per_step: 1000
+    effectiveness: 0.5
+  - name: CBA
+    quantity: 10
+    gdp_cost_per_step: 1000
+    effectiveness: 0.1
+loci:
+  - name: Maharashtra
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
+    lat: 19.7515
+    lon: 75.7139
+    susceptible: 112374333
+    infected: 100000
+    recovered: 10
+    dead: 30
+    area: 307713
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
+    airports:
+      - name: Chhatrapati Shivaji Maharaj International Airport
+        zone_tier: 1
+        effect : 1.0
+        infection_rate : 0.001 
+      - name: Pune International Airport
+        zone_tier: 2
+        effect : 1.0
+        infection_rate : 0.0005 
+    ports:
+      - name: Mumbai Port
+        zone_tier: 1
+        effect : 1.0
+        infection_rate : 0.001 
+      - name: Goa Port
+        zone_tier: 3
+        infection_rate : 0.0001 
+        effect : 1.0
+    economic_zones:
+      - name: Mumbai SEZ
+        zone_tier: 1
+        effect : 1.0
+      - name: Pune IT Park
+        zone_tier: 2
+        effect : 1.0
+    tourist_zones:
+      - name: Gateway of India
+        zone_tier: 1
+        effect: 1.0
+      - name: Elephanta Caves
+        zone_tier: 2
+        effect: 1.0
+  - name: Delhi
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
+    lat: 28.7041
+    lon: 77.1025
+    susceptible: 16787941
+    infected: 100000
+    recovered: 1000
+    dead: 3
+    area: 1484
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
+    airports:
+      - name: Indira Gandhi International Airport
+        zone_tier: 1
+        effect : 1.0
+        infection_rate : 0.002 
+    ports:
+    economic_zones:
+      - name: Delhi SEZ
+        zone_tier: 1
+        effect : 1.0
+      - name: Gurgaon Industrial Zone
+        zone_tier: 2
+        effect : 1.0
+    tourist_zones:
+      - name: Qutub Minar
+        zone_tier: 1
+        effect : 1.0
+      - name: Red Fort
+        zone_tier: 2
+        effect : 1.0
+  - name: Uttar Pradesh
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
+    lat: 26.8467
+    lon: 80.9462
+    susceptible: 199812341
+    infected: 100000
+    recovered: 10
+    dead: 30
+    area: 243290
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
+    airports:
+      - name: Chaudhary Charan Singh International Airport
+        zone_tier: 1
+        effect : 1.0
+        infection_rate : 0.0002
+    ports:
+    economic_zones:
+      - name: Noida SEZ
+        zone_tier: 1
+        effect : 1.0
+    tourist_zones:
+      - name: Taj Mahal
+        zone_tier: 1
+        effect : 1.0
+      - name: Varanasi Spiritual zone
+        zone_tier: 3
+        effect : 1.0
+  
+  - name: Kerala
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
+    lat: 10.8505
+    lon: 76.2711
+    susceptible: 33406061
+    infected: 100000
+    recovered: 10
+    dead: 40
+    area: 38863
+    quarantine_facilities: 2
+    general_hospitals: 10
+    vaccine_distribution_centers: 0
+    airports:
+      - name: Cochin International Airport
+        zone_tier: 1
+        effect : 1.0
+        infection_rate : 0.0002 
+    ports:
+      - name: Cochin Port
+        zone_tier: 1
+        effect : 1.0
+        infection_rate : 0.0002 
+    economic_zones:
+      - name: Cochin SEZ
+        zone_tier: 1
+        effect : 1.0
+    tourist_zones:
+      - name: Kerala Backwaters
+        zone_tier: 1
+        effect : 1.0
+      - name: Munnar Tea Estates
+        zone_tier: 2
+        effect : 1.0
+  - name: Gujarat
+    B: 0.01
+    C: 0.01
+    E: 0.01
+    A: 0.01
+    Ds: 0.01
+    Di: 0.01
+    Dr: 0.01
+    lat: 22.2587
+    lon: 71.1924
+    susceptible: 60439692
+    infected: 100000
+    recovered: 100
+    dead: 30
+    area: 196024
+    quarantine_facilities: 2
+    general_hospitals: 1
+    vaccine_distribution_centers: 0
+    airports:
+      - name: Sardar Vallabhbhai Patel International Airport
+        zone_tier: 1
+        effect : 1.0
+        infection_rate : 0.0002 
+    ports:
+      - name: Kandla Port
+        zone_tier: 1
+        effect : 1.0
+        infection_rate : 0.0002 
+    economic_zones:
+      - name: Ahmedabad SEZ
+        zone_tier: 1
+        effect : 1.0
+      - name: Surat Diamond Park
+        zone_tier: 3
+        effect : 1.0
+    tourist_zones:
+      - name: Sabarmati Ashram
+        zone_tier: 1
+        effect : 1.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

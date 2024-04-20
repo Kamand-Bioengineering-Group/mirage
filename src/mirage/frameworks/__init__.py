@@ -1,6 +1,6 @@
 # ---INFO-----------------------------------------------------------------------
 """
-Module for simulations.
+Module for frameworks.
 """
 
 __all__ = [

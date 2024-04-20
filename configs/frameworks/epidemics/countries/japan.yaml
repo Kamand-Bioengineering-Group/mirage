@@ -1,0 +1,198 @@
+name: Japan
+gdp: 2900000000
+health_resource_stockpile: 52000.0
+sanitation_equipment_stockpile: 51000.0
+human_welfare_resource: 11000.0
+happiness_index: 0.98
+procedure_resistance: 0.62
+cleanliness_index: 0.72
+disease_research_center: 1
+vaccine_research_center: 1
+vaccines_stock:
+  - name: ABC
+    quantity: 25
+    gdp_cost_per_step: 950
+    effectiveness: 0.45
+  - name: ACB
+    quantity: 35
+    gdp_cost_per_step: 1050
+    effectiveness: 0.25
+  - name: BAC
+    quantity: 15
+    gdp_cost_per_step: 980
+    effectiveness: 0.92
+  - name: BCA
+    quantity: 14
+    gdp_cost_per_step: 1020
+    effectiveness: -0.15
+  - name: CAB
+    quantity: 25
+    gdp_cost_per_step: 970
+    effectiveness: 0.55
+  - name: CBA
+    quantity: 12
+    gdp_cost_per_step: 1010
+    effectiveness: 0.15
+loci:
+  - name: Tokyo
+    B: 0.015
+    C: 0.015
+    E: 0.015
+    A: 0.015
+    Ds: 0.015
+    Di: 0.015
+    Dr: 0.015
+    lat: 35.6895
+    lon: 139.6917
+    susceptible: 112500000
+    infected: 95000
+    recovered: 150
+    dead: 50
+    area: 307713
+    quarantine_facilities: 3
+    general_hospitals: 12
+    vaccine_distribution_centers: 1
+    airports:
+      - name: Narita International Airport
+        zone_tier: 1
+        infection_rate: 0.003
+        effect: 1.0
+      - name: Haneda Airport
+        zone_tier: 2
+        infection_rate: 0.008
+        effect: 1.0
+    ports:
+      - name: Port of Tokyo
+        zone_tier: 1
+        infection_rate: 0.0003
+        effect: 1.0
+      - name: Port of Yokohama
+        zone_tier: 1
+        infection_rate: 0.0004
+        effect: 1.0
+    economic_zones:
+      - name: Tokyo Bay
+        zone_tier: 1
+        effect: 1.0
+      - name: Shinjuku
+        zone_tier: 2
+        effect: 1.0
+      - name: Shibuya
+        zone_tier: 2
+        effect: 1.0
+    tourist_zones:
+      - name: Tokyo Tower
+        zone_tier: 1
+        effect: 1.0
+      - name: Tokyo Disneyland
+        zone_tier: 2
+        effect: 1.0
+      - name: Tokyo Skytree
+        zone_tier: 2
+        effect: 1.0
+
+  - name: Osaka
+    B: 0.014
+    C: 0.014
+    E: 0.014
+    A: 0.014
+    Ds: 0.014
+    Di: 0.014
+    Dr: 0.014
+    lat: 34.6937
+    lon: 135.5023
+    susceptible: 112300000
+    infected: 92000
+    recovered: 180
+    dead: 40
+    area: 307713
+    quarantine_facilities: 3
+    general_hospitals: 12
+    vaccine_distribution_centers: 1
+    airports:
+      - name: Kansai International Airport
+        zone_tier: 1
+        infection_rate: 0.002
+        effect: 1.0
+      - name: Osaka International Airport
+        zone_tier: 2
+        infection_rate: 0.007
+        effect: 1.0
+    ports:
+      - name: Port of Osaka
+        zone_tier: 1
+        infection_rate: 0.0004
+        effect: 1.0
+    economic_zones:
+      - name: Umeda
+        zone_tier: 1
+        effect: 1.0
+      - name: Namba
+        zone_tier: 2
+        effect: 1.0
+      - name: Tennoji
+        zone_tier: 2
+        effect: 1.0
+    tourist_zones:
+      - name: Osaka Castle
+        zone_tier: 1
+        effect: 1.0
+      - name: Universal Studios Japan
+        zone_tier: 2
+        effect: 1.0
+      - name: Osaka Aquarium Kaiyukan
+        zone_tier: 2
+        effect: 1.0
+
+  - name: Sapporo
+    B: 0.012
+    C: 0.012
+    E: 0.012
+    A: 0.012
+    Ds: 0.012
+    Di: 0.012
+    Dr: 0.012
+    lat: 43.0621
+    lon: 141.3544
+    susceptible: 112700000
+    infected: 98000
+    recovered: 120
+    dead: 30
+    area: 307713
+    quarantine_facilities: 3
+    general_hospitals: 12
+    vaccine_distribution_centers: 1
+    airports:
+      - name: New Chitose Airport
+        zone_tier: 1
+        infection_rate: 0.0009
+        effect: 1.0
+      - name: Okadama Airport
+        zone_tier: 2
+        infection_rate: 0.0009
+        effect: 1.0
+    ports:
+      - name: Port of Otaru
+        zone_tier: 1
+        infection_rate: 0.0004
+        effect: 1.0
+    economic_zones:
+      - name: Sapporo Station
+        zone_tier: 1
+        effect: 1.0
+      - name: Susukino
+        zone_tier: 2
+        effect: 1.0
+      - name: Odori Park
+        zone_tier: 2
+        effect: 1.0
+    tourist_zones:
+      - name: Sapporo Clock Tower
+        zone_tier: 1
+        effect: 1.0
+      - name: Sapporo TV Tower
+        zone_tier: 2
+        effect: 1.0
+      - name: Moerenuma Park
+        zone_tier: 2
+        effect: 1.0
