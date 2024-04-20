@@ -1,13 +1,13 @@
 name: Japan
-gdp: 2900000000
-health_resource_stockpile: 52000.0
-sanitation_equipment_stockpile: 51000.0
-human_welfare_resource: 11000.0
-happiness_index: 0.98
-procedure_resistance: 0.62
-cleanliness_index: 0.72
-disease_research_center: 1
-vaccine_research_center: 1
+gdp: 25898100
+health_resource_stockpile: 6435.0
+sanitation_equipment_stockpile: 4673.0
+human_welfare_resource: 1348.0
+happiness_index: 0.57
+procedure_resistance: 0.45
+cleanliness_index: 0.665
+disease_research_center: 0
+vaccine_research_center: 0
 vaccines_stock:
   - name: ABC
     quantity: 25
@@ -35,13 +35,13 @@ vaccines_stock:
     effectiveness: 0.15
 loci:
   - name: Tokyo
-    B: 0.015
-    C: 0.015
-    E: 0.015
-    A: 0.015
-    Ds: 0.015
-    Di: 0.015
-    Dr: 0.015
+    B: 0.032
+    C: 0.004
+    E: 0.03
+    A: 0.022
+    Ds: 0.0004
+    Di: 0.0037
+    Dr: 0.00006
     lat: 35.6895
     lon: 139.6917
     susceptible: 112500000
@@ -92,13 +92,13 @@ loci:
         effect: 1.0
 
   - name: Osaka
-    B: 0.014
-    C: 0.014
-    E: 0.014
-    A: 0.014
-    Ds: 0.014
-    Di: 0.014
-    Dr: 0.014
+    B: 0.025
+    C: 0.005
+    E: 0.036
+    A: 0.026
+    Ds: 0.0007
+    Di: 0.0032
+    Dr: 0.00085
     lat: 34.6937
     lon: 135.5023
     susceptible: 112300000
@@ -145,13 +145,13 @@ loci:
         effect: 1.0
 
   - name: Sapporo
-    B: 0.012
-    C: 0.012
-    E: 0.012
-    A: 0.012
-    Ds: 0.012
-    Di: 0.012
-    Dr: 0.012
+    B: 0.017
+    C: 0.0045
+    E: 0.032
+    A: 0.019
+    Ds: 0.00055
+    Di: 0.0042
+    Dr: 0.000065
     lat: 43.0621
     lon: 141.3544
     susceptible: 112700000

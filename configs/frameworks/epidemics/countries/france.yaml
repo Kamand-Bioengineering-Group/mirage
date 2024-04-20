@@ -1,13 +1,14 @@
 name: France
-gdp: 2875140000
-health_resource_stockpile: 50000.0
-sanitation_equipment_stockpile: 50000.0
-human_welfare_resource: 10000.0
-happiness_index: 1.0
-procedure_resistance: 0.6
-cleanliness_index: 0.7
+gdp: 24577800
+health_resource_stockpile: 4812.0
+sanitation_equipment_stockpile: 6341.0
+human_welfare_resource: 1325.0
+happiness_index: 0.75
+procedure_resistance: 0.72
+cleanliness_index: 0.595
 disease_research_center: 0
 vaccine_research_center: 0
+
 vaccines_stock: 
   - name: ABC
     quantity: 20
@@ -35,13 +36,13 @@ vaccines_stock:
     effectiveness: 0.1
 loci:
   - name: Paris
-    B: 0.03
-    C: 0.02
-    E: 0.01
-    A: 0.03
-    Ds: 0.01
-    Di: 0.03
-    Dr: 0.02
+    B: 0.0001
+    C: 0.001
+    E: 0.1
+    A: 0.004
+    Ds: 0.005
+    Di: 0.009
+    Dr: 0.0002
     lat: 48.8566
     lon: 2.3522
     susceptible: 2150000
@@ -87,13 +88,13 @@ loci:
         zone_tier: 2
         effect: 1.0
   - name: Lyon
-    B: 0.02
-    C: 0.01
-    E: 0.01
-    A: 0.02
-    Ds: 0.01
-    Di: 0.02
-    Dr: 0.01
+    B: 0.003
+    C: 0.001
+    E: 0.07
+    A: 0.002
+    Ds: 0.0004
+    Di: 0.004
+    Dr: 0.0001
     lat: 45.75
     lon: 4.85
     susceptible: 520000
@@ -139,13 +140,13 @@ loci:
         zone_tier: 2
         effect: 1.0
   - name: Marseille
-    B: 0.02
-    C: 0.02
-    E: 0.01
+    B: 0.03
+    C: 0.004
+    E: 0.05
     A: 0.02
-    Ds: 0.01
-    Di: 0.02
-    Dr: 0.02
+    Ds: 0.0004
+    Di: 0.004
+    Dr: 0.0001
     lat: 43.2965
     lon: 5.3698
     susceptible: 870000
@@ -195,13 +196,13 @@ loci:
         zone_tier: 2
         effect: 1.0
   - name: Nice
-    B: 0.03
-    C: 0.01
-    E: 0.01
-    A: 0.03
-    Ds: 0.01
-    Di: 0.03
-    Dr: 0.01
+    B: 0.005
+    C: 0.004
+    E: 0.1
+    A: 0.06
+    Ds: 0.0002
+    Di: 0.007
+    Dr: 0.0003
     lat: 43.7102
     lon: 7.262
     susceptible: 340000

@@ -47,7 +47,7 @@ class BirthProcess(ProcessV1):
         alpha=0.5,
         beta=0.3,
         gamma=0.2,
-        max_birth_rate=0.35,
+        max_birth_rate=0.15,
         economic_prosperity_THRESH=0.5,
     ):
         # super().__init__(id, entities, status)
@@ -139,8 +139,8 @@ class MaskImplementationProcess(ProcessV1):
         effect: list,
         health_resource_cost=5,
         sanitation_equipment_cost=5,
-        trunk_min_value=1e-6,
-        trunk_max_value=5e-5,
+        trunk_min_value=1e-5,
+        trunk_max_value=5e-4,
     ):
         # super().__init__(id, entities, status)
         self.health_resource_cost = health_resource_cost
@@ -246,9 +246,9 @@ class AidKitImplementationProcess(ProcessV1):
         country: list,
         state: list,
         effect: list,
-        health_resource_cost=20,
-        trunk_min_value=1e-6,
-        trunk_max_value=5e-5,
+        health_resource_cost=100,
+        trunk_min_value=1e-5,
+        trunk_max_value=5e-4,
     ):
 
         # super().__init__(id, entities, status)
@@ -342,9 +342,9 @@ class General_Sanitation_Implementation(ProcessV1):
         country: list,
         state: list,
         effect: list,
-        sanitation_resource_cost=100,
-        trunk_min_value=1e-6,
-        trunk_max_value=5e-5,
+        sanitation_resource_cost=200,
+        trunk_min_value=1e-5,
+        trunk_max_value=5e-4,
     ):
 
         # super().__init__(id, entities, status)
@@ -449,8 +449,8 @@ class QuarantineFacilitiesQProcess(ProcessV1):
         state: list,
         num_centers: list,
         gdp_cost_per_center=500,
-        health_resource_cost=20,
-        sanitation_equipment_cost=20,
+        health_resource_cost=50,
+        sanitation_equipment_cost=100,
         trunk_min_value=1e-6,
         trunk_max_value=5e-5,
     ):
@@ -601,6 +601,7 @@ class EconomicZoneEffectChangeProcess(ProcessV1):
                     for economicZone in locus.economic_zones:
                         if economicZone["name"] == self.economic_zone_names[i]:
                             economicZone["effect"] = self.effect[i]
+        self.status = "DEAD"
 
 
 class EcoSpotContinous(ProcessV1):
@@ -690,6 +691,7 @@ class TouristZoneEffectChangeProcess(ProcessV1):
                     for touristZone in locus.tourist_zones:
                         if touristZone["name"] == self.tourist_zone_names[i]:
                             touristZone["effect"] = self.effect[i]
+        self.status = "DEAD"
 
 
 class TouristContinous(ProcessV1):
@@ -703,8 +705,8 @@ class TouristContinous(ProcessV1):
         status: str,
         max_tier=4,
         gdp_multiplier=1e5,
-        trunk_min_value=1e-6,
-        trunk_max_value=5e-5,
+        trunk_min_value=1e-5,
+        trunk_max_value=5e-4,
     ):
 
         # super().__init__(id, entities, status)
@@ -837,6 +839,7 @@ class PortEffectChangeProcess(ProcessV1):
                         for portZones in locus.ports:
                             if portZones["name"] == self.port_names[i]:
                                 portZones["effect"] = self.effect[i]
+        self.status = "DEAD"
 
 
 ##########################################################################
@@ -875,6 +878,7 @@ class AirPortEffectChangeProcess(ProcessV1):
                         for airportZones in locus.airports:
                             if airportZones["name"] == self.airport_names[i]:
                                 airportZones["effect"] = self.effect[i]
+        self.status = "DEAD"
 
 
 class AirPortContinousProcess(ProcessV1):
@@ -886,7 +890,7 @@ class AirPortContinousProcess(ProcessV1):
         id: str,
         entities,
         status: str,
-        trunk_min_value=5e-5,
+        trunk_min_value=5e-4,
         trunk_max_value=9e-4,
         max_tier=4,
         gdp_multiplier=1e6,
@@ -952,10 +956,10 @@ class MandatoryVaccinationProcess(ProcessV1):
         country: list,
         state: list,
         percent_infected_vaccinated: list,
-        gdp_cost_per_infected=0.001,
-        health_resource_cost_per_infected=0.001,
-        trunk_min_value=1e-6,
-        trunk_max_value=5e-5,
+        gdp_cost_per_infected=0.01,
+        health_resource_cost_per_infected=0.005,
+        trunk_min_value=1e-5,
+        trunk_max_value=5e-4,
     ):
         # super().__init__(id, entities, status)
         self.gdp_cost_per_infected = gdp_cost_per_infected
@@ -1043,13 +1047,12 @@ class GeneralHospitalBuildingProcess(ProcessV1):
         num_hospitals: list,
         gdp_cost_per_hospital=10000,
         min_recovered_people=50,
-        trunk_min_value=1e-6,
-        trunk_max_value=5e-5,
+        trunk_min_value=1e-5,
+        trunk_max_value=5e-4,
     ):
         # super().__init__(id, entities, status)
         self.gdp_cost_per_hospital = gdp_cost_per_hospital
         self.min_recovered_people = min_recovered_people
-        self.status = status
         self.num_hospitals = num_hospitals
         self.state = state
         self.country = country
@@ -1095,6 +1098,7 @@ class GeneralHospitalBuildingProcess(ProcessV1):
                         else:
                             # print("Insuff RES")
                             locus.C -= locus.C * 0.0002
+        self.status = "DEAD"
 
 
 class GeneralHospitalContinousProcess(ProcessV1):
@@ -1108,8 +1112,8 @@ class GeneralHospitalContinousProcess(ProcessV1):
         status: str,
         gdp_cost_per_hospital=10000,
         min_recovered_people=50,
-        trunk_min_value=1e-6,
-        trunk_max_value=5e-5,
+        trunk_min_value=1e-4,
+        trunk_max_value=5e-4,
     ):
         # Give Country and economic zone name as list with same index corresponding to each others country (with same name as Initialized Entity) and economic zone name
 

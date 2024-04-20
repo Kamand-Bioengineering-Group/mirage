@@ -27,10 +27,10 @@ class Locus(EntityV1):
     lat: float
     lon: float
     name: str
-    susceptible: int
-    infected: int
-    recovered: int
-    dead: int
+    susceptible: float
+    infected: float
+    recovered: float
+    dead: float
     area: float
     quarantine_facilities: int
     general_hospitals: int
@@ -43,7 +43,7 @@ class Locus(EntityV1):
 
 class Country(EntityV1):
     name: str
-    gdp: int
+    gdp: float
     health_resource_stockpile: float
     sanitation_equipment_stockpile: float
     human_welfare_resource: float

@@ -1,11 +1,11 @@
 name: China
-gdp: 2875140000
-health_resource_stockpile: 50000.0
-sanitation_equipment_stockpile: 50000.0
-human_welfare_resource: 10000.0
-happiness_index: 1.0
-procedure_resistance: 0.6
-cleanliness_index: 0.7
+gdp: 43127100
+health_resource_stockpile: 7462.0
+sanitation_equipment_stockpile: 3710.0
+human_welfare_resource: 1550.0
+happiness_index: 0.9
+procedure_resistance: 0.54
+cleanliness_index: 0.735
 disease_research_center: 0
 vaccine_research_center: 0
 vaccines_stock: 
@@ -35,16 +35,16 @@ vaccines_stock:
     effectiveness: 0.1
 loci:
   - name: Beijing
-    B: 0.03
-    C: 0.02
-    E: 0.01
-    A: 0.03
-    Ds: 0.01
-    Di: 0.03
-    Dr: 0.02
+    B: 0.07
+    C: 0.001
+    E: 0.05
+    A: 0.01
+    Ds: 0.0004
+    Di: 0.004
+    Dr: 0.0001
     lat: 39.9042
     lon: 116.4074
-    susceptible: 21540000
+    susceptible: 2154000
     infected: 10000
     recovered: 100
     dead: 0
@@ -91,17 +91,17 @@ loci:
         zone_tier: 2
         effect: 1.0
   - name: Shanghai
-    B: 0.02
-    C: 0.02
-    E: 0.01
-    A: 0.02
-    Ds: 0.01
-    Di: 0.02
-    Dr: 0.02
+    B: 0.05
+    C: 0.003
+    E: 0.02
+    A: 0.04
+    Ds: 0.0001
+    Di: 0.005
+    Dr: 0.0001
     lat: 31.2304
     lon: 121.4737
-    susceptible: 24280000
-    infected: 10000
+    susceptible: 242800
+    infected: 10
     recovered: 100
     dead: 30
     area: 307713
@@ -143,18 +143,18 @@ loci:
         zone_tier: 2
         effect: 1.0
   - name: Guangdong
-    B: 0.03
-    C: 0.02
-    E: 0.01
-    A: 0.03
-    Ds: 0.01
-    Di: 0.03
-    Dr: 0.02
+    B: 0.02
+    C: 0.001
+    E: 0.05
+    A: 0.01
+    Ds: 0.0004
+    Di: 0.004
+    Dr: 0.0001
     lat: 23.1136
     lon: 113.4221
-    susceptible: 113460000
-    infected: 10000
-    recovered: 100
+    susceptible: 113460
+    infected: 3000
+    recovered: 420
     dead: 30
     area: 307713
     quarantine_facilities: 2
@@ -199,18 +199,18 @@ loci:
         zone_tier: 2
         effect: 1.0
   - name: Zhejiang
-    B: 0.02
-    C: 0.02
-    E: 0.01
+    B: 0.03
+    C: 0.004
+    E: 0.05
     A: 0.02
-    Ds: 0.01
-    Di: 0.02
-    Dr: 0.02
+    Ds: 0.0004
+    Di: 0.004
+    Dr: 0.0001
     lat: 30.2638
     lon: 120.144
-    susceptible: 64570000
-    infected: 10000
-    recovered: 100
+    susceptible: 645700
+    infected: 5000
+    recovered: 300
     dead: 30
     area: 307713
     quarantine_facilities: 2
