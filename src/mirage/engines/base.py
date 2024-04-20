@@ -197,6 +197,41 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         assert value in self.STATUS_SET, f"Invalid status: {value}"
         self._status = value
 
+    def list_processes(self) -> tp.List[str]:
+        """
+        List the processes in the engine.
+
+        Returns:
+        --------
+        List[str]
+            The list of processes in the engine.
+        """
+        return [p.id for p in self.processes]
+
+    def filter_pr_stat_chart(
+        self, process_ids: str | tp.List[str] | None
+    ) -> tp.Dict[str, tp.List[tp.List[int]]]:
+        """
+        Show the process status chart.
+
+        Parameters:
+        -----------
+        process_ids: str | List[str] | None
+            The process ids to show the status chart for. If None, show for all.
+
+        Returns:
+        --------
+        Dict[str, List[List[int]]]
+            The process status chart.
+        """
+        if process_ids is None:
+            return self.pr_stat_chart
+        if isinstance(process_ids, str):
+            process_ids = [process_ids]
+        if not set(process_ids) <= set(self.pr_stat_chart.keys()):
+            raise ValueError("Some process ids not found.")
+        return {pid: self.pr_stat_chart[pid] for pid in process_ids}
+
     def get_schedule(self) -> tp.List[ProcessV1]:
         """
         Get the schedule of the processes.

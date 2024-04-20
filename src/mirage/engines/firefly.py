@@ -22,7 +22,7 @@ class FireflyV1(EngineV1):
     Firefly engine.
     """
 
-    MAX_STEPS = 365 * 20
+    MAX_STEPS = 6001
 
     def __init__(
         self,
@@ -54,11 +54,11 @@ class FireflyV1(EngineV1):
                 of the default process status, the entities and the process type
                 involved in the process.
         """
-        f = all(
+        flag = all(
             issubclass(process_type[2], ProcessV1)
             for process_type in peripheral_processes_config.values()
         )
-        if not f:
+        if not flag:
             raise TypeError(
                 "All peripheral processes must be instances of `ProcessV1`."
             )
@@ -67,7 +67,7 @@ class FireflyV1(EngineV1):
     def spawn_peripheral_process(
         self,
         alias: str,
-        id: str,
+        process_id: str,
         intervals: tp.List[tp.List[int]] | tp.List[int] | tp.Set[int] | None,
         **process_kwargs,
     ):
@@ -81,13 +81,13 @@ class FireflyV1(EngineV1):
             - intervals: The intervals of the process.
             - process_kwargs: The keyword arguments of the process.
         """
-        if alias not in self.peripheral_processes:
+        if alias not in self.peripheral_processes_config:
             raise ValueError(f"Peripheral process `{alias}` not found.")
         # check unique id
-        if any(p.id == id for p in self.processes):
-            raise ValueError(f"Process id {id} already exists.")
-        sign = self.peripheral_processes[alias]
-        process = sign[0](id, sign[1], sign[2], **process_kwargs)
+        if any(p.id == process_id for p in self.processes):
+            raise ValueError(f"Process id {process_id} already exists.")
+        sign = self.peripheral_processes_config[alias]
+        process = sign[0](process_id, sign[1], sign[2], **process_kwargs)
         self.insert_process(process, intervals)
 
 

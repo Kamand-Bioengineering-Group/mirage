@@ -10,9 +10,12 @@ __all__ = [
 
 # ---DEPENDENCIES---------------------------------------------------------------
 import os, yaml, requests
-from . import gpe, all_processes as ap
+from . import geo_political_entities, all_processes as ap
 from ...engines import firefly
 from ...monitors.loggers.tbx_loggers import TbxTimeseriesLoggerV1
+
+import ipywidgets
+from IPython.display import display
 
 
 # ---EPICDEMIC 2.0--------------------------------------------------------------
@@ -46,9 +49,9 @@ def preset_kbg_epidemic_2_0(
         try:
             config = requests.get(configl).text
             config = yaml.load(config, Loader=yaml.FullLoader)
-            countries[config["name"]] = gpe.Country(**config)
+            countries[config["name"]] = geo_political_entities.Country(**config)
         except:
-            raise ValueError(f"{country} not found from {configl}")
+            raise ValueError(f"{country} not found fron on {configl}")
 
     core_processes = {}
     for pname, pclass in {
@@ -137,6 +140,25 @@ def preset_kbg_epidemic_2_0(
     }
     epidemic_two_engine.register_peripheral_processes(peri_proc_config)
     epidemic_two_engine.intervene = epidemic_two_engine.spawn_peripheral_process
+
+    # TODO: Migrate to EngineV1?
+    def dynamics_control_panel():
+        play_b = ipywidgets.Button(description="▶️")
+        paus_b = ipywidgets.Button(description="⏸️")
+        stop_b = ipywidgets.Button(description="⏹️")
+        cli_pl = lambda b: epidemic_two_engine.play()
+        cli_pa = lambda b: epidemic_two_engine.pause()
+        cli_st = lambda b: epidemic_two_engine.stop()
+        play_b.on_click(cli_pl)
+        paus_b.on_click(cli_pa)
+        stop_b.on_click(cli_st)
+        speeds = ipywidgets.IntSlider(
+            value=engine_speed, min=1, max=30, step=1, description="⏩"
+        )
+        flabel = ipywidgets.Label(value="🎛️ DYNAMICS CONTROL PANEL")
+        display(ipywidgets.HBox([flabel, play_b, paus_b, stop_b, speeds]))
+
+    epidemic_two_engine.dynamics_control_panel = dynamics_control_panel
 
     tboard.start_server()
 

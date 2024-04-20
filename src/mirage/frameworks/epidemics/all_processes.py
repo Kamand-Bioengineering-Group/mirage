@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.special import expit
-from . import gpe
+from . import geo_political_entities
 from .constants import *
 from ...processes.base import ProcessV1
 
@@ -37,7 +37,7 @@ class BirthProcess(ProcessV1):
     """
 
     RANK = 0
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(
         self,
@@ -110,7 +110,7 @@ class BirthProcess(ProcessV1):
                     else:
                         locus.A = max_birth_rate
 
-        ####### Keep is want to debug #######
+        ####### Keep if want to debug #######
         # return {
         #     "MaskImplementationProcess"
         #     + "_"
@@ -127,7 +127,7 @@ class BirthProcess(ProcessV1):
 class MaskImplementationProcess(ProcessV1):
 
     RANK = 1
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(
         self,
@@ -236,7 +236,7 @@ class MaskImplementationProcess(ProcessV1):
 # Make AidKitImplementationProcess class similar to the above processes structure
 class AidKitImplementationProcess(ProcessV1):
     RANK = 1
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(
         self,
@@ -332,7 +332,7 @@ class AidKitImplementationProcess(ProcessV1):
 
 class General_Sanitation_Implementation(ProcessV1):
     RANK = 1
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(
         self,
@@ -438,7 +438,7 @@ class General_Sanitation_Implementation(ProcessV1):
 
 class QuarantineFacilitiesQProcess(ProcessV1):
     RANK = 1
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(
         self,
@@ -521,11 +521,12 @@ class QuarantineFacilitiesQProcess(ProcessV1):
                             )
 
                         # print(locus.B, "LOCUS B")
+                        locus.quarantine_facilities += self.num_centers[i]
                         if (
                             locus.B
                             - truncated_sigmoid(
                                 locus.B
-                                * self.num_centers[i]
+                                * locus.quarantine_facilities
                                 * (locus.infected + locus.susceptible)
                                 / max_living_population,
                                 self.trunk_min_value,
@@ -536,7 +537,7 @@ class QuarantineFacilitiesQProcess(ProcessV1):
                             # print(truncated_sigmoid(locus.B * self.effect[i] * (locus.infected + locus.susceptible) / max_l
                             locus.B -= truncated_sigmoid(
                                 locus.B
-                                * self.num_centers[i]
+                                * locus.quarantine_facilities
                                 * (locus.infected + locus.susceptible)
                                 / max_living_population,
                                 self.trunk_min_value,
@@ -574,7 +575,7 @@ class QuarantineFacilitiesQProcess(ProcessV1):
 
 class EconomicZoneEffectChangeProcess(ProcessV1):
     RANK = 1
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(
         self,
@@ -604,7 +605,7 @@ class EconomicZoneEffectChangeProcess(ProcessV1):
 
 class EcoSpotContinous(ProcessV1):
     RANK = 0
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(
         self,
@@ -612,7 +613,7 @@ class EcoSpotContinous(ProcessV1):
         entities,
         status: str,
         max_tier=4,
-        gdp_multiplier=5e-4 * 1e5,
+        gdp_multiplier=1e5,
         trunk_min_value=1e-6,
         trunk_max_value=5e-5,
     ):
@@ -663,7 +664,7 @@ class EcoSpotContinous(ProcessV1):
 
 class TouristZoneEffectChangeProcess(ProcessV1):
     RANK = 1
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(
         self,
@@ -693,7 +694,7 @@ class TouristZoneEffectChangeProcess(ProcessV1):
 
 class TouristContinous(ProcessV1):
     RANK = 0
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(
         self,
@@ -701,7 +702,7 @@ class TouristContinous(ProcessV1):
         entities,
         status: str,
         max_tier=4,
-        gdp_multiplier=5e-4 * 1e5,
+        gdp_multiplier=1e5,
         trunk_min_value=1e-6,
         trunk_max_value=5e-5,
     ):
@@ -752,7 +753,7 @@ class TouristContinous(ProcessV1):
 
 class PortContinousProcess(ProcessV1):
     RANK = 0
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(
         self,
@@ -762,7 +763,7 @@ class PortContinousProcess(ProcessV1):
         trunk_min_value=5e-5,
         trunk_max_value=9e-4,
         max_tier=4,
-        gdp_multiplier=9e-4 * 1e6,
+        gdp_multiplier=1e6,
     ):
         # Give Country and economic zone name as list with same index corresponding to each others country (with same name as Initialized Entity) and economic zone name
 
@@ -807,7 +808,7 @@ class PortContinousProcess(ProcessV1):
 
 class PortEffectChangeProcess(ProcessV1):
     RANK = 1
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(
         self,
@@ -845,7 +846,7 @@ class PortEffectChangeProcess(ProcessV1):
 
 class AirPortEffectChangeProcess(ProcessV1):
     RANK = 1
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(
         self,
@@ -878,7 +879,7 @@ class AirPortEffectChangeProcess(ProcessV1):
 
 class AirPortContinousProcess(ProcessV1):
     RANK = 0
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(
         self,
@@ -888,7 +889,7 @@ class AirPortContinousProcess(ProcessV1):
         trunk_min_value=5e-5,
         trunk_max_value=9e-4,
         max_tier=4,
-        gdp_multiplier=9e-4 * 1e6,
+        gdp_multiplier=1e6,
     ):
         # Give Country and economic zone name as list with same index corresponding to each others country (with same name as Initialized Entity) and economic zone name
 
@@ -941,14 +942,14 @@ class AirPortContinousProcess(ProcessV1):
 
 class MandatoryVaccinationProcess(ProcessV1):
     RANK = 1
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(
         self,
         id: str,
         entities,
         status: str,
-        change_country: list,
+        country: list,
         state: list,
         percent_infected_vaccinated: list,
         gdp_cost_per_infected=0.001,
@@ -960,9 +961,9 @@ class MandatoryVaccinationProcess(ProcessV1):
         self.gdp_cost_per_infected = gdp_cost_per_infected
         self.health_resource_cost_per_infected = health_resource_cost_per_infected
         self.status = status
-        self.percent_infected_vaccinated[i] = percent_infected_vaccinated[i]
+        self.percent_infected_vaccinated = percent_infected_vaccinated
         self.state = state
-        self.country = change_country
+        self.country = country
         self.state = state
         self.trunk_min_value = trunk_min_value
         self.trunk_max_value = trunk_max_value
@@ -1030,14 +1031,14 @@ class MandatoryVaccinationProcess(ProcessV1):
 
 class GeneralHospitalBuildingProcess(ProcessV1):
     RANK = 1
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(
         self,
         id: str,
         entities,
         status: str,
-        change_country: list,
+        country: list,
         state: list,
         num_hospitals: list,
         gdp_cost_per_hospital=10000,
@@ -1051,7 +1052,7 @@ class GeneralHospitalBuildingProcess(ProcessV1):
         self.status = status
         self.num_hospitals = num_hospitals
         self.state = state
-        self.country = change_country
+        self.country = country
         self.trunk_min_value = trunk_min_value
         self.trunk_max_value = trunk_max_value
 
@@ -1059,7 +1060,7 @@ class GeneralHospitalBuildingProcess(ProcessV1):
         pass
 
     def while_alive(self, step: int):
-        if len(self.change_country) > 0:
+        if len(self.country) > 0:
             for i, country in enumerate(self.country):
                 # print(country)
                 # print(self.entities)
@@ -1098,7 +1099,7 @@ class GeneralHospitalBuildingProcess(ProcessV1):
 
 class GeneralHospitalContinousProcess(ProcessV1):
     RANK = 0
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(
         self,
@@ -1167,7 +1168,7 @@ class IncreaseDsProcess(ProcessV1):
 
     RANK = 0
 
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(self, id, entities, status):
 
@@ -1219,7 +1220,7 @@ class IncreaseDiProcess(ProcessV1):
 
     RANK = 0
 
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(self, id, entities, status):
 
@@ -1270,7 +1271,7 @@ class IncreaseDrProcess(ProcessV1):
 
     RANK = 0
 
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(self, id, entities, status):
 
@@ -1318,7 +1319,7 @@ class IncreaseDrProcess(ProcessV1):
 
 class IncreaseEProcess(ProcessV1):
     RANK = 0
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(self, id, entities, status):
         self.status = status
@@ -1360,7 +1361,7 @@ class IncreaseEProcess(ProcessV1):
 
 class DiseaseSpreadProcess(ProcessV1):
     RANK = 4
-    DOMAIN = (gpe.Country,)
+    DOMAIN = (geo_political_entities.Country,)
 
     def __init__(self, id, entities, status):
         self.status = status

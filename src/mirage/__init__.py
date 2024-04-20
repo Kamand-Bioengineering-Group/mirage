@@ -1,6 +1,8 @@
 # ---INFO-----------------------------------------------------------------------
 """
-# TODO: Add package name
+Mirage is a framework for making arbitrary dynamic systems in an entity based
+process modified and engine orchestrated model. It is designed to be modular and
+extensible, with a focus on easy adaptation to new use cases.
 """
 
 __all__ = [

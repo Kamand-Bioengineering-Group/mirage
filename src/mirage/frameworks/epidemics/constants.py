@@ -1,11 +1,16 @@
+# ---INFO-----------------------------------------------------------------------
+"""
+Constants for geo-political entities.
+"""
 
 
-base_infection_rate = 0.003  # Fractional increase in infected population per day
-base_recovery_rate = 0.001  # Fractional increase in recovered population per day
-base_re_entry_rate = 0.001  # Fractional increase in re-entered population per day
-base_death_rate = 0.005  # Fractional increase in death rate per day
-base_birth_rate = 0.005  # Fractional increase in birth rate per day
-# Will be present in the parent locus of disease origin,
+# ---CONSTANTS------------------------------------------------------------------
+base_infection_rate = 0.003
+base_recovery_rate = 0.001
+base_re_entry_rate = 0.001
+base_death_rate = 0.005
+base_birth_rate = 0.005
+
 epidemic_increased_infection_rate = 0.01
 base_infection_lethality = 0.2
 
@@ -28,9 +33,7 @@ sanitation_trickle = 100
 health_resource_trickle = 100
 
 max_limit_disease_research_center = 50
-# if a new locus get more than 30% of its population infected then its base_infection_rate will be increased to this values
 
-# Port Mappings:
 airport_mappings = {
     "Beijing Capital International Airport": (0, "China"),
     "Beijing Daxing International Airport": (1, "China"),
