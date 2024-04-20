@@ -312,6 +312,7 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
                 [self.MAX_STEPS + 1, self.MAX_STEPS + 1],
             ]
             self.update_psc(process.id, intervals, "ALIVE")
+        self.processes.append(process)
         self.L.info(f" >> 📝 Process registered | Process: {process.id}.")
 
     @pyd.validate_call
