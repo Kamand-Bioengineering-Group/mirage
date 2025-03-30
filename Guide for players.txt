@@ -1,0 +1,23 @@
+How Players Should Play the Game
+Players should interact with the system through the following workflow:
+First Steps:
+Clone/download the repository
+Install required dependencies (there should be a requirements.txt file)
+Key Files for Players:
+notebooks/competition_tutorial.ipynb: This is the main tutorial notebook that guides participants through the competition framework
+COMPETITION_RULES.md: Contains the rules, scoring system, and attempt limits
+Game Flow:
+Start with the tutorial notebook to understand the system
+Register as a player with their name
+Develop intervention strategies (the notebook shows examples)
+Make practice attempts to refine their approach
+Submit official attempts for scoring and leaderboard placement
+To Fix the Engine Error:
+If you're using the real EngineV1, you need either:
+Update the notebook code to provide all required parameters when initializing EngineV1
+Or, run your notebook again - I've added automatic patching that detects when you're in a notebook environment and substitutes the MockEngine for testing
+For normal players, you should:
+Ensure your competition system works with the actual EngineV1 engine when properly initialized
+Provide a ready-to-use notebook with the correct initialization
+Or offer the testing mode with MockEngine as a simplified version for quick testing
+The actual gameplay happens entirely within the notebooks, where players develop strategies to combat the epidemic while balancing multiple factors like public health, economy, and resource efficiency

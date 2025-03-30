@@ -112,7 +112,7 @@ class TbxTimeseriesLoggerV1(tbx.SummaryWriter):
         for key in current_keys:
             for attr, value in self.engine.info_history[key].items():
                 self.add_scalar(
-                    f"{key.split("/")[0]}/{attr}", 
+                    f"{key.split('/')[0]}/{attr}", 
                     value, 
                     self.engine.STEP,
                 )

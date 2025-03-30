@@ -159,10 +159,25 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-# ---HERE-----------------------------------------------------------------------
+# XPECTO specific ignores
 /.vscode
 /_test.ipynb
 /_logs
 /rough.txt
 /logs
 /notebooks/logs
+/notebooks/.ipynb_checkpoints
+/notebooks/competition_submissions/*
+!/notebooks/competition_submissions/.gitkeep
+/practice_data_random/
+/competition_data/
+/practice_data/
+/tutorial_data/
+/test_data_enhancedengine/
+/test_data_mockengine/
+/integration_test_data/
+/test_results/
+/temp_cleanup/
+*.json
+!pyproject.toml
+!package.json

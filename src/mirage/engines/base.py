@@ -20,6 +20,7 @@ from ..entities.base import EntityV1
 from ..processes.base import ProcessV1
 from ..monitors.loggers.engine_loggers import EngineV1Logger
 
+#Implement more detailed and informative data visualization tools.
 
 # ---ENGINEV1-------------------------------------------------------------------
 # TODO[1]: pyd. validation for __init__ method of EngineV1 and derivatives.
@@ -166,6 +167,7 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         self.state_sync_mode = "RANK"
         self.L = EngineV1Logger(f"V1 | {self.__class__.__name__} | {self.name}")
         self.O = []  # Observers
+        self.step_callbacks = []  # Step callback functions
         self.L.info(" >> 🚀 Initialized.")  # TODO: Printe 2x due to init wrap.
 
     @property
@@ -408,6 +410,19 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         self.info_history.clear()
         self.run_call_history.clear()
 
+    def register_step_callback(self, callback: tp.Callable[[], None]):
+        """
+        Register a callback function to be called after each step.
+        
+        Parameters:
+        -----------
+        callback: Callable[[], None]
+            A callback function to be called after each step.
+        """
+        if not callable(callback):
+            raise TypeError("Callback must be callable.")
+        self.step_callbacks.append(callback)
+
     @pyd.validate_call
     def run(self, step: int):
         """
@@ -454,6 +469,10 @@ class EngineV1(abc.ABC, metaclass=EngineV1Meta):
         for observer in self.O:
             observer.observe()
         self.prune_processes()
+        
+        # Execute step callbacks
+        for callback in self.step_callbacks:
+            callback()
 
     def fire(self, num_steps: int = None, time_limit: int = None):
         """
